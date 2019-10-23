@@ -1,4 +1,8 @@
-package com.jasonz.oop.inherit;
+package com.jasonz.oop.inheritance;
+
+import com.jasonz.oop.inheritance.base.BaseAnimal;
+import com.jasonz.oop.inheritance.base.Food;
+
 /**
  * @creator Peter Zhuang
  * @create-time 2013-6-25
@@ -14,7 +18,7 @@ public class Feeder
 	/**
 	 * 喂养动物
 	 */
-	protected void feed(Animal animal,Food food)
+	protected void feed(BaseAnimal animal,Food food)
 	{
 		System.out.println("饲养员开始喂养动物食物");
 		animal.eat(food);

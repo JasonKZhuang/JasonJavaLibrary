@@ -1,31 +1,31 @@
 package com.jasonz.oop.threads;
 /**
- * @creator Jason Zhuang
+ * @creator Peter Zhuang
  * @create-time 2013-6-24
  * copywrite kkcms.com
  */
-//é€šè¿‡ç»§æ‰¿Threadç±»,å¹¶å®žçŽ°å®ƒçš„æŠ½è±¡æ–¹æ³•run()
-//é€‚å½“æ—¶å€™åˆ›å»ºè¿™ä¸€Threadå­�ç±»çš„å®žä¾‹æ�¥å®žçŽ°å¤šçº¿ç¨‹æœºåˆ¶
-//ä¸€ä¸ªçº¿ç¨‹å�¯åŠ¨å�Žï¼ˆä¹Ÿå�³è¿›å…¥å°±ç»ªçŠ¶æ€�ï¼‰ä¸€æ—¦èŽ·å¾—CPUå°†è‡ªåŠ¨è°ƒç”¨å®ƒçš„run()æ–¹æ³•
+//通过继承Thread类,并实现它的抽象方法run()
+//适当时候创建这一Thread子类的实例来实现多线程机制
+//一个线程启动后（也即进入就绪状态）一旦获得CPU将自动调用它的run()方法
 public class ThreadUseExtends extends Thread
 {
 	ThreadUseExtends()
 	{
-	}// æž„é€ å‡½æ•°
+	}// 构造函数
 
 	public void run()
 	{
-		System.out.println("æˆ‘æ˜¯Threadå­�ç±»çš„çº¿ç¨‹å®žä¾‹!");
-		System.out.println("æˆ‘å°†æŒ‚èµ·10ç§’!");
-		System.out.println("å›žåˆ°ä¸»çº¿ç¨‹,è¯·ç¨�ç­‰,åˆšæ‰�ä¸»çº¿ç¨‹æŒ‚èµ·å�¯èƒ½è¿˜æ²¡é†’è¿‡æ�¥ï¼�");
+		System.out.println("我是Thread子类的线程实例!");
+		System.out.println("我将挂起10秒!");
+		System.out.println("回到主线程,请稍等,刚才主线程挂起可能还没醒过来！");
 		try
 		{
-			sleep(10000);// æŒ‚èµ·5ç§’
+			sleep(10000);// 挂起5秒
 		} catch (InterruptedException e)
 		{
 			return;
 		}
-		// å¦‚æžœè¯¥run()æ–¹æ³•é¡ºåº�æ‰§è¡Œå®Œäº†,çº¿ç¨‹å°†è‡ªåŠ¨ç»“æ�Ÿ,è€Œä¸�ä¼šè¢«ä¸»çº¿ç¨‹æ�€æŽ‰
-		// ä½†å¦‚æžœä¼‘çœ æ—¶é—´è¿‡é•¿,åˆ™çº¿ç¨‹è¿˜å­˜æ´»,å�¯èƒ½è¢«stop()æ�€æŽ‰
+		// 如果该run()方法顺序执行完了,线程将自动结束,而不会被主线程杀掉
+		// 但如果休眠时间过长,则线程还存活,可能被stop()杀掉
 	}
 }

@@ -17,11 +17,11 @@ public class TestLambdaFunction
 		//===========================================================//
 		// lambda expression for addition for two parameters 
         // This expression implements 'FuncInter1' interface 
-        FuncInter1 add = (int x, int y) -> x + y; 
+        IFuncInter1 add = (int x, int y) -> x + y; 
   
         // lambda expression multiplication for two parameters 
         // This expression also implements 'FuncInter1' interface 
-        FuncInter1 multiply = (int x, int y) -> x * y; 
+        IFuncInter1 multiply = (int x, int y) -> x * y; 
   
         // using different implementations using lambda Expressions 
         // 1. Add two numbers using lambda expression 
@@ -32,7 +32,7 @@ public class TestLambdaFunction
   
         // lambda expression for single parameter 
         // This expression implements 'FuncInter2' interface 
-        FuncInter2 fobj = message ->System.out.println("Hello " + message); 
+        IFuncInter2 fobj = message ->System.out.println("Hello " + message); 
         fobj.sayMessage("Geek"); 
         
 	}
@@ -41,7 +41,7 @@ public class TestLambdaFunction
 	{
 		// lambda expression to implement a functional interface. 
 		// This interface implements abstractFun() by default
-        FuncInterface fobj = (int x)->System.out.println(2*x); 
+        FuncInterface fobj = (int x)->System.out.println(2 * x); 
   
         // This calls above lambda expression and prints 10. 
         fobj.abstractFun(5); 
@@ -75,10 +75,10 @@ public class TestLambdaFunction
 	 */
 	public void runThreadUseLambda() 
 	{
-        //Runnable是一个函数接口，只包含了有个无参数的，返回void的run方法；
-        //所以lambda表达式左边没有参数，右边也没有return，只是单纯的打印一句话
+        //Runnableæ˜¯ä¸€ä¸ªå‡½æ•°æŽ¥å�£ï¼Œå�ªåŒ…å�«äº†æœ‰ä¸ªæ— å�‚æ•°çš„ï¼Œè¿”å›žvoidçš„runæ–¹æ³•ï¼›
+        //æ‰€ä»¥lambdaè¡¨è¾¾å¼�å·¦è¾¹æ²¡æœ‰å�‚æ•°ï¼Œå�³è¾¹ä¹Ÿæ²¡æœ‰returnï¼Œå�ªæ˜¯å�•çº¯çš„æ‰“å�°ä¸€å�¥è¯�
         Thread myThread = new Thread(
-        	() ->System.out.println("lambda实现的线程")
+        	() ->System.out.println("lambdaå®žçŽ°çš„çº¿ç¨‹")
         ); 
         myThread.start();
     }
@@ -88,33 +88,32 @@ public class TestLambdaFunction
 	 */
 	public void runThreadUseInnerClass() 
 	{
-        //以前旧版本比较常见的做法
         new Thread(
         	new Runnable() 
         	{
 	            @Override
 	            public void run() 
 	            {
-	                System.out.println("内部类实现的线程");
+	                System.out.println("==========================");
 	            }
         }).start();
     }
 	
 	//==========================================///
 	// operation is implemented using lambda expressions 
-    interface FuncInter1 
+    interface IFuncInter1 
     { 
         int operation(int a, int b); 
     } 
   
     // sayMessage() is implemented using lambda expressions
-    interface FuncInter2 
+    interface IFuncInter2 
     { 
         void sayMessage(String message); 
     } 
   
     // Performs FuncInter1's operation on 'a' and 'b' 
-    private int operate(int a, int b, FuncInter1 fobj) 
+    private int operate(int a, int b, IFuncInter1 fobj) 
     { 
         return fobj.operation(a, b); 
     } 

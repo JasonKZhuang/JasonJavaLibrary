@@ -1,15 +1,18 @@
-package com.jasonz.oop.inherit;
+package com.jasonz.oop.inheritance.base;
 /**
- * @creator Jason Zhuang
+ * @creator Peter Zhuang
  * @create-time 2013-6-25
  * copywrite kkcms.com
  */
-public abstract class Animal
+public class Food
 {
 	private String name;
-	
-	protected abstract void eat(Food food);
 
+	public Food(String foodName)
+	{
+		this.name = foodName;
+	}
+	
 	public String getName()
 	{
 		return name;

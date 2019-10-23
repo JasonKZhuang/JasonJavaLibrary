@@ -3,8 +3,8 @@ package com.jasonz.oop.collection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jasonz.oop.inherit.Animal;
-import com.jasonz.oop.inherit.Elephant;
+import com.jasonz.oop.inheritance.base.BaseAnimal;
+import com.jasonz.oop.inheritance.children.Elephant;
 
 /**
  * @creator Jason Zhuang
@@ -13,7 +13,7 @@ import com.jasonz.oop.inherit.Elephant;
  */
 public class SampleList
 {
-	private List<Animal> myList = new ArrayList<Animal>();
+	private List<BaseAnimal> myList = new ArrayList<BaseAnimal>();
 	
 	public void add()
 	{

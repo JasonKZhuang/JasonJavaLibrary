@@ -1,4 +1,4 @@
-package com.jasonz.oop.inherit;
+package com.jasonz.oop.inheritance.base;
 
 public class BaseClass
 {

@@ -7,70 +7,70 @@ import java.io.IOException;
  * @create-time 2013-6-24 copywrite kkcms.com
  */
 
-//ä¸»çº¿ç¨‹å°†å�¯åŠ¨ThreadUseExtendså’ŒThreadUseRunnableä¸¤ä¸ªçº¿ç¨‹
+//主线程将启动ThreadUseExtends和ThreadUseRunnable两个线程
 public class MultiThread
 {
 	public static void main(String args[])
 	{
-		System.out.println("æˆ‘æ˜¯ä¸»çº¿ç¨‹!");
+		System.out.println("我是主线程!");
 		
-		// ä¸‹é�¢åˆ›å»ºçº¿ç¨‹å®žä¾‹thread1
+		// 下面创建线程实例thread1
 		ThreadUseExtends thread1 = new ThreadUseExtends();
 		thread1.setName("FirstThread");
 		
-		// åˆ›å»ºthread2æ—¶ä»¥å®žçŽ°äº†RunnableæŽ¥å�£çš„THhreadUseRunnableç±»å®žä¾‹ä¸ºå�‚æ•°
+		// 创建thread2时以实现了Runnable接口的THhreadUseRunnable类实例为参数
 		Thread thread2 = new Thread(new ThreadUseRunnable(), "SecondThread");
 		
-		// å�¯åŠ¨çº¿ç¨‹thread1ä½¿ä¹‹å¤„äºŽå°±ç»ªçŠ¶æ€�
+		// 启动线程thread1使之处于就绪状态
 		thread1.start();
 		
-		// thread1.setPriority(6);//è®¾ç½®thread1çš„ä¼˜å…ˆçº§ä¸º6
-		// ä¼˜å…ˆçº§å°†å†³å®šcpuç©ºå‡ºæ—¶ï¼Œå¤„äºŽå°±ç»ªçŠ¶æ€�çš„çº¿ç¨‹è°�å…ˆå� é¢†cpuå¼€å§‹è¿�è¡Œ
-		// ä¼˜å…ˆçº§èŒƒå›´1åˆ°10,MIN_PRIORITY,MAX_PRIORITY,NORM_PAIORITY
-		// æ–°çº¿ç¨‹ç»§æ‰¿åˆ›å»ºå¥¹çš„çˆ¶çº¿ç¨‹ä¼˜å…ˆçº§,çˆ¶çº¿ç¨‹é€šå¸¸æœ‰æ™®é€šä¼˜å…ˆçº§å�³5NORM_PRIORITY
-		System.out.println("ä¸»çº¿ç¨‹å°†æŒ‚èµ·7ç§’!");
+		// thread1.setPriority(6);//设置thread1的优先级为6
+		// 优先级将决定cpu空出时，处于就绪状态的线程谁先占领cpu开始运行
+		// 优先级范围1到10,MIN_PRIORITY,MAX_PRIORITY,NORM_PAIORITY
+		// 新线程继承创建她的父线程优先级,父线程通常有普通优先级即5NORM_PRIORITY
+		System.out.println("主线程将挂起7秒!");
 		try
 		{
-			Thread.sleep(7000);// ä¸»çº¿ç¨‹æŒ‚èµ·7ç§’
+			Thread.sleep(7000);// 主线程挂起7秒
 		} catch (InterruptedException e)
 		{
 			return;
 		}
 		
-		System.out.println("å�ˆå›žåˆ°äº†ä¸»çº¿ç¨‹!");
+		System.out.println("又回到了主线程!");
 
-		//åˆ¤æ–­thread1çŠ¶æ€�
+		//判断thread1状态
 		if (thread1.isAlive())
 		{
-			thread1.stop();// å¦‚æžœthread1è¿˜å­˜åœ¨åˆ™æ�€æŽ‰ä»–
-			System.out.println("thread1ä¼‘çœ è¿‡é•¿,ä¸»çº¿ç¨‹æ�€æŽ‰äº†thread1!");
+			thread1.stop();// 如果thread1还存在则杀掉他
+			System.out.println("thread1休眠过长,主线程杀掉了thread1!");
 		} else
 		{
-			System.out.println("ä¸»çº¿ç¨‹æ²¡å�‘çŽ°thread1,thread1å·²é†’é¡ºåº�æ‰§è¡Œç»“æ�Ÿäº†!");
+			System.out.println("主线程没发现thread1,thread1已醒顺序执行结束了!");
 		}
 
-		// å�¯åŠ¨thread2
+		// 启动thread2
 		thread2.start();
-		System.out.println("ä¸»çº¿ç¨‹å�ˆå°†æŒ‚èµ·7ç§’!");
+		System.out.println("主线程又将挂起7秒!");
 		try
 		{
-			Thread.sleep(7000);// ä¸»çº¿ç¨‹æŒ‚èµ·7ç§’
+			Thread.sleep(7000);// 主线程挂起7秒
 		} catch (InterruptedException e)
 		{
 			return;
 		}
-		System.out.println("å�ˆå›žåˆ°äº†ä¸»çº¿ç¨‹!");
+		System.out.println("又回到了主线程!");
 		
-		//åˆ¤æ–­thread2çŠ¶æ€�
+		//判断thread2状态
 		if (thread2.isAlive())
 		{
-			thread2.stop();// å¦‚æžœthread2è¿˜å­˜åœ¨åˆ™æ�€æŽ‰ä»–
-			System.out.println("thread2ä¼‘çœ è¿‡é•¿ï¼Œä¸»çº¿ç¨‹æ�€æŽ‰äº†thread2!");
+			thread2.stop();// 如果thread2还存在则杀掉他
+			System.out.println("thread2休眠过长，主线程杀掉了thread2!");
 		} else
 		{
-			System.out.println("ä¸»çº¿ç¨‹æ²¡å�‘çŽ°thread2,thread2å·²é†’é¡ºåº�æ‰§è¡Œç»“æ�Ÿäº†!");
+			System.out.println("主线程没发现thread2,thread2已醒顺序执行结束了!");
 		}
-		System.out.println("ç¨‹åº�ç»“æ�ŸæŒ‰ä»»æ„�é”®ç»§ç»­!");
+		System.out.println("程序结束按任意键继续!");
 		
 		try
 		{

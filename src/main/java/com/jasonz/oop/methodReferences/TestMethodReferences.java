@@ -6,7 +6,9 @@ import java.util.function.BiFunction;
  * @author Jason.Zhuang
  * Oct 22, 2019
  * TestMethodReferences.java
- * Describe: There are three types of method references in java: 
+ * Describe: Method references are a special type of lambda expressions. 
+ * They are often used to create simple lambda expressions by referencing existing methods. 
+ * There are three types of method references in java: 
  * 
  * 	Reference to a static method => ContainingClass::staticMethodName 
  * 	Reference to an instance method => containingObject::instanceMethodName 
