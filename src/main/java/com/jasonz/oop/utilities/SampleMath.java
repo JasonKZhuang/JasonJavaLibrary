@@ -27,5 +27,10 @@ public class SampleMath
 		System.out.println(Math.round(a));
 
 	}
+	
+	public void testSouceTree()
+	{
+		System.out.println("Testing...");
+	}
 
 }
