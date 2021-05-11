@@ -10,4 +10,11 @@ public class GrandChildClass extends ChildClass
 		return 0;
 	}
 
+	@Override
+	public void testParentInstanceMethod()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -11,11 +11,11 @@ public abstract class ChildClass extends ParentClass
 		System.out.println("this is the write method in the Child Class");
 	}
 
-	@Override
-	public void testParentInstanceMethod()
-	{
-		System.out.println("This is an override parent instance method in Child class");
-	}
+//	@Override
+//	public void testParentInstanceMethod()
+//	{
+//		System.out.println("This is an override parent instance method in Child class");
+//	}
 	
 	
 	public static void testParentStaticMethod()
@@ -38,5 +38,8 @@ public abstract class ChildClass extends ParentClass
 	 */
 	public abstract int absMethod2InParent();
 		
+	
+	public abstract void testParentInstanceMethod();
+	
 	
 }
