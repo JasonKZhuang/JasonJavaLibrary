@@ -20,64 +20,86 @@ public class BaseClass
 	/**
 	 *default is package String
 	 */
-	String          varPackageOfBase;
+	String	varDefaultOfBase;
+	
+	/**
+	 * a variable for default access
+	 */
+	String 	var = "This is a var in Base Class";
+	
+	/**
+	 * Static method in Base class
+	 */
+	static String staticVar = "This is static var in Base Class";
 	
 	//=======================================================//
-	public static String testBaseStaticMethod(String as_Arg)
+	public static void staticMethod(String as_Arg)
 	{
-		return "这是父类自己 静态 方法 testBaseStaticMethod --->"+as_Arg;
+		System.out.println("This is a static method in Base Class --->"+as_Arg);
 	}
 	
 	public String testBaseMethod(String as_Arg)
 	{
-		return "这是父类自己方法testBaseMethod --->"+as_Arg;
+		return "这是父类自己方法testBaseMethod in Base Class --->"+as_Arg;
 	}
 	
-	
+	/**
+	 * Public method in Base class
+	 * @param as_Arg
+	 * @return
+	 */
 	public String testPublicMethod(String as_Arg)
 	{
-		return "testPublicMethod --->"+as_Arg;
+		return "testPublicMethod in Base Class--->"+as_Arg;
 	}
 	
+	/**
+	 * Protected method in Base class
+	 * @param as_Arg
+	 * @return
+	 */
 	protected String testProtectedMethod(String as_Arg)
 	{
-		return "testProtectedMethod --->"+as_Arg;
+		return "testProtectedMethod in Base Class --->"+as_Arg;
 	}
 	
+	/**
+	 * default access method in Base class
+	 * @param as_Arg
+	 * @return
+	 */
 	String testPackageMethod(String as_Arg)
 	{
-		return "testPackageMethod --->"+as_Arg;
+		return "testPackageMethod in Base Class --->"+as_Arg;
 	}
 	
+	/**
+	 * the method with default access
+	 */
+	void method() 
+	{
+		System.out.println("This is a method in Base Class");
+	}
+	
+	/**
+	 * private method in Base class
+	 * @param as_Arg
+	 * @return
+	 */
 	@SuppressWarnings("unused")
 	private String testPrivateMethod(String as_Arg)
 	{
-		return "testPrivateMethod --->"+as_Arg;
+		return "testPrivateMethod in Base Class --->"+as_Arg;
 	}
+	
+	
 	//=======================================================//
+	/**
+	 * the construction method
+	 */
 	public BaseClass()
 	{
 		super();
-	}
-
-	public String getVarPublicOfBase()
-	{
-		return varPublicOfBase;
-	}
-
-	public void setVarPublicOfBase(String varPublicOfBase)
-	{
-		this.varPublicOfBase = varPublicOfBase;
-	}
-
-	public int getVarProtectedOfBase()
-	{
-		return varProtectedOfBase;
-	}
-
-	public void setVarProtectedOfBase(int varProtectedOfBase)
-	{
-		this.varProtectedOfBase = varProtectedOfBase;
 	}
 
 	public String getVarPrivateOfBase()
@@ -89,15 +111,6 @@ public class BaseClass
 	{
 		this.varPrivateOfBase = varPrivateOfBase;
 	}
-
-	public String getVarPackageOfBase()
-	{
-		return varPackageOfBase;
-	}
-
-	public void setVarPackageOfBase(String varPackageOfBase)
-	{
-		this.varPackageOfBase = varPackageOfBase;
-	}
-
+	
+	
 }

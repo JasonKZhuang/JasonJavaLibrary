@@ -1,7 +1,7 @@
 package com.jasonz.oop.inheritance.children;
 
-import com.jasonz.oop.inheritance.base.BaseAnimal;
-import com.jasonz.oop.inheritance.base.Food;
+import com.jasonz.oop.inheritance.BaseAnimal;
+import com.jasonz.oop.inheritance.Food;
 
 public class Elephant extends BaseAnimal
 {

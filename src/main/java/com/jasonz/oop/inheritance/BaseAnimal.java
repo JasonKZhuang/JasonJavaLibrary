@@ -1,11 +1,11 @@
-package com.jasonz.oop.inheritance.base;
+package com.jasonz.oop.inheritance;
 
 /**
  * @creator Jason Zhuang
  * @create-time 2013-6-25
  * copywrite kkcms.com
  */
-public abstract class BaseAnimal
+public abstract class BaseAnimal extends Creature
 {
 	private String name;
 	

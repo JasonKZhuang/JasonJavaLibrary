@@ -3,7 +3,7 @@ package com.jasonz.oop.collection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jasonz.oop.inheritance.base.BaseAnimal;
+import com.jasonz.oop.inheritance.BaseAnimal;
 import com.jasonz.oop.inheritance.children.Elephant;
 
 /**

@@ -1,6 +1,6 @@
 package com.jasonz.oop.inheritance.children;
 
-import com.jasonz.oop.inheritance.base.Food;
+import com.jasonz.oop.inheritance.Food;
 
 /**
  * @author Jason.Zhuang

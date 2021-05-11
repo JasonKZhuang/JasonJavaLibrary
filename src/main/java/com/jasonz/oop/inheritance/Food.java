@@ -1,4 +1,4 @@
-package com.jasonz.oop.inheritance.base;
+package com.jasonz.oop.inheritance;
 /**
  * @creator Peter Zhuang
  * @create-time 2013-6-25

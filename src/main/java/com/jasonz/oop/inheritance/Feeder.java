@@ -1,7 +1,9 @@
 package com.jasonz.oop.inheritance;
 
-import com.jasonz.oop.inheritance.base.BaseAnimal;
-import com.jasonz.oop.inheritance.base.Food;
+import com.jasonz.oop.inheritance.children.Bone;
+import com.jasonz.oop.inheritance.children.Cat;
+import com.jasonz.oop.inheritance.children.Dog;
+import com.jasonz.oop.inheritance.children.Fish;
 
 /**
  * @creator Peter Zhuang
@@ -22,6 +24,18 @@ public class Feeder
 	{
 		System.out.println("饲养员开始喂养动物食物");
 		animal.eat(food);
+	}
+	
+	public static void main(String[] args)
+	{
+		Feeder feeder = new Feeder();
+		BaseAnimal animal1 = new Dog();
+		Food food1 = new Bone("Bone");
+		feeder.feed(animal1, food1);
+		
+		BaseAnimal animal2 = new Cat();
+		Food food2 = new Fish("fish");
+		feeder.feed(animal2, food2);
 	}
 }
 
