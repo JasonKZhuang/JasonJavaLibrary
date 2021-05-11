@@ -2,6 +2,7 @@ package com.jasonz.oop.inheritance.base;
 
 public class BaseClass
 {
+	//=======================================================//
 	/**
 	 * public  String
 	 */
@@ -33,16 +34,7 @@ public class BaseClass
 	static String staticVar = "This is static var in Base Class";
 	
 	//=======================================================//
-	public static void staticMethod(String as_Arg)
-	{
-		System.out.println("This is a static method in Base Class --->"+as_Arg);
-	}
-	
-	public String testBaseMethod(String as_Arg)
-	{
-		return "这是父类自己方法testBaseMethod in Base Class --->"+as_Arg;
-	}
-	
+	//=======================================================//
 	/**
 	 * Public method in Base class
 	 * @param as_Arg
@@ -68,17 +60,9 @@ public class BaseClass
 	 * @param as_Arg
 	 * @return
 	 */
-	String testPackageMethod(String as_Arg)
+	String testDefaultMethod(String as_Arg)
 	{
 		return "testPackageMethod in Base Class --->"+as_Arg;
-	}
-	
-	/**
-	 * the method with default access
-	 */
-	void method() 
-	{
-		System.out.println("This is a method in Base Class");
 	}
 	
 	/**
@@ -92,6 +76,25 @@ public class BaseClass
 		return "testPrivateMethod in Base Class --->"+as_Arg;
 	}
 	
+	//=======================================================//
+	
+	/**
+	 * the method with default access
+	 */
+	void method() 
+	{
+		System.out.println("This is a method in Base Class");
+	}
+
+	public String testBaseMethod(String as_Arg)
+	{
+		return "这是父类自己方法testBaseMethod in Base Class --->"+as_Arg;
+	}
+	
+	public static void staticMethod(String as_Arg)
+	{
+		System.out.println("This is a static method in Base Class --->"+as_Arg);
+	}
 	
 	//=======================================================//
 	/**
