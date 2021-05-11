@@ -47,24 +47,31 @@ public class SubClass extends BaseClass
 	{
 		
 		//定义一个子类实例变量
-		SubClass sub = new SubClass();
-		sub.test();
-		System.out.println("======================================================");
+//		SubClass sub = new SubClass();
+//		sub.test();
+//		System.out.println("======================================================");
+		
 		//Testing Polymorphism ======================///
+		
 		//myClass 被声明为BaseClass 类型，但是是引用SubClass 实例
 		BaseClass myClass = new SubClass();
+
+		//实例方法与引用变量实际引用的对象的方法绑定
+		myClass.method();
 		
+		//静态方法与引用变量所声明的类型的方法绑定
+		myClass.staticMethod("Hello");
+				
+		//成员变量（包括静态变量和实例变量）	与引用所声明的类型的变量绑定 
 		//打印BaseClass的var
 		System.out.println("myClass.var is => " + myClass.var);
-		
 		//打印BaseClass的static var
 		System.out.println("myClass.staticVar is => " + myClass.staticVar);
 		
-		myClass.method();
-		myClass.staticMethod("Hello");
 		
-		((SubClass)myClass).subVar = " convert class into sub class";
-		((SubClass)myClass).subMethod();
+		
+//		((SubClass)myClass).subVar = " convert class into sub class";
+//		((SubClass)myClass).subMethod();
 
 	}
 
