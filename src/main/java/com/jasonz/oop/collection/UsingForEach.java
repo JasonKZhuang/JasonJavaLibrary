@@ -13,7 +13,8 @@ import java.util.Set;
  * default void forEach(Consumer<super T>action)  
  * 
  * Java Stream forEachOrdered() Method
- * Along with forEach() method, Java provides one more method forEachOrdered(). It is used to iterate elements in the order specified by the stream.
+ * Along with forEach() method, Java provides one more method forEachOrdered(). 
+ * It is used to iterate elements in the order specified by the stream.
  * Singnature:
 	void forEachOrdered(Consumer<? super T> action)  
  */
@@ -84,9 +85,14 @@ public class UsingForEach
 		namesMap.put(1, "Larry");
 		namesMap.put(2, "Steve");
 		namesMap.put(3, "James");
-		namesMap.forEach((key, value) -> System.out.println(key + " " + value));
+		
+		namesMap.forEach(
+				(key, value) -> System.out.println(key + " " + value)
+		);
 
-		namesMap.entrySet().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
+		namesMap.entrySet().forEach(
+				entry -> System.out.println(entry.getKey() + " " + entry.getValue())
+		);
 	}
 
 }
