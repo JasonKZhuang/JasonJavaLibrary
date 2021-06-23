@@ -1,4 +1,4 @@
-package com.jasonz.oop.lambda;
+package com.jasonz.java8Features.lambda;
 
 import java.util.ArrayList;
 import java.util.Comparator;

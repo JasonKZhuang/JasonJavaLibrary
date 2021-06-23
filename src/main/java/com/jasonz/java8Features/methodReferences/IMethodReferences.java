@@ -1,4 +1,4 @@
-package com.jasonz.oop.methodReferences;
+package com.jasonz.java8Features.methodReferences;
 
 public interface IMethodReferences
 {

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
+ * https://www.journaldev.com/2389/java-8-features-with-examples
  * Java 8 has introduced forEach method in java.lang.Iterable interface so that
  * while writing code we focus on business logic. The forEach method takes
  * java.util.function.Consumer object as an argument, so it helps in having our
