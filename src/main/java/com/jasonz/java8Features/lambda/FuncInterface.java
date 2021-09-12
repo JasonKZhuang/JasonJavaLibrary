@@ -1,4 +1,4 @@
-package com.jasonz.oop.lambda;
+package com.jasonz.java8Features.lambda;
 
 /**
  * @author Jason.Zhuang
