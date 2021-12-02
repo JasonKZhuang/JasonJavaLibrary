@@ -10,7 +10,7 @@ public class TestLambdaFunction
 	{
 		TestLambdaFunction self = new TestLambdaFunction();
 		// ===========================================================//
-//		self.testFuncInterface();
+		self.testFuncInterface();
 		self.testArrayList();
 //		self.runThreadUseLambda();
 //		self.runThreadUseInnerClass();

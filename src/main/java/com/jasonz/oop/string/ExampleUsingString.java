@@ -44,6 +44,14 @@ public class ExampleUsingString
 		result = (text1 == text2);
 		System.out.println("Comparing two reference pointing to same String with == operator: " + result);
 		
+		ExampleUsingString  self = new ExampleUsingString();
+		self.testingContains();
+	}
+	
+	private void testingContains()
+	{
+		String test  = "CPAYJRZ0023226";
+		System.out.println(test.contains("CPAY"));
 	}
 
 }
