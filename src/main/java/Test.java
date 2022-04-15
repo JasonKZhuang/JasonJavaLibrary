@@ -4,6 +4,23 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 
+public class Test {
+
+
+
+	public static void main(String[] args){
+		System.out.println("fdsaf");
+		String varString = "fdsaf";
+		Test test = new Test();
+		test.myMethod(varString);
+	}
+	private void myMethod(String arg){
+		//
+		System.out.println(arg);
+	}
+}
+
+/*
 public class Test
 {
 
@@ -130,3 +147,5 @@ public class Test
 	}
 
 }
+
+ */
