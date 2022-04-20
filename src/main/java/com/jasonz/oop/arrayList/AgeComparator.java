@@ -1,4 +1,4 @@
-package com.jasonz.oop.list;
+package com.jasonz.oop.arrayList;
 
 import java.util.Comparator;
 

@@ -1,4 +1,4 @@
-package com.jasonz.oop.list;
+package com.jasonz.oop.arrayList;
 
 import java.util.ArrayList;
 import java.util.Collections;
