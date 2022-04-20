@@ -5,7 +5,7 @@ package com.jasonz.oop.arrary;
  * @create-time 2013-7-17
  * copywrite kkcms.com
  */
-public class SampleArray {
+public class ExampleSimpleArray {
     //数组声明
     private int[] scores;
     private String[] names;
@@ -23,11 +23,11 @@ public class SampleArray {
      * @param args
      */
     public static void main(String[] args) {
-        SampleArray obj = new SampleArray();
-        obj.test();
+        ExampleSimpleArray obj = new ExampleSimpleArray();
+        obj.exampleArray();
     }
 
-    public void test() {
+    public void exampleArray() {
         //创建数组对象
         scores = new int[100];
         scores[0] = 100;
@@ -36,12 +36,13 @@ public class SampleArray {
         int size = 100;
         scores2 = new int[size];
 
-        //数组对象引用
+        //数组对象引用, they point to the same array address
         scores2 = scores;
 
         System.out.println("scores[0]=" + scores[0]);
         System.out.println("scores2[0]=" + scores2[0]);
-
+        // change the value of one array, the other array's value also changed,
+        // because they point to the same memory address
         scores2[0] = 200;
         System.out.println("scores[0]=" + scores[0]);
         System.out.println("scores2[0]=" + scores2[0]);
@@ -55,10 +56,12 @@ public class SampleArray {
 
         //多维数组
         String[][] rooms = new String[3][];//三层楼,每层楼有不同的房间数
+        //initial the first dimension
         rooms[0] = new String[5];
         rooms[1] = new String[4];
         rooms[2] = new String[3];
 
+        //initial the second dimension
         rooms[0][0] = "Tom";
         rooms[0][4] = "Jemy";
         rooms[1][0] = "Karen Marsh";
@@ -71,7 +74,6 @@ public class SampleArray {
                 System.out.println("rooms[" + i + "][" + j + "] is " + rooms[i][j]);
             }
         }
-
 
         //Arrays实用类
         //Arrays.
