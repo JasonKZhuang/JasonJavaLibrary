@@ -59,13 +59,16 @@ public class MainTestSet {
         // elements in set are sorted by a new Comparator
         // TreeSet implements SortedSet interface
         TreeSet tsStudents = new TreeSet(new ComparatorByMarks());
-        StudentForSet student = new StudentForSet("",0,99.9f);
+        StudentForSet student;
+        student = new StudentForSet("A",0,99.9f);
         tsStudents.add(student);
-        student = new StudentForSet("",0,89.9f);
+        student = new StudentForSet("B",0,89.9f);
         tsStudents.add(student);
-        student = new StudentForSet("",0,59.9f);
+        student = new StudentForSet("C",0,59.9f);
         tsStudents.add(student);
-        student = new StudentForSet("",0,70.9f);
+        student = new StudentForSet("D",0,70.9f);
+        tsStudents.add(student);
+        student = new StudentForSet("E",0,70.9f);
         tsStudents.add(student);
         for (Object s : tsStudents) {
             System.out.println(s);
