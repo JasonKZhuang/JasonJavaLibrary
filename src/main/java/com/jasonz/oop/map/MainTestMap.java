@@ -1,8 +1,6 @@
 package com.jasonz.oop.map;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -26,8 +24,9 @@ public class MainTestMap {
 
     public static void main(String[] args) {
         MainTestMap instance = new MainTestMap();
-        instance.testingHashTable();
+        // instance.testingHashTable();
         // instance.testingHashMap();
+        instance.testingTreeMap();
     }
 
     // Hashtable is synchronized. It is thread-safe and can be shared with many threads.
@@ -77,12 +76,66 @@ public class MainTestMap {
 
     }
 
-    private void testingConcurrentHashMap(){
+    //https://medium.com/art-of-coding/hash-table-vs-concurrent-hashmap-and-its-internal-working-b28fc2725bdb
+    private void testingConcurrentHashMap() {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
     }
 
-
+    // TreeMap is a map implementation that keeps its entries sorted according to the natural ordering of its keys
+    // or
+    // better still using a comparator if provided by the user at construction time.
+    // By default, TreeMap sorts all its entries according to their natural ordering.
+    // For an integer, this would mean ascending order
+    // For strings, alphabetical order.
     private void testingTreeMap() {
+        TreeMap<Integer, String> treeMap1 = new TreeMap<>();
+        treeMap1.put(3, "val3");
+        treeMap1.put(2, "val2");
+        treeMap1.put(1, "val1");
+        treeMap1.put(5, "val5");
+        treeMap1.put(4, "val4");
+        System.out.println("-----------Tree map 1 -----------");
+        for (Map.Entry v : treeMap1.entrySet()) {
+            System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
+        }
+
+        TreeMap<String, String> treeMap2 = new TreeMap<>();
+        treeMap2.put("c", "val");
+        treeMap2.put("b", "val");
+        treeMap2.put("a", "val");
+        treeMap2.put("e", "val");
+        treeMap2.put("d", "val");
+        System.out.println("-----------Tree map 2 -----------");
+        for (Map.Entry v : treeMap2.entrySet()) {
+            System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
+        }
+
+        TreeMap<Integer, String> treeMap3 = new TreeMap<>(Comparator.reverseOrder());
+        treeMap3.put(3, "val");
+        treeMap3.put(2, "val");
+        treeMap3.put(1, "val");
+        treeMap3.put(5, "val");
+        treeMap3.put(4, "val");
+        System.out.println("-----------Tree map 3 -----------");
+        for (Map.Entry v : treeMap3.entrySet()) {
+            System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
+        }
+
+        TreeMap<Integer, String> treeMap4 = new TreeMap<>();
+        treeMap4.put(3, "val");
+        treeMap4.put(2, "val");
+        treeMap4.put(1, "val");
+        treeMap4.put(5, "val");
+        treeMap4.put(4, "val");
+
+        Integer lowestKey  = treeMap4.firstKey();
+        Integer highestKey = treeMap4.lastKey();
+
+
+        Set<Integer> keysLessThan3 = treeMap4.headMap(3).keySet();
+        Set<Integer> keysGreaterThanEqTo3 = treeMap4.tailMap(3).keySet();
+
+
 
     }
 
