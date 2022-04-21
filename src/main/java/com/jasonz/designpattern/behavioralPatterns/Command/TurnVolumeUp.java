@@ -1,4 +1,4 @@
-package behavioralPatterns.Command;
+package com.jasonz.designpattern.behavioralPatterns.Command;
 
 public class TurnVolumeUp implements ICommand
 {

@@ -1,4 +1,4 @@
-package behavioralPatterns.Command;
+package com.jasonz.designpattern.behavioralPatterns.Command;
 
 import java.util.ArrayList;
 import java.util.List;
