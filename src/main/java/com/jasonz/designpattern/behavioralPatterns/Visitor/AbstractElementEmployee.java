@@ -1,4 +1,4 @@
-package behavioralPatterns.Visitor;
+package com.jasonz.designpattern.behavioralPatterns.Visitor;
 
 /**
  * this is the abstract element class
