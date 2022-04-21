@@ -1,4 +1,4 @@
-package behavioralPatterns.Visitor;
+package com.jasonz.designpattern.behavioralPatterns.Visitor;
 
 /**
  * this class is the concerate visiter for financial department

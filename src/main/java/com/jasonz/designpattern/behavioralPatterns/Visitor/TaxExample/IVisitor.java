@@ -1,4 +1,4 @@
-package behavioralPatterns.Visitor.TaxExample;
+package com.jasonz.designpattern.behavioralPatterns.Visitor.TaxExample;
 
 public interface IVisitor
 {

@@ -1,4 +1,4 @@
-package behavioralPatterns.Visitor;
+package com.jasonz.designpattern.behavioralPatterns.Visitor;
 
 public class DepartmentHR implements IAbstractVisitorDepartment
 {

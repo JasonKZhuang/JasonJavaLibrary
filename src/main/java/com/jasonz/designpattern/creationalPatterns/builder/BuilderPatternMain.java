@@ -1,11 +1,11 @@
-package creationalPatterns.builder;
+package com.jasonz.designpattern.creationalPatterns.builder;
 
-import creationalPatterns.builder.ActorExample.AbstractActorBuilder;
-import creationalPatterns.builder.ActorExample.ActorController;
-import creationalPatterns.builder.ActorExample.ActorProdoct;
-import creationalPatterns.builder.MealExample.KFCWaiter;
-import creationalPatterns.builder.MealExample.Meal;
-import creationalPatterns.builder.MealExample.MealBuilder;
+import com.jasonz.designpattern.creationalPatterns.builder.ActorExample.AbstractActorBuilder;
+import com.jasonz.designpattern.creationalPatterns.builder.ActorExample.ActorController;
+import com.jasonz.designpattern.creationalPatterns.builder.ActorExample.ActorProdoct;
+import com.jasonz.designpattern.creationalPatterns.builder.MealExample.KFCWaiter;
+import com.jasonz.designpattern.creationalPatterns.builder.MealExample.Meal;
+import com.jasonz.designpattern.creationalPatterns.builder.MealExample.MealBuilder;
 
 public class BuilderPatternMain
 {
@@ -28,7 +28,7 @@ public class BuilderPatternMain
         System.out.println("====================================");
         //================================================================//
         ActorController director = new ActorController();
-        AbstractActorBuilder builder = (AbstractActorBuilder)XMLUtil.getBean("builderActorClassName");        
+        AbstractActorBuilder builder = (AbstractActorBuilder)XMLUtil.getBean("builderActorClassName");
 		ActorProdoct actor = director.constructProduct(builder); //通过指挥者创建完整的建造者对象
 		String type = actor.getType();
 		System.out.println(type + "的外观：");

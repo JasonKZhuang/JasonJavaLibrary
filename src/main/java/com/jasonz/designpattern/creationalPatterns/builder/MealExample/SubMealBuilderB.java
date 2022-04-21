@@ -1,13 +1,13 @@
-package creationalPatterns.builder.MealExample;
+package com.jasonz.designpattern.creationalPatterns.builder.MealExample;
 
 public class SubMealBuilderB extends MealBuilder
 {
 	public void buildFood()
 	{
-		meal.setFood("Ò»¸ö¼¦Èâ¾í");
+		meal.setFood("Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
 	public void buildDrink()
 	{
-		 meal.setDrink("Ò»±­¹ûÖ­");
+		 meal.setDrink("Ò»ï¿½ï¿½ï¿½ï¿½Ö­");
 	}
 }

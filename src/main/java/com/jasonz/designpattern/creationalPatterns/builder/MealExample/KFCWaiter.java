@@ -1,4 +1,4 @@
-package creationalPatterns.builder.MealExample;
+package com.jasonz.designpattern.creationalPatterns.builder.MealExample;
 
 public class KFCWaiter
 {

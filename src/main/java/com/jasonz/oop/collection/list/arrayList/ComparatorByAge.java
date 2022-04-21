@@ -1,4 +1,7 @@
-package com.jasonz.oop.collection.list;
+package com.jasonz.oop.collection.list.arrayList;
+
+import com.jasonz.oop.collection.list.SortingType;
+import com.jasonz.oop.collection.list.Student;
 
 import java.util.Comparator;
 

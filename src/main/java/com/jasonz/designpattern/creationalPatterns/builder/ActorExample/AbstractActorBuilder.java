@@ -1,4 +1,4 @@
-package creationalPatterns.builder.ActorExample;
+package com.jasonz.designpattern.creationalPatterns.builder.ActorExample;
 
 /**
  * @author Jason.Zhuang
