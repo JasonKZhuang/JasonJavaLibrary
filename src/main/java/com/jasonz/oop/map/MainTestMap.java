@@ -9,16 +9,27 @@ import java.util.concurrent.ConcurrentHashMap;
  * copywrite zhuangkaizhi.com
  * @Description: Hashmap vs Hashtable
  * <p>
- * HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code,
+ * HashMap is non-synchronized. It is not thread-safe,
+ * and it can’t be shared between many threads without proper synchronization code,
+ * but,
  * Hashtable is synchronized. It is thread-safe and can be shared with many threads.
  * <p/>
  * <p>
  * HashMap allows one null key and multiple null values
- * Hashtable doesn’t allow any null key or value.
+ * but,
+ * Hashtable does not allow any null key or value.
  * <p/>
  * <p>
  * HashMap is generally preferred over HashTable if thread synchronization is not needed.
  * <p/>
+ * <p>
+ * TreeMap is a map implementation that keeps its entries sorted based on the natural ordering of its keys
+ * or,
+ * better still using a comparator if provided by the user at construction time.
+ * By default, TreeMap sorts all its entries according to their natural ordering.
+ * -- For an integer, this would mean ascending order
+ * -- For strings, alphabetical order.
+ * </p>
  */
 public class MainTestMap {
 
@@ -56,11 +67,10 @@ public class MainTestMap {
         for (Map.Entry m : ht1.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
         }
-
-
     }
 
-    //HashMap is non-synchronized. It is not thread-safe and can’t be shared between many threads without proper synchronization code,
+    // HashMap is non-synchronized.
+    // It is not thread-safe and can’t be shared between many threads without proper synchronization code,
     private void testingHashMap() {
         //----------------hashmap--------------------------------
         HashMap<Integer, String> hm = new HashMap<Integer, String>();
@@ -81,7 +91,8 @@ public class MainTestMap {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
     }
 
-    // TreeMap is a map implementation that keeps its entries sorted according to the natural ordering of its keys
+    // TreeMap is a map implementation that keeps its entries sorted,
+    // according to the natural ordering of its keys
     // or
     // better still using a comparator if provided by the user at construction time.
     // By default, TreeMap sorts all its entries according to their natural ordering.
@@ -128,14 +139,11 @@ public class MainTestMap {
         treeMap4.put(5, "val");
         treeMap4.put(4, "val");
 
-        Integer lowestKey  = treeMap4.firstKey();
+        Integer lowestKey = treeMap4.firstKey();
         Integer highestKey = treeMap4.lastKey();
-
 
         Set<Integer> keysLessThan3 = treeMap4.headMap(3).keySet();
         Set<Integer> keysGreaterThanEqTo3 = treeMap4.tailMap(3).keySet();
-
-
 
     }
 
