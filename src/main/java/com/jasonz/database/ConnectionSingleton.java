@@ -1,4 +1,4 @@
-package detection.db;
+package com.jasonz.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
