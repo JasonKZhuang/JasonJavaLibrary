@@ -23,8 +23,10 @@ public class ImplementsRunnableExample implements Runnable {
         this.threadName = threadName;
     }
 
+    // synchronized 同步关键字 使各个线程排队执行run()方法
     @Override
     public void run() {
+    // synchronized public void run() {
         int count1 = 0;
         int count2 = 0;
         while (true) {

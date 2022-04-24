@@ -5,8 +5,6 @@ package com.jasonz.oop.threads.runnableThread;
  * 该方法使用实现Runnable类来达到多线程目的
  * zhuangkaizhi
  * 2010-3-25
- * MyThread.java
- * 在这里输入描述
  */
 public class ImplementsRunnableTest
 {
