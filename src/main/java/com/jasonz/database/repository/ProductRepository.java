@@ -2,11 +2,9 @@ package com.jasonz.database.repository;
 
 import com.jasonz.database.DBConnectionHandler;
 import com.jasonz.database.enity.Product;
+import com.jasonz.database.enity.UserRequest;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +15,13 @@ import java.util.List;
  */
 public class ProductRepository {
 
+    Connection connection = null;
+
     public List<Product> getRecords() {
         List<Product> retProducts = new ArrayList<>();
-        String sql = "SELECT\n" +
-                "\tproduct.id as id, \n" +
-                "\tproduct.`name` as name \n" +
-                "FROM\n" +
-                "\tproduct";
-        Connection connection = null;
+        String sql = " SELECT p.id AS id, p.`name` AS `name` " +
+                     " FROM product AS p " ;
+                     //+ " WHERE p.id = ?";
         Statement statement = null;
         try {
             //1. get connection;
@@ -69,5 +66,9 @@ public class ProductRepository {
         return retProducts;
     }
 
+
+    public int saveRecords(UserRequest userRequest) {
+        return 0;
+    }
 
 }

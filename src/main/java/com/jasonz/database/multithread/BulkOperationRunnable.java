@@ -7,10 +7,10 @@ import com.jasonz.database.repository.ProductRepository;
  * @date : 23/4/2022
  * @description :
  */
-public class BulkOperation implements  Runnable{
+public class BulkOperationRunnable implements  Runnable{
     private int threadId =0;
 
-    public BulkOperation(int id){
+    public BulkOperationRunnable(int id){
         this.threadId = id;
     }
 
