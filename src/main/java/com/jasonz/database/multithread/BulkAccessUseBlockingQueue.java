@@ -49,12 +49,11 @@ public class BulkAccessUseBlockingQueue {
             consumerThread.start();
         }
 
+        Scanner scanner = new Scanner(System.in);
         int numRequests = 0;
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("input how many requests created: ");
             numRequests = scanner.nextInt();
-
             if (numRequests == 0) { // exit
                 stopProducers();
                 stopConsumers();
@@ -95,9 +94,9 @@ public class BulkAccessUseBlockingQueue {
             consumerThread.start();
         }
 
+        Scanner scanner = new Scanner(System.in);
         int numRequests = 0;
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.print("input how many requests created: ");
             numRequests = scanner.nextInt();
 
