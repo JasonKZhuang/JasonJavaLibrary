@@ -37,7 +37,9 @@ public class Producer implements Runnable {
         try {
             while (keepRunning.get() == true) {
                 for (UserRequest request : userRequests) {
-                    blockingQueues[request.getId()%3].put(request);
+                    int queueIdx = request.getId()%3;
+                    System.out.println("Producer put request " + request.getId() + " into queue " + queueIdx);
+                    blockingQueues[queueIdx].put(request);
                 }
                 this.keepRunning.set(false);
             }

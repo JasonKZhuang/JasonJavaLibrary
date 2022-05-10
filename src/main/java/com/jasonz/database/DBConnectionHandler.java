@@ -27,8 +27,7 @@ public class DBConnectionHandler {
         try {
             if (conn == null) {
                 Properties properties = new Properties();
-                FileResourcesUtils fu = new FileResourcesUtils();
-                InputStream in = fu.getFileFromResourceAsStream("db.properties");
+                InputStream in = getFileFromResourceAsStream("db.properties");
                 properties.load(in);
                 in.close();
                 datasourceDriverClassName = properties.getProperty("datasource.driver-class-name");
@@ -63,6 +62,18 @@ public class DBConnectionHandler {
             sqlException.printStackTrace();
         } catch (Exception exp) {
             exp.printStackTrace();
+        }
+    }
+
+    public static InputStream getFileFromResourceAsStream(String fileName) {
+        // The class loader that loaded the class
+        ClassLoader classLoader = DBConnectionHandler.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+        // the stream holding the file content
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        } else {
+            return inputStream;
         }
     }
 

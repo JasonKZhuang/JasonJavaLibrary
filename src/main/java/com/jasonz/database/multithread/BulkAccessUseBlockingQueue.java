@@ -6,6 +6,7 @@ import com.jasonz.database.request.Producer;
 import com.jasonz.database.response.ConsumerReader;
 import com.jasonz.database.response.ConsumerWriter;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,8 +31,8 @@ public class BulkAccessUseBlockingQueue {
 
     public static void main(String[] args) {
         BulkAccessUseBlockingQueue instance = new BulkAccessUseBlockingQueue();
-        // instance.bulkRead();
-        instance.bulkWrite();
+        instance.bulkRead();
+        // instance.bulkWrite();
     }
 
     private void bulkRead() {
@@ -67,7 +68,7 @@ public class BulkAccessUseBlockingQueue {
                 request.setId(i);
                 request.setUserId(i);
                 request.setProductId(i);
-                request.setContent("some content " + i);
+                // request.setContent(getMyPhoto());
                 request.setCreateOn(new Date());
                 request.setUpdateOn(new Date());
                 userRequests.add(request);
@@ -113,11 +114,12 @@ public class BulkAccessUseBlockingQueue {
                 request.setId(i);
                 request.setUserId(i);
                 request.setProductId(i);
-                request.setContent("some content " + i);
+                request.setContent(getMyPhoto());
                 request.setCreateOn(new Date());
                 request.setUpdateOn(new Date());
                 userRequests.add(request);
             }
+
             //initial one producer to allocate user requests
             Producer producer = new Producer(userRequests, blockingQueues);
             Thread producerThread = new Thread(producer);
@@ -151,4 +153,17 @@ public class BulkAccessUseBlockingQueue {
             }
         }
     }
+
+    private InputStream getMyPhoto(){
+        InputStream is = null;
+        try{
+            String currentPath = new File(".").getCanonicalPath();
+            String photoName = currentPath + "/myself.jpg";
+            is = new FileInputStream(photoName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return is;
+    }
+
 }

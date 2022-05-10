@@ -7,16 +7,19 @@ import java.util.concurrent.*;
  * @date : 23/4/2022
  * @description :
  * BlockingQueue 接口代表阻塞队列
- *
- * 阻塞队列：线程安全
+ *  阻塞队列：线程安全
  *  按 FIFO（先进先出）排序元素。
  *  队列的头部 是在队列中时间最长的元素。
  *  队列的尾部 是在队列中时间最短的元素。
  *  新元素插入到队列的尾部，并且队列检索操作会获得位于队列头部的元素。
  *  链接队列的吞吐量通常要高于基于数组的队列，但是在大多数并发应用程序中，其可预知的性能要低。
  * 注意：
- * 1、必须要使用take()方法在获取的时候达成阻塞结果
- * 2、使用poll()方法将产生非阻塞效果
+ * consumer:
+ *   1、consumer 必须要使用take()方法在获取的时候达成阻塞结果
+ *   2、使用poll()方法将产生非阻塞效果, 如果队列中无元素，那么返回null
+ * producer:
+ *   1、producer must use put(e) method, 必须要使用 pull(e) 方法在加入的时候达成阻塞结果
+ *   2、使用offer(e) 方法将产生非阻塞效果, 如果队列中元素已满，那么返回false
  */
 public class MainTestSimpleBlockingQueue {
 
@@ -94,53 +97,4 @@ public class MainTestSimpleBlockingQueue {
 
     }
 
-    static class Producer implements Runnable {
-        private String name;
-
-        public Producer(String name) {
-            this.name = name;
-        }
-
-        public void run() {
-            for (int i = 1; i < 10; ++i) {
-                System.out.println(name + " thread  生产： " + i);
-                //concurrentLinkedQueue.add(i);
-                try {
-                    // concurrentLinkedQueue.put(i);
-                    Thread.sleep(200); //模拟慢速的生产，产生阻塞的效果
-                } catch (InterruptedException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-
-            }
-        }
-    }
-
-    static class Consumer implements Runnable {
-        private String name;
-
-        public Consumer(String name) {
-            this.name = name;
-        }
-
-        public void run() {
-            for (int i = 1; i < 10; ++i) {
-                try {
-                    //必须要使用take()方法在获取的时候阻塞
-                    // System.out.println(name + " thread 消费： " + concurrentLinkedQueue.take());
-                    //使用poll()方法 将产生非阻塞效果
-                    //System.out.println(name+"消费： " +  concurrentLinkedQueue.poll());
-
-                    //还有一个超时的用法，队列空时，指定阻塞时间后返回，不会一直阻塞
-                    //但有一个疑问，既然可以不阻塞，为啥还叫阻塞队列？
-                    //System.out.println(name+" Consumer " +  concurrentLinkedQueue.poll(300, TimeUnit.MILLISECONDS));
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }
-    }
 }

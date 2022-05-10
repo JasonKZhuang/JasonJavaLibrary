@@ -3,6 +3,10 @@ package com.jasonz.database.response;
 import com.jasonz.database.enity.UserRequest;
 import com.jasonz.database.repository.UserRequestRepository;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -42,9 +46,18 @@ public class ConsumerReader extends ConsumerABS implements Runnable {
                     //get the data from databased
                     UserRequest request = this.repository.getRecord(userRequest.getId());
                     if (request != null) {
-                        System.out.println("\n Consumer " + Thread.currentThread().getName() + " : " + request.toString());
+                        System.out.println("Consumer " + Thread.currentThread().getName() + " output file " + request.getId());
+                        String currentPath = new File(".").getCanonicalPath();
+                        File fileWrite = new File(currentPath + "/photos/myself" + request.getId() + ".jpg");
+                        OutputStream os = new FileOutputStream(fileWrite);
+                        InputStream is = request.getContent();
+                        int dataInt = 0;
+                        do{
+                           dataInt = is.read();
+                           os.write((char) dataInt);
+                        } while (dataInt!= -1);
+                        countProcessed++;
                     }
-                    countProcessed++;
                 }
             } catch (Exception exp) {
                 exp.printStackTrace();

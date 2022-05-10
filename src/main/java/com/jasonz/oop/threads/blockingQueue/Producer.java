@@ -21,13 +21,18 @@ public class Producer extends AbstractProducer implements Runnable {
     @Override
     public void run() {
         String productionName = null;
+        int count=0;
         try {
             if (this.blockingQueue != null) {
                 while (true) {
                     productionName = "PRODCUTION + " + (++count);
                     this.blockingQueue.put(productionName);
-                    System.out.println(String.format("[%s] has been put into Queue by thread [%d]", productionName, threadId));
-                    sleep(2000L);
+                    System.out.println(String.format("Producer [%s] has been put into Queue by thread [%d]", productionName, threadId));
+                    sleep(1000L);
+                    count ++;
+                    if (count> 10){
+                        break;
+                    }
                 }
             }
         } catch (InterruptedException interruptedException) {
@@ -35,6 +40,7 @@ public class Producer extends AbstractProducer implements Runnable {
         } catch (Exception exp) {
             exp.printStackTrace();
         }
+        System.out.println("Producer " +Thread.currentThread().getName() + " end.");
     }
 
     private void sleep(long mSecond) {

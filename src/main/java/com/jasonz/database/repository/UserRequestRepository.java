@@ -3,6 +3,7 @@ package com.jasonz.database.repository;
 import com.jasonz.database.DBConnectionHandler;
 import com.jasonz.database.enity.UserRequest;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class UserRequestRepository {
                     int id = resultSet.getInt("id");
                     int userId = resultSet.getInt("userId");
                     int productId = resultSet.getInt("productId");
-                    String content = resultSet.getString("content");
+                    InputStream content = resultSet.getBinaryStream("content");
                     Date createOn = resultSet.getDate("createOn");
                     Date updateOn = resultSet.getDate("updateOn");
 
@@ -106,7 +107,7 @@ public class UserRequestRepository {
             while (resultSet.next()) {
                 int userId = resultSet.getInt("userId");
                 int productId = resultSet.getInt("productId");
-                String content = resultSet.getString("content");
+                InputStream content = resultSet.getBinaryStream("content");
                 Date createOn = resultSet.getDate("createOn");
                 Date updateOn = resultSet.getDate("updateOn");
                 retObject = new UserRequest();
@@ -138,9 +139,10 @@ public class UserRequestRepository {
     public int saveRecords(UserRequest userRequest) {
         int updatedRows = 0;
 
-        String sql = " INSERT INTO UserRequest (userId,productId,content,createOn,updateOn) " +
-                " VALUES (?,?,?,now(),now()) " +
-                " ON DUPLICATE KEY UPDATE content=?,updateOn=now() ";
+        String sql = " INSERT INTO UserRequest " +
+                "(userId, productId, content, createOn, updateOn) " +
+                " VALUES " +
+                "(?     ,         ?,       ?, now(),now()) " ;
 
         PreparedStatement pstm = null;
         try {
@@ -150,8 +152,7 @@ public class UserRequestRepository {
             pstm = connection.prepareStatement(sql);
             pstm.setInt(1, userRequest.getUserId());
             pstm.setInt(2, userRequest.getProductId());
-            pstm.setString(3, userRequest.getContent());
-            pstm.setString(4, userRequest.getContent());
+            pstm.setBinaryStream(3, userRequest.getContent());
             //3. execute a query
             updatedRows = pstm.executeUpdate();
         } catch (SQLException sqlException) {

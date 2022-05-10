@@ -19,7 +19,6 @@ public class MainTestJDBCBasic {
         UserRequest userRequest = UserRequest.builder()
                 .userId(1)
                 .productId(1)
-                .content("some contents")
                 .createOn(new Date())
                 .updateOn(new Date())
                 .build();
