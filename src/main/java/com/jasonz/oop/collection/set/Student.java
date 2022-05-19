@@ -1,15 +1,15 @@
 package com.jasonz.oop.collection.set;
 
-public class StudentForSet {
+public class Student {
     String name;
     int age;
     float marks;
 
-    public StudentForSet() {
+    public Student() {
         super();
     }
 
-    public StudentForSet(String name, int age, float marks) {
+    public Student(String name, int age, float marks) {
         this.name = name;
         this.marks = marks;
         this.age = age;

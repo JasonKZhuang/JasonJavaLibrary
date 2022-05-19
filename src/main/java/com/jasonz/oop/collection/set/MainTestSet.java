@@ -15,7 +15,8 @@ public class MainTestSet {
     }
 
     /**
-     * A HashSet is a collection of items where every item is unique, but without sequence
+     * A HashSet is a collection of items where every item is unique,
+     * but without sequence
      */
     private void testingHashSet() {
         // Set 集合存和取的顺序不一致。
@@ -39,14 +40,14 @@ public class MainTestSet {
     }
 
     private void testingTreeSet() {
-        // Set 集合存和取的顺序不一致。
+        // Set 集合 存和取 的顺序不一致。
         // elements in set are sorted naturally
         // TreeSet implements SortedSet interface
         Set<String> hs = new TreeSet<String>();
         try {
             hs.add("Andy");
             hs.add("Jason");
-            hs.add("Jason");
+            hs.add("Charly");
             hs.add("Bob");
             for (String v : hs) {
                 System.out.println(v);
@@ -59,16 +60,16 @@ public class MainTestSet {
         // elements in set are sorted by a new Comparator
         // TreeSet implements SortedSet interface
         TreeSet tsStudents = new TreeSet(new ComparatorByMarks());
-        StudentForSet student;
-        student = new StudentForSet("A",0,99.9f);
+        Student student;
+        student = new Student("A",0,99.9f);
         tsStudents.add(student);
-        student = new StudentForSet("B",0,89.9f);
+        student = new Student("B",0,89.9f);
         tsStudents.add(student);
-        student = new StudentForSet("C",0,59.9f);
+        student = new Student("C",0,59.9f);
         tsStudents.add(student);
-        student = new StudentForSet("D",0,70.9f);
+        student = new Student("D",0,70.9f);
         tsStudents.add(student);
-        student = new StudentForSet("E",0,70.9f);
+        student = new Student("E",0,70.9f);
         tsStudents.add(student);
         for (Object s : tsStudents) {
             System.out.println(s);
