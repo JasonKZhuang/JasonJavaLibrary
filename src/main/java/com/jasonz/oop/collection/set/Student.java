@@ -1,5 +1,7 @@
 package com.jasonz.oop.collection.set;
 
+import java.util.Objects;
+
 public class Student {
     String name;
     int age;
@@ -44,4 +46,35 @@ public class Student {
         return "Student [name=" + name + ", age=" + age + ", marks=" + marks + "]";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+
+        try {
+            Student studentInternal = (Student) obj;
+            if (
+                    studentInternal.getName().equals(name)
+                 && studentInternal.getMarks() == marks
+                 && studentInternal.getAge() == age
+            ) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception exp) {
+            exp.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.toString());
+    }
 }
