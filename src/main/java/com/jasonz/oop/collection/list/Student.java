@@ -1,47 +1,52 @@
 package com.jasonz.oop.collection.list;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.Objects;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Student {
     String name;
     int age;
     float marks;
 
-    public Student() {
-        super();
-    }
+    // Overriding equals() to compare two Complex objects
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
 
-    public Student(String name, int age, float marks) {
-        this.name = name;
-        this.marks = marks;
-        this.age = age;
-    }
+        // If the object is compared with itself then return true
+        if (this == obj)
+            return true;
 
-    public String getName() {
-        return name;
-    }
+         /* Check if o is an instance of Complex or not
+          "null instanceof [type]" also returns false */
+        if (!(obj instanceof Student)) {
+            return false;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        if (getClass() != obj.getClass())
+            return false;
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public float getMarks() {
-        return marks;
-    }
-
-    public void setMarks(float marks) {
-        this.marks = marks;
+        Student student = (Student) obj;
+        if (student.getName().equals(name)
+                && student.getMarks() == marks
+                && student.getAge() == age) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public String toString() {
-        return "Student [name=" + name + ", age=" + age + ", marks=" + marks + "]";
+    public int hashCode() {
+        return Objects.hash(this.toString());
     }
-
 }

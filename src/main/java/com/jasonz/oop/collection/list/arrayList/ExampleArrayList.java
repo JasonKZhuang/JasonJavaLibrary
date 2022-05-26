@@ -3,9 +3,8 @@ package com.jasonz.oop.collection.list.arrayList;
 import com.jasonz.oop.collection.list.SortingType;
 import com.jasonz.oop.collection.list.Student;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author : Jason Zhuang
@@ -28,12 +27,39 @@ public class ExampleArrayList {
         List myStudentList = new ArrayList<>();
         instance.initStudentList(myStudentList);
         instance.printStudentList(myStudentList);
+
         //sorting by age ASC
         Collections.sort(myStudentList, new ComparatorByAge(SortingType.ASC));
         instance.printStudentList(myStudentList);
+
         //sorting by age DESC
         Collections.sort(myStudentList, new ComparatorByAge(SortingType.DESC));
         instance.printStudentList(myStudentList);
+
+        //remove duplicates from arraylist only for String
+        List<String> strList = new ArrayList<>();
+        strList.add("Ryan");
+        strList.add("Marc");
+        strList.add("Jason");
+        strList.add("Peter");
+        strList.add("Peter");
+        List<String> newStrList = instance.removeDuplicatesForString(strList);
+        System.out.println(newStrList);
+
+        // Using Iterator method remove duplicates from arraylist for Student object
+        // in which override equal() method
+        List<Student> newStudents1 = instance.removeDuplicates(myStudentList);
+        instance.printStudentList(newStudents1);
+
+        // Using LinkedHashSet method remove duplicates from arraylist for Student object
+        List<Student> newStudents2 = instance.removeDuplicatesWithSet(myStudentList);
+        instance.printStudentList(newStudents2);
+
+        // Using Stream distinct() method remove duplicates from arraylist for Student object
+        List<Student> newStudents3 = instance.removeDuplicatesWithStream(myStudentList);
+        instance.printStudentList(newStudents3);
+
+
     }
 
     public void initStudentList(List argStudent) {
@@ -46,6 +72,8 @@ public class ExampleArrayList {
         argStudent.add(student);
         student = new Student("Peter", 25, 55.5f);
         argStudent.add(student);
+        student = new Student("Peter", 25, 55.5f);
+        argStudent.add(student);
     }
 
     public void printStudentList(List<Student> argStudents) {
@@ -54,5 +82,59 @@ public class ExampleArrayList {
         }
         System.out.println();
     }
+
+    public List<String> removeDuplicatesForString(List<String> argList) {
+        List<String> retList = new ArrayList<>();
+        for (String s : argList) {
+            if (!retList.contains(s)){
+                retList.add(s);
+            }
+        }
+        return retList;
+    }
+
+    public List<Student> removeDuplicates(List<Student> students) {
+        List<Student> retList = new ArrayList<>();
+        for (Student s : students) {
+            if (!retList.contains(s)){
+                retList.add(s);
+            }
+        }
+        return retList;
+    }
+
+    public List<Student> removeDuplicatesWithSet(List<Student> students) {
+        List<Student> retList = new ArrayList<>();
+
+        // Create a new LinkedHashSet
+        Set<Student> set = new LinkedHashSet<>();
+
+        // Add the elements to set
+        set.addAll(students);
+
+        // Clear the list
+        // students.clear();
+
+        // add the elements of set
+        // with no duplicates to the list
+        retList.addAll(set);
+
+        // return the list
+        return retList;
+    }
+
+    public List<Student> removeDuplicatesWithStream(List<Student> students) {
+        // Construct a new list from the set constucted from elements
+        // of the original list
+        List<Student> retList = students.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
+        // return the list
+        return retList;
+    }
+
+
+
 
 }
