@@ -23,8 +23,8 @@ import java.util.Queue;
 public class MainTestPriorityQueue {
     public static void main(String[] args) {
         MainTestPriorityQueue instance = new MainTestPriorityQueue();
-        // instance.testingPriorityQueue();
-        // instance.testingArrayQueue();
+        instance.testingPriorityQueue();
+        instance.testingArrayQueue();
         instance.testingLinkedList();
     }
 

@@ -10,7 +10,7 @@ public class MainTestSet {
     public static void main(String[] args) {
         MainTestSet ss = new MainTestSet();
         ss.testingHashSet();
-        // ss.testingTreeSet();
+        ss.testingTreeSet();
     }
 
     /**

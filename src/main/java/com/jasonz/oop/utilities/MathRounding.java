@@ -27,7 +27,9 @@ public class MathRounding {
      * @return
      */
     public static double formatDouble1(double d) {
-        return (double) Math.round(d * 100) / 100;
+        double temp = Math.round(d * 1000);
+        double temp2 = temp/1000;
+        return (double) temp2;
     }
 
     /**
@@ -57,7 +59,6 @@ public class MathRounding {
         nf.setRoundingMode(RoundingMode.UP);
         return nf.format(d);
     }
-
 
     /**
      * 这个方法挺简单的

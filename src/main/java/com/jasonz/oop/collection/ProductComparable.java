@@ -17,5 +17,6 @@ public class ProductComparable extends Product implements Comparable<Product>{
         Integer againstId = Integer.valueOf(obj.getId());
         // return selfId.compareTo(againstId); //ASC
         return againstId.compareTo(selfId); //DESC
+        //return -1< o < 1
     }
 }

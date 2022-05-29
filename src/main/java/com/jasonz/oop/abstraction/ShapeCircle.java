@@ -1,6 +1,6 @@
 package com.jasonz.oop.abstraction;
 
-public class Circle extends Shape
+public class ShapeCircle extends AShape
 {
 
 	@Override
