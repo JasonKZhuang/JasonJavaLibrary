@@ -1,5 +1,8 @@
 package com.jasonz.core.algorithms;
  
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import java.util.*;
   
 public class ArithmeticExpressionEvaluation
@@ -10,6 +13,7 @@ public class ArithmeticExpressionEvaluation
   
     // Operators
     private static final Map<String, int[]> OPERATORS = new HashMap<String, int[]>();
+
     static
     {
         // Map<"token", []{precendence, associativity}>
@@ -152,5 +156,18 @@ public class ArithmeticExpressionEvaluation
         // Feed the RPN string to RPNtoDouble to give result
         Double result = RPNtoDouble( output );
         System.out.println(result.doubleValue());
+
+        useJavaScript();
+    }
+
+    private static void useJavaScript() {
+        ScriptEngineManager mgr = new ScriptEngineManager();
+        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        String foo = "( 10 + 2 ) * ( 10 / 2 ) - ( 5 + 6 )";
+        try {
+            System.out.println(engine.eval(foo));
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
     }
 }
