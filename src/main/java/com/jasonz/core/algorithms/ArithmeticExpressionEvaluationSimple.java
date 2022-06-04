@@ -4,6 +4,8 @@ import java.util.Stack;
 
 /*
     A Java program to evaluate a given expression where tokens are separated by space.
+    Time Complexity: O(n)
+    Space Complexity: O(n)
 */
 public class ArithmeticExpressionEvaluationSimple {
 
