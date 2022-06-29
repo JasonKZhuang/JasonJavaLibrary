@@ -1,4 +1,4 @@
-package com.jasonz.oop.threads.threadPool;
+package com.jasonz.oop.threads.threadPool.executorExample;
 
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;

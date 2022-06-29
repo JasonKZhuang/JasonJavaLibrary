@@ -1,4 +1,4 @@
-package com.jasonz.oop.threads.threadPool;
+package com.jasonz.oop.threads.threadPool.fixedPool;
 
 public class WorkerThread implements Runnable {
 

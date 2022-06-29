@@ -30,6 +30,7 @@ public class MainTestBinarySearch {
         // Example ArrayList Instance
         ExampleArrayList exampleInstance = new ExampleArrayList();
         exampleInstance.initStudentList(students);
+
         // sorting the student list before executing binary search
         Collections.sort(students, new ComparatorByAge(SortingType.ASC));
 
@@ -38,6 +39,7 @@ public class MainTestBinarySearch {
         IBinarySearch binarySearch1 = new BinarySearchIterative();
         IBinarySearch binarySearch2 = new BinarySearchRecursive();
         IBinarySearch binarySearch3 = new BinarySearchBuiltIn();
+
         int idx1 = binarySearch1.binarySearch(students, searchValue);
         int idx2 = binarySearch2.binarySearch(students, searchValue);
         int idx3 = binarySearch3.binarySearch(students, searchValue);

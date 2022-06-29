@@ -1,4 +1,4 @@
-package com.jasonz.oop.threads.threadPool;
+package com.jasonz.oop.threads.threadPool.fixedPool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

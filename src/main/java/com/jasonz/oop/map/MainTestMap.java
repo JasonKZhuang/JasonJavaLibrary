@@ -37,7 +37,8 @@ public class MainTestMap {
         MainTestMap instance = new MainTestMap();
         // instance.testingHashTable();
         // instance.testingHashMap();
-        instance.testingTreeMap();
+//        instance.testingTreeMap();
+        instance.testingTreeMapObjectKey();
     }
 
     // Hashtable is synchronized. It is thread-safe and can be shared with many threads.
@@ -144,6 +145,25 @@ public class MainTestMap {
 
         Set<Integer> keysLessThan3 = treeMap4.headMap(3).keySet();
         Set<Integer> keysGreaterThanEqTo3 = treeMap4.tailMap(3).keySet();
+
+    }
+
+    /**
+     * The important is adding a new ComparatorByCategoryId() as construction parameter when creating TreeMap
+     */
+    private void testingTreeMapObjectKey() {
+        TreeMap<Category, String> categoryMap = new TreeMap<>(new ComparatorByCategoryId());
+        Category category1 = new Category(301, "A301");
+        Category category2 = new Category(101, "B101");
+        Category category3 = new Category(201, "C201");
+
+        categoryMap.put(category1, "Any String");
+        categoryMap.put(category2, "Any String");
+        categoryMap.put(category3, "Any String");
+
+        for (Map.Entry v : categoryMap.entrySet()) {
+            System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
+        }
 
     }
 

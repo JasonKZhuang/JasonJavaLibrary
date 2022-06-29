@@ -1,4 +1,6 @@
-package com.jasonz.oop.threads.threadPool;
+package com.jasonz.oop.threads.threadPool.executorExample;
+
+import com.jasonz.oop.threads.threadPool.fixedPool.WorkerThread;
 
 import java.util.concurrent.*;
 

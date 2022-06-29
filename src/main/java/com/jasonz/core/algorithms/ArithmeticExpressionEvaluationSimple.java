@@ -8,7 +8,14 @@ import java.util.Stack;
     Space Complexity: O(n)
 */
 public class ArithmeticExpressionEvaluationSimple {
-
+    // Driver method to test above methods
+    public static void main(String[] args) {
+        String s = "12+2*4-3/2";
+        // System.out.println(EvaluateString.evaluate("12+2*4-3/2"));
+        System.out.println(ArithmeticExpressionEvaluationSimple.evaluate(s));
+        //System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 )"));
+        //System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 ) / 14"));
+    }
     public static int evaluate(String expression) {
         char[] tokens = expression.toCharArray();
 
@@ -51,7 +58,6 @@ public class ArithmeticExpressionEvaluationSimple {
                             values.pop()));
                 ops.pop();
             }
-
             // Current token is an operator.
             else if (tokens[i] == '+' ||
                     tokens[i] == '-' ||
@@ -115,11 +121,5 @@ public class ArithmeticExpressionEvaluationSimple {
         return 0;
     }
 
-    // Driver method to test above methods
-    public static void main(String[] args) {
-        // System.out.println(EvaluateString.evaluate("10+2*6-3/2"));
-        System.out.println(ArithmeticExpressionEvaluationSimple.evaluate("100 * 2 + 12"));
-        //System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 )"));
-        //System.out.println(EvaluateString.evaluate("100 * ( 2 + 12 ) / 14"));
-    }
+
 }

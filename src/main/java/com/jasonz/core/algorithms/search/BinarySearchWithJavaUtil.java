@@ -9,7 +9,7 @@ import java.util.Arrays;
  * // Java program to demonstrate working of Arrays.
  * // binarySearch() in a sorted array
  */
-public class BinarySearch {
+public class BinarySearchWithJavaUtil {
 
 
     // Main driver method
@@ -25,6 +25,13 @@ public class BinarySearch {
 
         // Using sort() method of Arrays class
         // and passing arrays to be sorted as in arguments
+        /**
+         * With the help of this method, we can find or search a specified value inside an array
+         * which is given as the first argument.
+         * As a result, this method returns the index of the element in the array.
+         * The array must be sorted for this search.
+         * If the element is not found, it returns a negative value.
+         */
         Arrays.sort(byteArr);
         Arrays.sort(charArr);
         Arrays.sort(intArr);
