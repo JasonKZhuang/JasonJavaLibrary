@@ -1,8 +1,7 @@
-package com.jasonz.java8Features.javaDateTimeFormat;
+package com.jasonz.java8Features.datatimeAPI;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -16,9 +15,9 @@ import java.util.Locale;
  */
 public class UsingJavaTime {
     //		We can create DateTimeFormatter in three ways:
-//		Using inbuilt patterns
-//		Using custom patterns using ofPattern() method
-//		Using localized styles with FormatStyle, such as long or medium
+    //		Using inbuilt patterns
+    //		Using custom patterns using ofPattern() method
+    //		Using localized styles with FormatStyle, such as long or medium
 
     //Use inbuilt pattern constants
     static final DateTimeFormatter inBuiltFormatter1 = DateTimeFormatter.ISO_DATE_TIME;
@@ -36,20 +35,19 @@ public class UsingJavaTime {
         System.out.println(instanceString);
 
         //Formatting with SimpleDateFormat
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
-		String formattedDate = sdf.format(new Date());
-		System.out.println(formattedDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
+        String formattedDate = sdf.format(new Date());
+        System.out.println(formattedDate);
 
-		String pattern = "EEEEE MMMMM yyyy HH:mm:ss.SSSZ";
-		SimpleDateFormat sdfWithLocale =new SimpleDateFormat(pattern,
-				new Locale("fr", "FR"));
-		String date = sdfWithLocale.format(new Date());
-		System.out.println(date);
+        String pattern = "EEEEE MMMMM yyyy HH:mm:ss.SSSZ";
+        SimpleDateFormat sdfWithLocale = new SimpleDateFormat(pattern, new Locale("fr", "FR"));
+        String date = sdfWithLocale.format(new Date());
+        System.out.println(date);
 
-		DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
-		symbols.setAmPmStrings(new String[] { "AM", "PM" });
-		sdf.setDateFormatSymbols(symbols);
-		formattedDate = sdf.format(new Date());
-		System.out.println(formattedDate);
+        DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
+        symbols.setAmPmStrings(new String[]{"AM", "PM"});
+        sdf.setDateFormatSymbols(symbols);
+        formattedDate = sdf.format(new Date());
+        System.out.println(formattedDate);
     }
 }
