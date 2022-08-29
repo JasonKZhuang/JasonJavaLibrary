@@ -28,6 +28,52 @@ public class UsingStreamAPI {
 
     }
 
+    private void streamFilterMap(){
+        List<Country> countries =  new ArrayList<>();
+
+        OfficeInfo officeInfo1 = new OfficeInfo();
+        officeInfo1.setId(1);
+        officeInfo1.setCode("sydney-01");
+        officeInfo1.setName("80 PITT");
+
+        OfficeInfo officeInfo2 = new OfficeInfo();
+        officeInfo2.setId(2);
+        officeInfo2.setCode("sydney-02");
+        officeInfo2.setName("1 MARTIN PL");
+
+        List<OfficeInfo> officeInfos = new ArrayList<>();
+        officeInfos.add(officeInfo1);
+        officeInfos.add(officeInfo2)
+
+        CityInfo cityInfo = new CityInfo();
+        cityInfo.setId(3);
+        cityInfo.setName("Sydney");
+        cityInfo.setOffices(officeInfos);
+        List<CityInfo> cityInfos = new ArrayList<>();
+        cityInfos.add(cityInfo);
+
+        Country country = new Country();
+        CityList cityList = new CityList();
+        cityList.setCities(cityInfos);
+        country.setCityList(cityList);
+        country.setCountryCode("AU");
+        country.setDescription("Australia");
+
+        countries.add(country);
+
+        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
+
+        return countries.stream()
+                .filter(countryInfo -> !CollectionUtils.isEmpty(countryInfo.getCityList().getCities()))
+                .map(countryInfo -> countryInfo.getCityList().getCities())
+                .filter(cityInfos -> !CollectionUtils.isEmpty(cityInfos))
+                .flatMap(cityInfos -> cityInfos.stream())
+                .filter(cityInfo -> !CollectionUtils.isEmpty(cityInfo.getOfficeList().getOffices()))
+                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
+                .flatMap(officeInfos -> officeInfos.stream())
+                .collect(Collectors.toList());
+    }
+
     private void forEachStream() {
         Random random = new Random();
         random.ints().limit(10).forEach(System.out::println);
