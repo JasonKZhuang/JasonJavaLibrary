@@ -1,4 +1,4 @@
-package structuralPatterns.proxy.DynamicProxy;
+package com.jasonz.designpattern.structuralPatterns.proxy.DynamicProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

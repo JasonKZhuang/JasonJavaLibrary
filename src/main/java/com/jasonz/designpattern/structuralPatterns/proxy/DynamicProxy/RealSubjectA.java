@@ -1,4 +1,4 @@
-package structuralPatterns.proxy.DynamicProxy;
+package com.jasonz.designpattern.structuralPatterns.proxy.DynamicProxy;
 
 public class RealSubjectA implements AbstractSubject
 {	

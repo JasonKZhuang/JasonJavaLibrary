@@ -25,7 +25,7 @@ public class UsingJavaTime {
 
     //Define your own custom patterns
     static final DateTimeFormatter customFormatter1 = DateTimeFormatter.ofPattern("yyyy/MM/dd 'at' hh:mma z");
-    static final DateTimeFormatter customFormatter2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    static final DateTimeFormatter customFormatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
 
     //Using FormatStyle
     static final DateTimeFormatter customFormatter9 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);

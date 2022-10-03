@@ -24,12 +24,33 @@ public class UsingStreamAPI {
     public static void main(String[] args) {
         UsingStreamAPI api = new UsingStreamAPI();
         // api.generateStream();
-        api.forEachStream();
+        //        api.forEachStream();
+        api.collectOnePropertyListFromObjectList();
 
     }
 
-    private void streamFilterMap(){
-        List<Country> countries =  new ArrayList<>();
+    private void collectOnePropertyListFromObjectList() {
+        List<OfficeInfo> offices = new ArrayList<>();
+        OfficeInfo officeInfo1 = new OfficeInfo();
+        officeInfo1.setId(1);
+        officeInfo1.setName("Sydney");
+        officeInfo1.setCode("2000");
+        offices.add(officeInfo1);
+
+        OfficeInfo officeInfo2 = new OfficeInfo();
+        officeInfo1.setId(1);
+        officeInfo1.setName("Melbourne");
+        officeInfo1.setCode("3000");
+        offices.add(officeInfo1);
+
+        List<String> officeNames = offices.stream().map(o -> o.getName()).collect(Collectors.toList());
+        for (String officeName : officeNames) {
+            System.out.println(officeName);
+        }
+    }
+
+    private void streamFilterMap() {
+        List<Country> countries = new ArrayList<>();
 
         OfficeInfo officeInfo1 = new OfficeInfo();
         officeInfo1.setId(1);
@@ -43,7 +64,7 @@ public class UsingStreamAPI {
 
         List<OfficeInfo> officeInfos = new ArrayList<>();
         officeInfos.add(officeInfo1);
-        officeInfos.add(officeInfo2)
+        officeInfos.add(officeInfo2);
 
         CityInfo cityInfo = new CityInfo();
         cityInfo.setId(3);
@@ -61,17 +82,17 @@ public class UsingStreamAPI {
 
         countries.add(country);
 
-        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
+        //        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
 
-        return countries.stream()
-                .filter(countryInfo -> !CollectionUtils.isEmpty(countryInfo.getCityList().getCities()))
-                .map(countryInfo -> countryInfo.getCityList().getCities())
-                .filter(cityInfos -> !CollectionUtils.isEmpty(cityInfos))
-                .flatMap(cityInfos -> cityInfos.stream())
-                .filter(cityInfo -> !CollectionUtils.isEmpty(cityInfo.getOfficeList().getOffices()))
-                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
-                .flatMap(officeInfos -> officeInfos.stream())
-                .collect(Collectors.toList());
+        //        return countries.stream()
+        //                .filter(countryInfo -> !CollectionUtils.isEmpty(countryInfo.getCityList().getCities()))
+        //                .map(countryInfo -> countryInfo.getCityList().getCities())
+        //                .filter(cityInfos -> !CollectionUtils.isEmpty(cityInfos))
+        //                .flatMap(cityInfos -> cityInfos.stream())
+        //                .filter(cityInfo -> !CollectionUtils.isEmpty(cityInfo.getOfficeList().getOffices()))
+        //                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
+        //                .flatMap(officeInfos -> officeInfos.stream())
+        //                .collect(Collectors.toList());
     }
 
     private void forEachStream() {
