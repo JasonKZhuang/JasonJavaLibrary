@@ -46,6 +46,15 @@ public class ExampleUsingString
 		
 		ExampleUsingString  self = new ExampleUsingString();
 		self.testingContains();
+
+		String test = null;
+		System.out.println(test==null);
+		test ="";
+		System.out.println(test.isEmpty());
+		test =" ";
+		System.out.println(test.isEmpty());
+
+
 	}
 	
 	private void testingContains()
