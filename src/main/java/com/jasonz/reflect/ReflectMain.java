@@ -22,6 +22,14 @@ public class ReflectMain {
         product.setContent("Toyota");
 
         ReflectMain ins = new ReflectMain();
+
+        for (Field f : product.getClass().getDeclaredFields()) {
+            System.out.println(f.getName());
+        }
+        for (Method method :  product.getClass().getDeclaredMethods()){
+            System.out.println(method.getName());
+        }
+
         Map<String, String> map = new HashMap<>();
         try {
 //            map = ins.getSortMap(product, "getter");
