@@ -81,20 +81,6 @@ public class UsingStreamAPI {
         country.setDescription("Australia");
 
         countries.add(country);
-
-<<<<<<< Updated upstream
-        //        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
-
-        //        return countries.stream()
-        //                .filter(countryInfo -> !CollectionUtils.isEmpty(countryInfo.getCityList().getCities()))
-        //                .map(countryInfo -> countryInfo.getCityList().getCities())
-        //                .filter(cityInfos -> !CollectionUtils.isEmpty(cityInfos))
-        //                .flatMap(cityInfos -> cityInfos.stream())
-        //                .filter(cityInfo -> !CollectionUtils.isEmpty(cityInfo.getOfficeList().getOffices()))
-        //                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
-        //                .flatMap(officeInfos -> officeInfos.stream())
-        //                .collect(Collectors.toList());
-=======
 //        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
 
 //        return countries.stream()
@@ -106,7 +92,6 @@ public class UsingStreamAPI {
 //                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
 //                .flatMap(officeInfos -> officeInfos.stream())
 //                .collect(Collectors.toList());
->>>>>>> Stashed changes
     }
 
     private void forEachStream() {
