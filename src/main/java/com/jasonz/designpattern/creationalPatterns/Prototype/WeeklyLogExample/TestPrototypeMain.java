@@ -1,5 +1,6 @@
-package creationalPatterns.Prototype.WeeklyLogExample;
+package com.jasonz.designpattern.creationalPatterns.Prototype.WeeklyLogExample;
 
+import creationalPatterns.Prototype.WeeklyLogExample.WeeklyLog;
 
 public class TestPrototypeMain
 {
@@ -7,7 +8,7 @@ public class TestPrototypeMain
 	public static void main(String[] args)
 	{
 		//创建原型对象
-		WeeklyLog log_previous = new WeeklyLog(); 
+		WeeklyLog log_previous = new WeeklyLog();
 		log_previous.setName("张无忌1");
 		log_previous.setDate("第12周");
 		log_previous.setContent("这周工作很忙，每天加班111");
