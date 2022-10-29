@@ -25,7 +25,7 @@ public class App {
         System.out.println(name2);
 
     }
-
+    // testing
     public static void testMethod(Person p){
         p = new Person();
         p.setId(100);
