@@ -23,8 +23,8 @@ public class UsingStreamAPI {
 
     public static void main(String[] args) {
         UsingStreamAPI api = new UsingStreamAPI();
-        // api.generateStream();
-        //        api.forEachStream();
+        api.generateStream();
+        api.forEachStream();
         api.collectOnePropertyListFromObjectList();
 
     }
@@ -98,7 +98,6 @@ public class UsingStreamAPI {
         Random random = new Random();
         random.ints().limit(10).forEach(System.out::println);
 
-
         List<String> list = Arrays.asList("A", "B", "C", "D");
         //The most straightforward way is using the enhanced for-loop
         for (String s : list) {
@@ -107,7 +106,6 @@ public class UsingStreamAPI {
 
         // Collection.forEach() uses the collection's iterator, so the processing order of the items is defined.
         // In contrast, the processing order of Collection.stream().forEach() is undefined.
-
         // We can do so directly on the collection
         Consumer<String> consumer = s -> {
             System.out.println("do something with " + s);
@@ -131,7 +129,6 @@ public class UsingStreamAPI {
         List<String> filtered2 = filtered.collect(Collectors.toList());
         int i = 0;
         filtered.forEach((item) -> {
-
             System.out.println(item);
         });
     }
