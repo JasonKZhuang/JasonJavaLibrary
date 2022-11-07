@@ -1,5 +1,7 @@
 package com.jasonz.core;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -27,7 +29,14 @@ public class StringKits {
         prefixes.add("4");
         System.out.println( kits.convertAustraliaNumber(phoneNumber,prefixes));
 
+        //3 Check if the input string is null or blank or not
+        System.out.println(StringKits.checkStringNullAndBlank(null));
+        System.out.println(StringKits.checkStringNullAndBlank(""));
+        System.out.println(StringKits.checkStringNullAndBlank(" "));
+    }
 
+    public static boolean checkStringNullAndBlank(String arg){
+        return StringUtils.isEmpty(arg);
     }
 
     public static String usingStartsWith(String arg, List<String> prefix) {
@@ -50,7 +59,6 @@ public class StringKits {
                 });
         return a.toString();
     }
-
 
     private String convertAustraliaNumber(String phoneNumber, List<String> prefixes){
         for (String v : prefixes) {
