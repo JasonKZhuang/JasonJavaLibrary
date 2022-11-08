@@ -1,9 +1,7 @@
 package com.jasonz.java8Features.streamAPI;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,84 +15,121 @@ import java.util.stream.Stream;
  * Collection interface has been extended with stream() and parallelStream() default methods
  * to get the Stream for sequential and parallel execution.
  *
+ * A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
+ * Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+ * Each intermediate operation is lazily executed and returns a stream as a result,
+ * hence various intermediate operations can be pipelined.
+ * Terminal operations mark the end of the stream and return the result.
  * @author Jason Zhuang 23 Jun. 2021
  */
 public class UsingStreamAPI {
 
     public static void main(String[] args) {
         UsingStreamAPI api = new UsingStreamAPI();
-        api.generateStream();
-        api.forEachStream();
-        api.collectOnePropertyListFromObjectList();
+        api.usingStreamFilter();
+        api.usingStreamMap();
+        //api.generateStream();
+        //api.forEachStream();
+        //api.collectOnePropertyListFromObjectList();
 
     }
 
-    private void collectOnePropertyListFromObjectList() {
-        List<OfficeInfo> offices = new ArrayList<>();
-        OfficeInfo officeInfo1 = new OfficeInfo();
-        officeInfo1.setId(1);
-        officeInfo1.setName("Sydney");
-        officeInfo1.setCode("2000");
-        offices.add(officeInfo1);
-
-        OfficeInfo officeInfo2 = new OfficeInfo();
-        officeInfo1.setId(1);
-        officeInfo1.setName("Melbourne");
-        officeInfo1.setCode("3000");
-        offices.add(officeInfo1);
-
-        List<String> officeNames = offices.stream().map(o -> o.getName()).collect(Collectors.toList());
-        for (String officeName : officeNames) {
-            System.out.println(officeName);
+    private List<PersonObject> constructDummyData(){
+        // prepare dummy data
+        List<PersonObject> persons = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            PersonObject p = new PersonObject("Name" + i, i + 20);
+            if (i % 2 == 0) {
+                p.setSeniorEngineer(true);
+            }
+            persons.add(p);
         }
+        return persons;
     }
 
-    private void streamFilterMap() {
-        List<Country> countries = new ArrayList<>();
+    /**
+     * using Intermediate Operations: filter
+     * The filter() function of the Java stream allows you to narrow down the stream's items based on a criterion.
+     */
+    private void usingStreamFilter() {
+        // construct dummy data
+        List<PersonObject> persons = constructDummyData();
 
-        OfficeInfo officeInfo1 = new OfficeInfo();
-        officeInfo1.setId(1);
-        officeInfo1.setCode("sydney-01");
-        officeInfo1.setName("80 PITT");
-
-        OfficeInfo officeInfo2 = new OfficeInfo();
-        officeInfo2.setId(2);
-        officeInfo2.setCode("sydney-02");
-        officeInfo2.setName("1 MARTIN PL");
-
-        List<OfficeInfo> officeInfos = new ArrayList<>();
-        officeInfos.add(officeInfo1);
-        officeInfos.add(officeInfo2);
-
-        CityInfo cityInfo = new CityInfo();
-        cityInfo.setId(3);
-        cityInfo.setName("Sydney");
-        cityInfo.setOffices(officeInfos);
-        List<CityInfo> cityInfos = new ArrayList<>();
-        cityInfos.add(cityInfo);
-
-        Country country = new Country();
-        CityList cityList = new CityList();
-        cityList.setCities(cityInfos);
-        country.setCityList(cityList);
-        country.setCountryCode("AU");
-        country.setDescription("Australia");
-
-        countries.add(country);
-//        countries.stream().filter(c -> !CollectionUtils.isEmpty(c.getCityList().getCities()));
-
-//        return countries.stream()
-//                .filter(countryInfo -> !CollectionUtils.isEmpty(countryInfo.getCityList().getCities()))
-//                .map(countryInfo -> countryInfo.getCityList().getCities())
-//                .filter(cityInfos -> !CollectionUtils.isEmpty(cityInfos))
-//                .flatMap(cityInfos -> cityInfos.stream())
-//                .filter(cityInfo -> !CollectionUtils.isEmpty(cityInfo.getOfficeList().getOffices()))
-//                .map(cityInfo -> cityInfo.getOfficeList().getOffices())
-//                .flatMap(officeInfos -> officeInfos.stream())
-//                .collect(Collectors.toList());
+        //using filter only keep elements which are subject the condition
+        //只留下符合条件的记录，剔除不符合条件的记录
+        List<PersonObject> newPersons = persons.stream()
+                .filter(p -> p.getAge() > 22)
+                .filter(PersonObject::isSeniorEngineer)
+                .collect(Collectors.toList());
+        newPersons.forEach(p -> System.out.println(p.toString()));
     }
 
-    private void forEachStream() {
+    /**
+     * using Intermediate Operations: Sorted
+     */
+    private void usingStreamSorted(){
+
+    }
+
+    /**
+     * using Intermediate Operations: map
+     */
+    private void usingStreamMap() {
+
+        List<PersonObject> persons = constructDummyData();
+
+        // 1. Simple One : Change a List of Strings to Uppercase
+        List<String> alpha = Arrays.asList("a", "b", "c", "d");
+        System.out.println(alpha); //[a, b, c, d]
+        // Before Java 8
+        List<String> alphaUpper = new ArrayList<>();
+        for (String s : alpha) {
+            alphaUpper.add(s.toUpperCase());
+        }
+        System.out.println(alphaUpper); //[A, B, C, D]
+        // Now Java 8
+        List<String> collect = alpha.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        System.out.println(collect); //[A, B, C, D]
+
+
+        // 2. From List of Objects -> List of String
+        // 2.1.One line lambda function
+        List<String> newList1 = persons.stream().map(p -> p.getName()).collect(Collectors.toList());
+        // 2.1.2 Multiple lines code in lambda function
+        List<String> newList = persons.stream().map(p -> {
+            String ret = p.getName() + p.getAge();
+            return ret;
+        }).collect(Collectors.toList());
+
+        // 3. From List of objects -> New List of other objects
+        AtomicInteger employeeId = new AtomicInteger();
+        List<EmployeeObject> result = persons.stream()
+                .map(temp -> {
+                    EmployeeObject obj = new EmployeeObject();
+                    obj.setEmployeeId(Long.valueOf(employeeId.getAndIncrement()));
+                    obj.setFirstName(temp.getName());
+                    obj.setLastName(temp.getName());
+                    obj.setDateOfBirth(new Date() );
+                    obj.setPermanent(obj.getEmployeeId() % 2 == 0?true:false);
+                    return obj;
+                })
+                .collect(Collectors.toList());
+        result.forEach(e -> System.out.println(e.toString()));
+    }
+
+    /**
+     * using Intermediate Operations: flatMap
+     * (https://mkyong.com/java8/java-8-flatmap-example/)
+     */
+    private void usingStreamFlatMap(){
+        List<PersonObject> persons = constructDummyData();
+    }
+
+    // Terminal Operations
+    // 1. Foreach
+    private void usingStreamForeach() {
         Random random = new Random();
         random.ints().limit(10).forEach(System.out::println);
 
@@ -122,6 +157,15 @@ public class UsingStreamAPI {
         list.parallelStream().forEach(System.out::print);
         System.out.println("\n=============================");
     }
+    // 2. collect
+    private void usingStreamCollect() {
+        List<PersonObject> persons = constructDummyData();
+    }
+    // 3. reduce
+    private void usingStreamReduce() {
+        List<PersonObject> persons = constructDummyData();
+    }
+
 
     private void generateStream() {
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
@@ -132,6 +176,7 @@ public class UsingStreamAPI {
             System.out.println(item);
         });
     }
+
 
     private void practice() {
         List<Integer> myList = new ArrayList<>();
