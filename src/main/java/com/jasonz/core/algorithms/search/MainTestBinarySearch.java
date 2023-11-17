@@ -1,11 +1,8 @@
 package com.jasonz.core.algorithms.search;
 
-import com.jasonz.oop.collection.list.SortingType;
-import com.jasonz.oop.collection.list.Student;
-import com.jasonz.oop.collection.list.arrayList.BinarySearchBuiltIn;
-import com.jasonz.oop.collection.list.arrayList.BinarySearchIterative;
-import com.jasonz.oop.collection.list.arrayList.BinarySearchRecursive;
-import com.jasonz.oop.collection.list.arrayList.*;
+import com.jasonz.dataStructures.collection.list.SortingType;
+import com.jasonz.dataStructures.collection.list.Student;
+import com.jasonz.dataStructures.collection.list.arrayList.*;
 
 import java.util.ArrayList;
 import java.util.Collections;

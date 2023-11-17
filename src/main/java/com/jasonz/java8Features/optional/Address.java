@@ -5,7 +5,12 @@ public class Address
 	private String streetNo;
 	private Country country;
 
-	public String getStreetNo()
+    public Address(String streetNo, Country country) {
+        this.streetNo = streetNo;
+        this.country = country;
+    }
+
+    public String getStreetNo()
 	{
 		return streetNo;
 	}

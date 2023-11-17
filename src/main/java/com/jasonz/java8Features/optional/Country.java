@@ -4,7 +4,11 @@ public class Country
 {
 	private String isoCode;
 
-	public String getIsoCode()
+    public Country(String isoCode) {
+        this.isoCode = isoCode;
+    }
+
+    public String getIsoCode()
 	{
 		return isoCode;
 	}

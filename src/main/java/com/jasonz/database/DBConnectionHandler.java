@@ -1,7 +1,5 @@
 package com.jasonz.database;
 
-import com.jasonz.oop.io.FileResourcesUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
