@@ -31,7 +31,6 @@ public class UsingStreamAPI {
         //api.generateStream();
         //api.forEachStream();
         //api.collectOnePropertyListFromObjectList();
-
     }
 
     private List<PersonObject> constructDummyData(){
@@ -60,7 +59,7 @@ public class UsingStreamAPI {
         List<PersonObject> newPersons = persons.stream()
                 .filter(p -> p.getAge() > 22)
                 .filter(PersonObject::isSeniorEngineer)
-                .collect(Collectors.toList());
+                .toList();
         newPersons.forEach(p -> System.out.println(p.toString()));
     }
 
@@ -68,7 +67,10 @@ public class UsingStreamAPI {
      * using Intermediate Operations: Sorted
      */
     private void usingStreamSorted(){
-
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        List<String> sortedNames = names.stream()
+                .sorted()
+                .toList();
     }
 
     /**
@@ -96,12 +98,12 @@ public class UsingStreamAPI {
 
         // 2. From List of Objects -> List of String
         // 2.1.One line lambda function
-        List<String> newList1 = persons.stream().map(p -> p.getName()).collect(Collectors.toList());
+        List<String> newList1 = persons.stream().map(PersonObject::getName).toList();
         // 2.1.2 Multiple lines code in lambda function
         List<String> newList = persons.stream().map(p -> {
             String ret = p.getName() + p.getAge();
             return ret;
-        }).collect(Collectors.toList());
+        }).toList();
 
         // 3. From List of objects -> New List of other objects
         AtomicInteger employeeId = new AtomicInteger();
@@ -112,10 +114,10 @@ public class UsingStreamAPI {
                     obj.setFirstName(temp.getName());
                     obj.setLastName(temp.getName());
                     obj.setDateOfBirth(new Date() );
-                    obj.setPermanent(obj.getEmployeeId() % 2 == 0?true:false);
+                    obj.setPermanent(obj.getEmployeeId() % 2 == 0);
                     return obj;
                 })
-                .collect(Collectors.toList());
+                .toList();
         result.forEach(e -> System.out.println(e.toString()));
     }
 

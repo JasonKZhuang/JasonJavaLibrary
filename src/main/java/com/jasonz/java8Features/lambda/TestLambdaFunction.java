@@ -45,61 +45,54 @@ public class TestLambdaFunction
 
 	}
 
-	public void testComparisonMethod()
-	{
-		// ==for the old fashion in java 7 or before
-		Comparator<String> stringComparator = new Comparator<String>()
-		{
-			@Override
-			public int compare(String o1, String o2)
-			{
-				return o1.compareTo(o2);
-			}
-		};
-		int oldFashion = stringComparator.compare("Hello", "World");
-		System.out.println(oldFashion);
+    public void testComparisonMethod() {
+        // ==for the old fashion in java 7 or before
+        Comparator<String> stringComparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        };
+        int oldFashion = stringComparator.compare("Hello", "World");
+        System.out.println(oldFashion);
 
-		// ===Using Java Lambda expression
-		Comparator<String> stringComparatorLambda = (String o1, String o2) -> {
-			return o1.compareTo(o2);
-		};
-		// or More simplified, if only one return line
-		stringComparatorLambda = (o1, o2) -> o1.compareTo(o2);
-		//so, we just use this interface to call compare method
-		int newFashion = stringComparatorLambda.compare("Hello", "World");
-		System.out.println(newFashion);
+        // ===Using Java Lambda expression
+        Comparator<String> stringComparatorLambda;
+        // or More simplified, if only one return line
+        stringComparatorLambda = String::compareTo;
+        //so, we just use this interface to call compare method
+        int newFashion = stringComparatorLambda.compare("Hello", "World");
+        System.out.println(newFashion);
 
-	}
+    }
 
-	public void testFuncInterface()
-	{
-		// lambda expression to implement a functional interface.
-		// This interface implements abstractFun() by default
-		FuncInterface fobj = (int x) -> System.out.println(2 * x);
+    public void testFuncInterface() {
+        // lambda expression to implement a functional interface.
+        // This interface implements abstractFun() by default
+        FuncInterface fobj = (int x) -> System.out.println(2 * x);
 
-		// This calls above lambda expression and prints 10.
-		fobj.abstractFun(5);
-	}
+        // This calls above lambda expression and prints 10.
+        fobj.abstractFun(5);
+    }
 
-	public void testArrayList()
-	{
-		ArrayList<Integer> arrList = new ArrayList<Integer>();
-		arrList.add(1);
-		arrList.add(2);
-		arrList.add(3);
-		arrList.add(4);
+    public void testArrayList() {
+        ArrayList<Integer> arrList = new ArrayList<Integer>();
+        arrList.add(1);
+        arrList.add(2);
+        arrList.add(3);
+        arrList.add(4);
 
-		// Using lambda expression to print all elements of arrList
-		arrList.forEach(itemValue -> System.out.println(itemValue));
+        // Using lambda expression to print all elements of arrList
+        arrList.forEach(itemValue -> System.out.println(itemValue));
 
-		// Using lambda expression to print even elements of arrList
-		arrList.forEach(itemValue -> {
-			if (itemValue % 2 == 0)
-				System.out.println("even:" + itemValue);
-			else
-				System.out.println("odd:" + itemValue);
-		});
-	}
+        // Using lambda expression to print even elements of arrList
+        arrList.forEach(itemValue -> {
+            if (itemValue % 2 == 0)
+                System.out.println("even:" + itemValue);
+            else
+                System.out.println("odd:" + itemValue);
+        });
+    }
 
 	/**
 	 * Replace interface parameters with concrete implementation code snippets

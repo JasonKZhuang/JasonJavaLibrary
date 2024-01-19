@@ -16,11 +16,10 @@ import java.util.Collections;
  *  Recursive
  *  Collections Built-in
  */
-public class MainTestBinarySearch {
+public class BinarySearchMainTest {
 
     public static void main(String[] args) {
         // this class instance
-        MainTestBinarySearch instance = new MainTestBinarySearch();
         // Define a new Arraylist with student objects
         ArrayList<Student> students = new ArrayList<Student>();
 
