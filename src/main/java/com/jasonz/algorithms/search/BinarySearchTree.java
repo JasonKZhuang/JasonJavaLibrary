@@ -124,12 +124,12 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     // 在二分搜索树中搜索键key所对应的值。如果这个值不存在, 则返回null
     public Value search(Key key) {
-        return search(root, key);
+        return searchRecursion(root, key);
     }
 
     // 在以node为根的二分搜索树中查找key所对应的value, 递归算法
     // 若value不存在, 则返回NULL
-    private Value search(Node node, Key key) {
+    private Value searchRecursion(Node node, Key key) {
 
         if (node == null)
             return null;
@@ -137,9 +137,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         if (key.compareTo(node.key) == 0)
             return node.value;
         else if (key.compareTo(node.key) < 0)
-            return search(node.left, key);
+            return searchRecursion(node.left, key);
         else
-            return search(node.right, key);
+            return searchRecursion(node.right, key);
     }
 
     // 二分搜索树的前序遍历

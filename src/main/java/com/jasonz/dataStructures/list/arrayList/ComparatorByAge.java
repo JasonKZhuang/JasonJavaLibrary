@@ -7,8 +7,7 @@ import java.util.Comparator;
 
 public class ComparatorByAge implements Comparator<Student>
 {
-
-	private SortingType sortingType;
+	private final SortingType sortingType;
 
 	public ComparatorByAge(SortingType argType) {
 		this.sortingType = argType;
@@ -20,9 +19,9 @@ public class ComparatorByAge implements Comparator<Student>
 	@Override
 	public int compare(Student o1, Student o2) {
 		if (sortingType == SortingType.ASC) {
-			return Integer.valueOf(o1.getAge()).compareTo(Integer.valueOf(o2.getAge()));
+			return Integer.compare(o1.getAge(), o2.getAge());
 		} else {
-			return Integer.valueOf(o2.getAge()).compareTo(Integer.valueOf(o1.getAge()));
+			return Integer.compare(o2.getAge(), o1.getAge());
 		}
 	}
 }

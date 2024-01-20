@@ -10,5 +10,5 @@ import java.util.ArrayList;
  * @description :
  */
 public interface IBinarySearch {
-    public int binarySearch(ArrayList<Student> argList, int argValue);
+    int binarySearch(ArrayList<Student> argList, int argValue);
 }

@@ -30,9 +30,10 @@ public class BinarySearchRecursive implements IBinarySearch {
             // If element is smaller than mid, then it can only be present in left subarray
             if (x < arr.get(mid).getAge()) {
                 return recursiveSearch(arr, l, mid - 1, x);
+            }else {
+                // Else the element can only be present in right subarray
+                return recursiveSearch(arr, mid + 1, r, x);
             }
-            // Else the element can only be present in right subarray
-            return recursiveSearch(arr, mid + 1, r, x);
         }
         // We reach here when element is not present in array
         return -1;

@@ -22,18 +22,20 @@ import java.util.stream.Collectors;
  * Any resize() operation on ArrayList may degrade the performance of ArrayList since it involves the creation of a new array and then copying the content from the old array to the new array. This operation, therefore, slows down the performance of ArrayList.
  */
 public class ExampleArrayList {
+
     public static void main(String[] args) {
+
         ExampleArrayList instance = new ExampleArrayList();
-        List myStudentList = new ArrayList<>();
-        instance.initStudentList(myStudentList);
+        List<Student> myStudentList = new ArrayList<>();
+        initStudentList(myStudentList);
         instance.printStudentList(myStudentList);
 
         //sorting by age ASC
-        Collections.sort(myStudentList, new ComparatorByAge(SortingType.ASC));
+        myStudentList.sort(new ComparatorByAge(SortingType.ASC));
         instance.printStudentList(myStudentList);
 
         //sorting by age DESC
-        Collections.sort(myStudentList, new ComparatorByAge(SortingType.DESC));
+        myStudentList.sort(new ComparatorByAge(SortingType.DESC));
         instance.printStudentList(myStudentList);
 
         //remove duplicates from arraylist only for String
@@ -62,7 +64,7 @@ public class ExampleArrayList {
 
     }
 
-    public void initStudentList(List argStudent) {
+    public static void initStudentList(List<Student> argStudent) {
         Student student;
         student = new Student("Marc", 50, 95.5f);
         argStudent.add(student);

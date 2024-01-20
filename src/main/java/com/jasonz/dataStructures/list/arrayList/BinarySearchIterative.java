@@ -34,7 +34,7 @@ public class BinarySearchIterative implements IBinarySearch {
             if (argValue > argList.get(mid).getAge()) {
                 left = mid + 1;
             }
-            // If x is smaller, ignore right half
+            // If x is smaller, ignore right half, move to left half
             else {
                 right = mid - 1;
             }

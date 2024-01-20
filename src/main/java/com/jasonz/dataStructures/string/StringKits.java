@@ -35,6 +35,19 @@ public class StringKits {
         System.out.println(StringKits.checkStringNullAndBlank(" "));
     }
 
+    /**
+     * using String.charAt(i), we can easily iterate all characters in a string
+     * @param arg
+     * @return
+     */
+    public static char[] usingCharAt(String arg) {
+        char[] retArray = new char[arg.length()];
+        for (int i = 0; i < arg.length(); i++) {
+            retArray[i] = arg.charAt(i);
+        }
+        return retArray;
+    }
+
     public static boolean checkStringNullAndBlank(String arg){
         return StringUtils.isEmpty(arg);
     }
