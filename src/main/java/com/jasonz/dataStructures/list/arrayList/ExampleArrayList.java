@@ -65,17 +65,14 @@ public class ExampleArrayList {
     }
 
     public static void initStudentList(List<Student> argStudent) {
-        Student student;
-        student = new Student("Marc", 50, 95.5f);
-        argStudent.add(student);
-        student = new Student("Jason", 40, 85.5f);
-        argStudent.add(student);
-        student = new Student("Ryan", 60, 75.5f);
-        argStudent.add(student);
-        student = new Student("Peter", 25, 55.5f);
-        argStudent.add(student);
-        student = new Student("Peter", 25, 55.5f);
-        argStudent.add(student);
+        argStudent.add(new Student("Marc", 50, 95.5f));
+        argStudent.add(new Student("Jason", 40, 85.5f));
+        argStudent.add(new Student("Ryan", 60, 75.5f));
+        argStudent.add(new Student("Peter", 25, 55.5f));
+        argStudent.add(new Student("Sam", 26, 55.5f));
+        argStudent.add(new Student("Jasmine", 16, 155.5f));
+        argStudent.add(new Student("Tori", 36, 155.5f));
+        argStudent.add(new Student("John", 50, 123.34f));
     }
 
     public void printStudentList(List<Student> argStudents) {

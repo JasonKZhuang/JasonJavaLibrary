@@ -1,4 +1,4 @@
-package com.jasonz.algorithms.search;
+package com.jasonz.algorithms.cases;
 
 import java.util.HashMap;
 import java.util.Map;

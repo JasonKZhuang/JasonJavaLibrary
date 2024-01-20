@@ -4,7 +4,12 @@ package com.jasonz.algorithms.search;
  * @author Jason Zhuang
  * @created 2024.01.20 14:55
  * @project JasonJavaLibrary
- * @description:
+ * @description: Ternary search is a searching algorithm that is used to find the position of a target value within a sorted array.
+ * It operates on the principle of dividing the array into three parts instead of two, as in binary search.
+ * The basic idea is to narrow down the search space by comparing the target value with elements at two points that divide the array into three equal parts.
+ *
+ * mid1 = l + (r-l)/3
+ * mid2 = r – (r-l)/3
  */
 public class TernarySearch {
 
