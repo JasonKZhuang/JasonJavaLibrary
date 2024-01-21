@@ -1,12 +1,32 @@
 package com.jasonz.dataStructures.arrary;
 
+import com.jasonz.dataStructures.dto.Product;
+
+import java.util.Random;
+
 /**
  * @author : Jason Zhuang
  * @date : 21/4/2022
  * @description :
  */
 public class ExampleObjectArray {
+
+    public static Product[] initProductsArray(int count) {
+        Product[] retArray = new Product[count];
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            retArray[i] =  Product.builder()
+                    .id(i)
+                    .name("name"+random.nextInt())
+                    .price(random.nextDouble())
+                    .num(random.nextInt())
+                    .build();
+        }
+        return retArray;
+    }
+
     public static void main(String[] args) {
+
         ExampleObjectArray practice = new ExampleObjectArray();
         //
         Product[] products = practice.testObjectArray();

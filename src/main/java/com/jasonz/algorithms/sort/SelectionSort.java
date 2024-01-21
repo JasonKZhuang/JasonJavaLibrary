@@ -7,29 +7,38 @@ package com.jasonz.algorithms.sort;
  * 最佳情况：T(n) = O(n2)  最差情况：T(n) = O(n2)  平均情况：T(n) = O(n2)
  */
 public class SelectionSort {
-    public static void main(String[] args) {
-
-    }
 
     /**
      * 选择排序
-     *
-     * @param array
-     * @return
      */
-    public static int[] selectionSort(int[] array) {
-        if (array.length == 0)
-            return array;
-        for (int i = 0; i < array.length; i++) {
+    public static void selectionSort(int[] argArr) {
+        if (argArr.length == 0)
+            return;
+
+        // loop through all numbers
+        for (int i = 0; i < argArr.length; i++) {
+            // set current element as minimum
             int minIndex = i;
-            for (int j = i; j < array.length; j++) {
-                if (array[j] < array[minIndex]) //找到最小的数
-                    minIndex = j; //将最小数的索引保存
+            // check all rest right element to be minimum
+            for (int j = i+1; j < argArr.length; j++) {
+                // found min value
+                if (argArr[j] < argArr[minIndex]) {
+                    // store the index of min value
+                    minIndex = j;
+                }
             }
-            int temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
+
+            // swap min value and starting value
+            if (minIndex != i) {
+                int temp = argArr[minIndex];
+                argArr[minIndex] = argArr[i];
+                argArr[i] = temp;
+            }
+
         }
-        return array;
     }
+
+
+
+
 }

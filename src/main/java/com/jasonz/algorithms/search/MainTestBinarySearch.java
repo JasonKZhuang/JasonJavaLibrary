@@ -29,7 +29,7 @@ import java.util.List;
  * The Worst Case occurs when the target element is not in the list or it is away from the middle element.
  * So, the time complexity will be O(logN).
  */
-public class BinarySearchMainTest {
+public class MainTestBinarySearch {
 
     public static void main(String[] args) {
         // Define a new Arraylist with student objects
