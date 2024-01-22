@@ -9,7 +9,9 @@ package com.jasonz.algorithms.sort;
 public enum PivotPosition {
     first,
     last,
-    middle,
+    medianOf3,
     random,
-    hoare;
+    hoare,
+    biDirections
+    ;
 }
