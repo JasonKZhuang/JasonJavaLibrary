@@ -1,4 +1,4 @@
-# This library contains all my experienced java programming
+# This library contains all my experienced java programming cases
 # Table of Contents
 1. [Java fundamental programming OOP](src/main/java/com/jasonz/oop)
 2. [java version 8 features](src/main/java/com/jasonz/java8Features)
@@ -12,3 +12,9 @@
 10. [leetcode practice](src/main/java/com/jasonz/leetcode)
 11. [Java Advanced Features](src/main/java/com/jasonz/advancedFeatures)
 
+
+# References:
+1. [geeksforgeeks](https://www.geeksforgeeks.org/java/)
+2. [javatpoint](https://www.javatpoint.com/)
+3. [freecodecamp](https://www.freecodecamp.org/)
+4. [tutorialspoint](https://www.tutorialspoint.com/)
