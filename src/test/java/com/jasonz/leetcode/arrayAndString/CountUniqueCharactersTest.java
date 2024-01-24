@@ -1,9 +1,11 @@
 package com.jasonz.leetcode.arrayAndString;
 
-import junit.framework.TestCase;
-import org.junit.Test;
 
-public class CountUniqueCharactersTest extends TestCase {
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CountUniqueCharactersTest{
     CountUniqueCharacters ins = new CountUniqueCharacters();
 
     @Test

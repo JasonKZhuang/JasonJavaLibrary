@@ -18,7 +18,7 @@ public class MergeSort {
      * @return
      */
     public static int[] sort(int[] array) {
-        if (array.length < 2) {
+        if (array.length < 2 ) {
             return Arrays.copyOfRange(array, 0, array.length);
         }
 
@@ -26,7 +26,8 @@ public class MergeSort {
         int[] left = Arrays.copyOfRange(array, 0, mid);
         int[] right = Arrays.copyOfRange(array, mid, array.length);
 
-        return merge(sort(left), sort(right));
+        // return mergeUsingForLoop(sort(left), sort(right));
+        return mergeUsingWhileLoop(sort(left), sort(right));
     }
 
     /**
@@ -36,12 +37,14 @@ public class MergeSort {
      * @param right
      * @return
      */
-    private static int[] merge(int[] left, int[] right) {
+    private static int[] mergeUsingForLoop(int[] left, int[] right) {
 
         // new merged array to return
         int[] result = new int[left.length + right.length];
+        int i=0; //walking on the left array
+        int j=0; //walking on the right array
 
-        for (int index = 0, i = 0, j = 0; index < result.length; index++) {
+        for (int index = 0; index < result.length; index++) {
             // if left index out of the left length, then put the right value into index
             if (i >= left.length) {
                 result[index] = right[j];
@@ -52,14 +55,48 @@ public class MergeSort {
                 result[index] = left[i];
                 i++;
             }
-            // compare left array[i] to right array[j]
-            else if (left[i] > right[j]) {
+            // compare left array[i] to right array[j], put the smaller into index
+            else if ( right[j] < left[i] ) {
                 result[index] = right[j];
                 j++;
             } else {
                 result[index] = left[i];
                 i++;
             }
+        }
+
+        return result;
+    }
+
+    private static int[] mergeUsingWhileLoop(int[] left, int[] right) {
+
+        // new merged array to return
+        int[] result = new int[left.length + right.length];
+        int i=0; //walking on the left array
+        int j=0; //walking on the right array
+        int k=0; //walking on the result array
+
+        while(i<left.length && j<right.length){
+            if (left[i] <= right[j]){
+                result[k] = left[i];
+                i++;
+            }else {
+                result[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i<left.length){
+            result[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j<right.length){
+            result[k] = right[j];
+            j++;
+            k++;
         }
 
         return result;

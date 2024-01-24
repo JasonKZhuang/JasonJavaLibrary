@@ -1,7 +1,6 @@
 package com.jasonz.algorithms.search;
 
-import com.jasonz.dataStructures.list.Student;
-import com.jasonz.dataStructures.list.arrayList.ExampleArrayList;
+import com.jasonz.dataStructures.objects.Student;
 
 import java.util.ArrayList;
 
@@ -17,18 +16,30 @@ import java.util.ArrayList;
  */
 public class SentinelLinerSearch {
 
-    public static void main(String[] args) {
-        SentinelLinerSearch ins = new SentinelLinerSearch();
-        ArrayList<Student> students = new ArrayList<>();
-        ExampleArrayList.initStudentList(students);
-        int targetAge = 25;
-        System.out.println("============================");
-        System.out.println(ins.search(students, targetAge));
-        System.out.println("============================");
+    public static int search(int[] array, int target) {
+        int len = array.length;
+
+        // Last element of the array
+        int last = array[len - 1];
+
+        // Element to be searched is placed at the last index
+        array[len - 1] = target;
+
+        int i = 0;
+        while (array[i] != target) {
+            i++;
+        }
+
+        // Put the last element back
+        array[len - 1] = last;
+        if (i < len - 1 || last == target) {
+            return i;
+        }
+
+        return -1;
     }
 
-
-    public int search(ArrayList<Student> students, int argAge) {
+    public static int search(ArrayList<Student> students, int argAge) {
         int len = students.size();
 
         // Last element of the array
@@ -36,7 +47,7 @@ public class SentinelLinerSearch {
 
         // Element to be searched is placed at the last index
         Student sentinelStudent = new Student("SentinelStudent", argAge, 0);
-        students.set(len-1, sentinelStudent);
+        students.set(len - 1, sentinelStudent);
 
         int i = 0;
         while (students.get(i).getAge() != argAge) {

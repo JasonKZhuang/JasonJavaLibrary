@@ -1,5 +1,7 @@
 package com.jasonz.algorithms.sort;
 
+import lombok.Data;
+
 import java.util.Random;
 
 /**
@@ -23,8 +25,8 @@ public class QuickSort {
      * Worst Case: O(N^2) or  O(N * logN)
      * Auxiliary Space: O(1)
      */
-    public static void quickSort(int[] argArray, int startIndex, int endIndex, String argPivotPosition) {
-        if (argArray.length < 1
+    public static void sort(int[] argArray, int startIndex, int endIndex, String argPivotPosition) {
+        if (argArray.length <= 1
                 || startIndex < 0
                 || endIndex >= argArray.length
                 || startIndex >= endIndex) {
@@ -32,6 +34,7 @@ public class QuickSort {
         }
         // idx is index of pivot element which is at its sorted position
         int idx = 0;
+        Pivot pivot = new Pivot(0, 0);
         switch (argPivotPosition) {
             case "first" -> idx = partitionPivotFirst(argArray, startIndex, endIndex);
             case "last" -> idx = partitionPivotLast(argArray, startIndex, endIndex);
@@ -51,24 +54,28 @@ public class QuickSort {
 
             case "biDirections" -> idx = partitionBiDirection(argArray, startIndex, endIndex);
 
+            case "dualPivot" -> pivot = partitionDualPivot(argArray, startIndex, endIndex);
+
             default -> throw new IllegalArgumentException("Invalid pivot position: " + argPivotPosition
                     + ". It should be one of first,last,middle,random");
         }
 
         // if it is hoare partition scheme
         if (argPivotPosition.equals(PivotPosition.hoare.name())) {
-            if (startIndex < endIndex) {
-                // Separately sort elements before partition and after partition
-                quickSort(argArray, startIndex, idx, PivotPosition.hoare.name());
-                quickSort(argArray, idx + 1, endIndex, PivotPosition.hoare.name());
-            }
+            // Separately sort elements before partition and after partition
+            sort(argArray, startIndex, idx, PivotPosition.hoare.name());
+            sort(argArray, idx + 1, endIndex, PivotPosition.hoare.name());
+        } else if (argPivotPosition.equals(PivotPosition.dualPivot.name())) {
+            sort(argArray, startIndex, pivot.left - 1, PivotPosition.dualPivot.name());
+            sort(argArray, pivot.left + 1, pivot.right - 1, PivotPosition.dualPivot.name());
+            sort(argArray, pivot.right + 1, endIndex, PivotPosition.dualPivot.name());
         } else {
             // Separately sort elements before partition and after partition
             if (idx > startIndex)
-                quickSort(argArray, startIndex, idx - 1, argPivotPosition);
+                sort(argArray, startIndex, idx - 1, argPivotPosition);
 
             if (idx < endIndex)
-                quickSort(argArray, idx + 1, endIndex, argPivotPosition);
+                sort(argArray, idx + 1, endIndex, argPivotPosition);
         }
     }
 
@@ -301,6 +308,56 @@ public class QuickSort {
         return lPointer;
     }
 
+    private static Pivot partitionDualPivot(int[] argArray, int lowIndex, int highIndex) {
+
+        // if left value is greater than right, then swap
+        if (argArray[lowIndex] > argArray[highIndex]) {
+            swap(argArray, lowIndex, highIndex);
+        }
+
+        // p is the left pivot, and q  is the right pivot.
+        int pivotValueLeft = argArray[lowIndex];
+        int pivotValueRight= argArray[highIndex];
+
+        // split array to three parts
+        // the left part contains all elements which are smaller than the left pivot
+        // the middle part contains all elements which are >= the left pivot, and <= right pivot
+        // the right part contains all elements which are larger than the right pivot
+        int lowPointer = lowIndex + 1;
+        int highPointer = highIndex - 1;
+        int i = lowIndex + 1;
+
+        while (i <= highPointer){
+            // If elements are less than the left pivot
+            if (argArray[i] < pivotValueLeft)  {
+                swap(argArray, i, lowPointer);
+                lowPointer++;
+            }else if (argArray[i] >= pivotValueRight){
+                while (argArray[highPointer] > pivotValueRight && i < highPointer) {
+                    highPointer --;
+                }
+                swap(argArray, i, highPointer);
+                highPointer --;
+
+                if (argArray[i] < pivotValueLeft) {
+                    swap(argArray, i, lowPointer);
+                    lowPointer ++;
+                }
+            }
+            i++;
+        }
+
+        // when all elements are grouped,
+        // we swap the left pivot to the end of left array
+        // we swap the right pivot to the start of right array
+        swap(argArray, lowIndex, --lowPointer);
+        swap(argArray, highIndex,++highPointer);
+
+        // return Pivot value then recursively run this algorithm
+        return new Pivot(lowPointer, highPointer);
+
+    }
+
     private static void swap(int[] argArray, int i, int j) {
         if (i != j) {
             int temp = argArray[i];
@@ -328,5 +385,11 @@ public class QuickSort {
             argArray[l] = argArray[m];
             argArray[m] = temp;
         }
+    }
+
+    @Data
+    private static class Pivot {
+        private final int left;
+        private final int right;
     }
 }

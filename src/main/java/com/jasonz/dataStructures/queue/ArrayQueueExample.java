@@ -1,6 +1,6 @@
 package com.jasonz.dataStructures.queue;
 
-import com.jasonz.dataStructures.dto.Product;
+import com.jasonz.dataStructures.objects.Product;
 
 import java.util.ArrayDeque;
 

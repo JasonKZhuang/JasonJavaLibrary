@@ -1,7 +1,8 @@
 package com.jasonz.dataStructures.list.arrayList;
 
 import com.jasonz.dataStructures.list.SortingType;
-import com.jasonz.dataStructures.list.Student;
+import com.jasonz.dataStructures.objects.Student;
+import com.jasonz.dataStructures.objects.StudentManager;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -27,16 +28,16 @@ public class ExampleArrayList {
 
         ExampleArrayList instance = new ExampleArrayList();
         List<Student> myStudentList = new ArrayList<>();
-        initStudentList(myStudentList);
-        instance.printStudentList(myStudentList);
+        StudentManager.initStudentList(myStudentList,100);
+        StudentManager.printStudent(myStudentList);
 
         //sorting by age ASC
         myStudentList.sort(new ComparatorByAge(SortingType.ASC));
-        instance.printStudentList(myStudentList);
+        StudentManager.printStudent(myStudentList);
 
         //sorting by age DESC
         myStudentList.sort(new ComparatorByAge(SortingType.DESC));
-        instance.printStudentList(myStudentList);
+        StudentManager.printStudent(myStudentList);
 
         //remove duplicates from arraylist only for String
         List<String> strList = new ArrayList<>();
@@ -51,35 +52,16 @@ public class ExampleArrayList {
         // Using Iterator method remove duplicates from arraylist for Student object
         // in which override equal() method
         List<Student> newStudents1 = instance.removeDuplicates(myStudentList);
-        instance.printStudentList(newStudents1);
+        StudentManager.printStudent(newStudents1);
 
         // Using LinkedHashSet method remove duplicates from arraylist for Student object
         List<Student> newStudents2 = instance.removeDuplicatesWithSet(myStudentList);
-        instance.printStudentList(newStudents2);
+        StudentManager.printStudent(newStudents2);
 
         // Using Stream distinct() method remove duplicates from arraylist for Student object
         List<Student> newStudents3 = instance.removeDuplicatesWithStream(myStudentList);
-        instance.printStudentList(newStudents3);
+        StudentManager.printStudent(newStudents3);
 
-
-    }
-
-    public static void initStudentList(List<Student> argStudent) {
-        argStudent.add(new Student("Marc", 50, 95.5f));
-        argStudent.add(new Student("Jason", 40, 85.5f));
-        argStudent.add(new Student("Ryan", 60, 75.5f));
-        argStudent.add(new Student("Peter", 25, 55.5f));
-        argStudent.add(new Student("Sam", 26, 55.5f));
-        argStudent.add(new Student("Jasmine", 16, 155.5f));
-        argStudent.add(new Student("Tori", 36, 155.5f));
-        argStudent.add(new Student("John", 50, 123.34f));
-    }
-
-    public void printStudentList(List<Student> argStudents) {
-        for (Student student : argStudents) {
-            System.out.println(student.toString());
-        }
-        System.out.println();
     }
 
     public List<String> removeDuplicatesForString(List<String> argList) {

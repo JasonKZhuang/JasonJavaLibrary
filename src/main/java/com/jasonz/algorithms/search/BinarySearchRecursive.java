@@ -1,6 +1,6 @@
-package com.jasonz.dataStructures.list.arrayList;
+package com.jasonz.algorithms.search;
 
-import com.jasonz.dataStructures.list.Student;
+import com.jasonz.dataStructures.objects.Student;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,12 @@ import java.util.ArrayList;
 public class BinarySearchRecursive implements IBinarySearch {
 
     @Override
-    public int binarySearch(ArrayList<Student> argList, int argValue) {
+    public int search(int[] argArray, int targetValue) {
+        return 0;
+    }
+
+    @Override
+    public int search(ArrayList<Student> argList, int argValue) {
         int l = 0;
         int r = argList.size();
         return recursiveSearch(argList, l, r, argValue);

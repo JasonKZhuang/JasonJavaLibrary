@@ -1,6 +1,6 @@
 package com.jasonz.dataStructures.collection.compare;
 
-import com.jasonz.dataStructures.dto.Movie;
+import com.jasonz.dataStructures.objects.Movie;
 
 import java.util.Comparator;
 

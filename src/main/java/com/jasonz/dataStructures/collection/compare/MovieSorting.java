@@ -1,7 +1,7 @@
 package com.jasonz.dataStructures.collection.compare;
 
-import com.jasonz.dataStructures.dto.Movie;
-import com.jasonz.dataStructures.dto.MovieUtils;
+import com.jasonz.dataStructures.objects.Movie;
+import com.jasonz.dataStructures.objects.MovieManager;
 
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public class MovieSorting {
 
     public static void main(String[] args) {
-        List<Movie> list = MovieUtils.getMovies();
+        List<Movie> list = MovieManager.getMovies();
 
         // Sort by rating :
         // (1) Create an object of ratingCompare

@@ -1,6 +1,7 @@
 package com.jasonz.dataStructures.arrary;
 
-import com.jasonz.dataStructures.dto.Product;
+import com.jasonz.dataStructures.objects.Product;
+import com.jasonz.dataStructures.objects.ProductManager;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -18,15 +19,10 @@ public class ExampleSimpleArray {
     private String[] names2;
 
     //二维数组声明
-    private int[][] x;
+    private int[][] arr2D;
 
     //声明数组时候不能指定数组长度,以下是错误的
     //private int a[5];
-
-    public static void main(String[] args) {
-        ExampleSimpleArray obj = new ExampleSimpleArray();
-        obj.exampleArray();
-    }
 
     public static int[] initArray(int count) {
         int[] retArray = new int[count];
@@ -37,64 +33,20 @@ public class ExampleSimpleArray {
         return retArray;
     }
 
-    private void exampleArray() {
-        //创建数组对象
-        //数组声明
-        int[] scores = new int[100];
-        scores[0] = 100;
-
-        //数组长度用变量表示
-        int size = 100;
-        int[] scores2 = new int[size];
-
-        //数组对象引用, they point to the same array address
-        scores2 = scores;
-
-        System.out.println("scores[0]=" + scores[0]);
-        System.out.println("scores2[0]=" + scores2[0]);
-        // change the value of one array, the other array's value also changed,
-        // because they point to the same memory address
-        scores2[0] = 200;
-        System.out.println("scores[0]=" + scores[0]);
-        System.out.println("scores2[0]=" + scores2[0]);
-        System.out.println("scores2.equals(scores) is " + scores2.equals(scores));
-
-        //数组初始化
-        int[] scores3 = new int[]{1, 2, 3, 4, 5};
-        for (int k : scores3) {
-            System.out.println(k);
-        }
-
-        //多维数组
-        String[][] rooms = new String[3][];//三层楼,每层楼有不同的房间数
-        //initial the first dimension
-        rooms[0] = new String[5];
-        rooms[1] = new String[4];
-        rooms[2] = new String[3];
-
-        //initial the second dimension
-        rooms[0][0] = "Tom";
-        rooms[0][4] = "Jemmy";
-        rooms[1][0] = "Karen Marsh";
-        rooms[1][3] = "Dim work";
-        rooms[2][0] = "Chris";
-        rooms[2][2] = "Linda";
-
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms[i].length; j++) {
-                System.out.println("rooms[" + i + "][" + j + "] is " + rooms[i][j]);
+    public static void printArray(int[] argArray) {
+        for (int i = 0; i < argArray.length; i++) {
+            if (i != 0 && i % 10 == 0) {
+                System.out.println();
             }
+            System.out.printf("%10d | ", argArray[i]);
         }
+        System.out.println();
     }
 
     private void usingArraysMethods() {
         int[] myArray = initArray(100);
 
-        // sorting an integer array
-        Arrays.sort(myArray);
 
-        // sorting parts of an integer array
-        Arrays.sort(myArray, 5, 10);
 
         /**
          * The array must be sorted (as by the sort(int[]) method) prior to making this call.
@@ -120,7 +72,7 @@ public class ExampleSimpleArray {
 
 
         // sorting objects array
-        Product[] products = ExampleObjectArray.initProductsArray(100);
+        Product[] products = ProductManager.initProductsArray(100);
         Arrays.sort(products, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {

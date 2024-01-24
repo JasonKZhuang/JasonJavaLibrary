@@ -1,4 +1,4 @@
-package com.jasonz.dataStructures.list;
+package com.jasonz.dataStructures.objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +12,9 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 public class Student {
-    String name;
-    int age;
-    float marks;
+    private String name;
+    private int age;
+    private float marks;
 
     // Overriding equals() to compare two Complex objects
     @Override
@@ -35,10 +35,10 @@ public class Student {
         if (getClass() != obj.getClass())
             return false;
 
-        Student student = (Student) obj;
-        if (student.getName().equals(name)
-                && student.getMarks() == marks
-                && student.getAge() == age) {
+        Student s = (Student) obj;
+        if (s.getName().equals(name)
+                && s.getMarks() == marks
+                && s.getAge() == age) {
             return true;
         } else {
             return false;

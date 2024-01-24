@@ -1,4 +1,4 @@
-package com.jasonz.dataStructures.dto;
+package com.jasonz.dataStructures.objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
  * @project JasonJavaLibrary
  * @description:
  */
-public class MovieUtils {
+public class MovieManager {
 
     public static List<Movie> getMovies(){
         List<Movie> movies = new ArrayList<>();

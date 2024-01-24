@@ -1,6 +1,6 @@
 package com.jasonz.dataStructures.list.arrayList;
 
-import com.jasonz.dataStructures.list.Student;
+import com.jasonz.dataStructures.objects.Student;
 
 import java.util.Comparator;
 

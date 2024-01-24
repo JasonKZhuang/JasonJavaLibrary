@@ -3,7 +3,9 @@ package com.jasonz.leetcode.arrayAndString;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-public class StringToIntegerTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class StringToIntegerTest {
     StringToInteger ins = new StringToInteger();
 
     @Test

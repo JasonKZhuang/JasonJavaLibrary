@@ -12,6 +12,7 @@ public enum PivotPosition {
     medianOf3,
     random,
     hoare,
-    biDirections
+    biDirections,
+    dualPivot
     ;
 }

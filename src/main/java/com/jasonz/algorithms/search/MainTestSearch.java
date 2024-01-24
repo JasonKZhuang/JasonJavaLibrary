@@ -1,42 +1,77 @@
 package com.jasonz.algorithms.search;
 
+import com.jasonz.algorithms.sort.InsertionSort;
+import com.jasonz.dataStructures.arrary.ExampleSimpleArray;
 import com.jasonz.dataStructures.list.SortingType;
-import com.jasonz.dataStructures.list.Student;
-import com.jasonz.dataStructures.list.arrayList.*;
+import com.jasonz.dataStructures.objects.Student;
+import com.jasonz.dataStructures.list.arrayList.ComparatorByAge;
+import com.jasonz.dataStructures.list.arrayList.ExampleArrayList;
+import com.jasonz.dataStructures.objects.StudentManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-
 /**
- * @author : Jason Zhuang
- * @date : 21/4/2022
- * @description :
- * do binary search with three ways
- * Iterative
- * Recursive
- * Collections Built-in
- * <p>
- * Time Complexity Analysis
- * The Best Case occurs when the target element is the middle element of the array.
- * The number of comparisons, in this case, is 1. So, the time complexity is O(1).
- * <p>
- * The Average Case: On average, the target element will be somewhere in the array.
- * So, the time complexity will be O(logN).
- * <p>
- * The Worst Case occurs when the target element is not in the list or it is away from the middle element.
- * So, the time complexity will be O(logN).
+ * @author Jason Zhuang
+ * @created 2024.01.24 16:12
+ * @project JasonJavaLibrary
+ * @description:
+ *  * do binary search with three ways
+ *  * Iterative
+ *  * Recursive
+ *  * Collections Built-in
+ *  * <p>
+ *  * Time Complexity Analysis
+ *  * The Best Case occurs when the target element is the middle element of the array.
+ *  * The number of comparisons, in this case, is 1. So, the time complexity is O(1).
+ *  * <p>
+ *  * The Average Case: On average, the target element will be somewhere in the array.
+ *  * So, the time complexity will be O(logN).
+ *  * <p>
+ *  * The Worst Case occurs when the target element is not in the list or it is away from the middle element.
+ *  * So, the time complexity will be O(logN).
  */
-public class MainTestBinarySearch {
+public class MainTestSearch {
 
     public static void main(String[] args) {
+        int[] myArray = ExampleSimpleArray.initArray(10);
+        int target = 999;
+
+        // linear search algorithms
+        // System.out.println(LinearSearch.search(myArray,target));
+        // System.out.println(SentinelLinerSearch.search(myArray,target));
+
+        // binary search algorithms
+        binarySearchInteger();
+
+        // showing how to use Arrays feature functions,
+        // including Arrays.sort() and Arrays.binarySearch()
+        //usingArraysFeatureFunctions();
+
+    }
+
+    private static void binarySearchInteger(){
+        int[] tempArray = ExampleSimpleArray.initArray(100);
+        int target = 79;
+        InsertionSort.sort(tempArray);
+
+        IBinarySearch binarySearch1 = new BinarySearchIterative();
+        IBinarySearch binarySearch2 = new BinarySearchRecursive();
+        IBinarySearch binarySearch3 = new BinarySearchBuiltIn();
+
+        int idx1 = binarySearch1.search(tempArray,target);
+        System.out.println(idx1);
+
+    }
+
+    private static void binarySearchStudent(){
         // Define a new Arraylist with student objects
         ArrayList<Student> students = new ArrayList<Student>();
 
         // Example ArrayList Instance, initialize students values
-        ExampleArrayList.initStudentList(students);
+        StudentManager.initStudentList(students, 100);
 
         // sorting the student list before executing binary search
         students.sort(new ComparatorByAge(SortingType.ASC));
@@ -48,9 +83,9 @@ public class MainTestBinarySearch {
         IBinarySearch binarySearch3 = new BinarySearchBuiltIn();
 
         // press command + T, or command + option + B, shortcuts
-        int idx1 = binarySearch1.binarySearch(students, searchAge);
-        int idx2 = binarySearch2.binarySearch(students, searchAge);
-        int idx3 = binarySearch3.binarySearch(students, searchAge);
+        int idx1 = binarySearch1.search(students, searchAge);
+        int idx2 = binarySearch2.search(students, searchAge);
+        int idx3 = binarySearch3.search(students, searchAge);
 
         // print value idx1
         if (idx1 >= 0) {
@@ -73,10 +108,6 @@ public class MainTestBinarySearch {
         } else {
             System.out.println("no value found");
         }
-
-        // showing how to use Arrays feature functions,
-        // including Arrays.sort() and Arrays.binarySearch()
-        usingArraysFeatureFunctions();
     }
 
     private static void usingArraysFeatureFunctions() {
@@ -94,7 +125,7 @@ public class MainTestBinarySearch {
         int fromIndex = 1;
         int toIndex = 3;
         List<Student> studentList = new ArrayList<>();
-        ExampleArrayList.initStudentList(studentList);
+        StudentManager.initStudentList(studentList,100);
 
         Arrays.sort(studentList.toArray(new Student[]{}), fromIndex, toIndex,
                 Comparator.comparingInt(Student::getAge)
