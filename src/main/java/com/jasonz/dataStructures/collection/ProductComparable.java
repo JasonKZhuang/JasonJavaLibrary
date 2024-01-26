@@ -8,12 +8,15 @@ import com.jasonz.dataStructures.objects.Product;
  * @description :
  */
 public class ProductComparable extends Product implements Comparable<Product>{
+
     @Override
     public int compareTo(Product obj) {
-        Integer selfId = Integer.valueOf(this.getId());
-        Integer againstId = Integer.valueOf(obj.getId());
+        Integer selfId = this.getId();
+        Integer againstId = obj.getId();
+
         // return selfId.compareTo(againstId); //ASC
         return againstId.compareTo(selfId); //DESC
+
         //return -1< o < 1
     }
 }

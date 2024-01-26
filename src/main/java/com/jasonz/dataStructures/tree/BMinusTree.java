@@ -1,4 +1,4 @@
-package com.jasonz.algorithms;
+package com.jasonz.dataStructures.tree;
 
 /**
  * @author : Jason Zhuang

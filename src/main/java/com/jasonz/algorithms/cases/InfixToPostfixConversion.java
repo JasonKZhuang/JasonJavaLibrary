@@ -1,4 +1,4 @@
-package com.jasonz.algorithms;
+package com.jasonz.algorithms.cases;
 
 /*
     Java implementation to convert infix expression to postfix

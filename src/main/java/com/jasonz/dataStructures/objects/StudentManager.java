@@ -2,7 +2,6 @@ package com.jasonz.dataStructures.objects;
 
 import com.github.javafaker.Faker;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -29,15 +28,24 @@ public class StudentManager {
     }
 
     public static void initStudentList(List<Student> argStudent, int count) {
-        Student[] students = new Student[count];
-        initStudentArray(students, count);
-        argStudent = Arrays.asList(students);
+        Faker faker = new Faker();
+        Random random1 = new Random();
+        Random random2 = new Random();
+        for (int i = 0; i < count; i++) {
+            Student student = new Student(
+                    faker.name().firstName() + " " + faker.name().lastName(),
+                    random1.nextInt(100),
+                    random2.nextFloat() * 100
+            );
+            argStudent.add(student);
+        }
     }
 
     public static void printStudent(List<Student> argStudents) {
         for (Student student : argStudents) {
             System.out.println(student.toString());
         }
+        System.out.println("======================================================================");
     }
 
     public static void printStudent(Student[] argStudents) {

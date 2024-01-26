@@ -8,5 +8,13 @@ package com.jasonz.utilities;
 public class Example {
 
 
+    public static void main(String[] args) {
+        double v = 3.3;
+        System.out.println(Math.floor(v));
+        System.out.println(Math.ceil(v));
 
+        v = -3.3;
+        System.out.println(Math.floor(v));
+        System.out.println(Math.ceil(v));
+    }
 }

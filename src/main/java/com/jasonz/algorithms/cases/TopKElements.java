@@ -1,4 +1,4 @@
-package com.jasonz.algorithms;
+package com.jasonz.algorithms.cases;
 
 import com.jasonz.algorithms.sort.InsertionSort;
 import com.jasonz.algorithms.sort.MergeSort;

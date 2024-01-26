@@ -10,6 +10,7 @@ package com.jasonz.leetcode;
  * The same letter cell may not be used more than once.
  */
 public class WordSearchFromMatrix {
+
     // check vertically and horizontally for next char
     // if found it, and not in the temp map, put the char into a map, and keep going
     // if any char cannot be found neighbour, then return false, keep loop until the before last char

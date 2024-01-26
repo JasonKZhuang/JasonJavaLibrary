@@ -1,4 +1,4 @@
-package com.jasonz.algorithms;
+package com.jasonz.algorithms.cases;
  
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

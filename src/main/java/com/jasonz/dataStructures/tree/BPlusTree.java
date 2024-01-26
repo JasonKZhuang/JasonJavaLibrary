@@ -1,4 +1,4 @@
-package com.jasonz.algorithms;
+package com.jasonz.dataStructures.tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;

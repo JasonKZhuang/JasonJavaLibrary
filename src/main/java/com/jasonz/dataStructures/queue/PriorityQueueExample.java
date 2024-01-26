@@ -12,34 +12,54 @@ import java.util.PriorityQueue;
  */
 public class PriorityQueueExample {
 
-    // priority Queue is a ASC default, but can be changed by the comparable interface
+    // priority Queue is an ASC default, but can be changed by the comparable interface
     public void testingPriorityQueue() {
-        PriorityQueue priorityQueue = new PriorityQueue();
-        // construct Custom Objects, product, queue
-        // so the product much implement Comparable interface
-        for (int i = 0; i < 10; i++) {
-            ProductComparable product = new ProductComparable();
-            product.setId(i);
-            product.setName("name:" + i);
-            priorityQueue.offer(product);
-        }
-        // construct int value queue
-        // priorityQueue.offer(5);
-        // priorityQueue.offer(-1);
-        // priorityQueue.offer(3);
-        // priorityQueue.offer(7);
+
+        PriorityQueue<ProductComparable> priorityQueue = initProductsQueue();
 
         //see the sequence of priority queue
-        System.out.println("队列输出：" + priorityQueue);
+        System.out.println("Present 队列：" + priorityQueue);
 
-        //using peek() to get the head element,but not remove the element
+        // using peek() to get the head element,but not remove the element
+        // Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
         System.out.println("peek() to get the head of queue:" + priorityQueue.peek());
+        System.out.println("Present 队列：" + priorityQueue);
+
+        //using element() to get the head element,but not remove the element
+        //Retrieves, but does not remove, the head of this queue.
+        // This method differs from peek only in that it throws an exception if this queue is empty.
+        System.out.println("element() to get the head of queue:" + priorityQueue.element());
+        System.out.println("Present 队列：" + priorityQueue);
 
         //see the first element which is the smallest one
+        // poll()
+        // Retrieves and removes the head of this queue, or returns null if this queue is empty.
         System.out.println("第一个队列元素出队：" + priorityQueue.poll());
         System.out.println("第二个队列元素出队：" + priorityQueue.poll());
         System.out.println("第三个队列元素出队：" + priorityQueue.poll());
         System.out.println("第四个队列元素出队：" + priorityQueue.poll());
-        System.out.println("null队列：" + priorityQueue.poll());
+
+    }
+
+    private static PriorityQueue<ProductComparable> initProductsQueue() {
+
+        PriorityQueue<ProductComparable> priorityQueue = new PriorityQueue<>();
+
+        // construct Custom Objects, product, queue
+        // so the product much implement Comparable interface
+        int i= 0;
+        for ( i = 0; i < 10; i++) {
+            ProductComparable product = new ProductComparable();
+            product.setId(i);
+            product.setName("name:" + i);
+            // using offer method to add element
+            priorityQueue.offer(product);
+        }
+        // using add method to add element
+        ProductComparable product = new ProductComparable();
+        product.setId(i);
+        product.setName("name:" + i);
+        priorityQueue.add(product);
+        return priorityQueue;
     }
 }

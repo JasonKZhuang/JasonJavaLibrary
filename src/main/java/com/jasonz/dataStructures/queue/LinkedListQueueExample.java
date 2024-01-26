@@ -25,6 +25,7 @@ public class LinkedListQueueExample {
      * 但是在插入、删除的时候性能比较好（只需要改变指针所指的地址就行）
      */
     public void testingLinkedList() {
+
         //add()和remove()方法在失败的时候会抛出异常(不推荐)
         LinkedList<Product> products = new LinkedList<Product>();
         //添加元素

@@ -6,7 +6,7 @@ package com.jasonz.algorithms.cases;
  * @project JasonJavaLibrary
  * @description:
  */
-public class BinarySearchTreePractice {
+public class BinarySearchPractice {
 
 
     public static void main(String[] args) {

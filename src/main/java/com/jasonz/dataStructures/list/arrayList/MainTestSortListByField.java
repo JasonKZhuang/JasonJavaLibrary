@@ -1,6 +1,7 @@
 package com.jasonz.dataStructures.list.arrayList;
 
 import com.jasonz.dataStructures.objects.Student;
+import com.jasonz.dataStructures.objects.StudentManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,22 +15,16 @@ import java.util.List;
 public class MainTestSortListByField {
 
     public static void main(String[] args) {
-        List<Student> studentlst = new ArrayList<Student>();
-
-        studentlst.add(new Student("Jason", 1, 80));
-        studentlst.add(new Student("Bob", 2, 100));
-        studentlst.add(new Student("Anny", 3, 95));
+        List<Student> students = new ArrayList<>();
+        StudentManager.initStudentList(students,10);
 
         System.out.println("** Before sorting **:");
-        for (Student student : studentlst) {
-            System.out.println(student);
-        }
-        Collections.sort(studentlst, new ComparatorByName());
+        StudentManager.printStudent(students);
+
+        students.sort(new ComparatorByName());
 
         System.out.println("** After sorting **");
-        for (Student student : studentlst) {
-            System.out.println(student);
-        }
+        StudentManager.printStudent(students);
 
     }
 
