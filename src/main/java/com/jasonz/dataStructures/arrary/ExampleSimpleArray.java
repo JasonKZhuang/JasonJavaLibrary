@@ -1,7 +1,7 @@
 package com.jasonz.dataStructures.arrary;
 
-import com.jasonz.dataStructures.objects.Product;
-import com.jasonz.dataStructures.objects.ProductManager;
+import com.jasonz.dto.Product;
+import com.jasonz.dto.ProductManager;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -44,9 +44,8 @@ public class ExampleSimpleArray {
     }
 
     private void usingArraysMethods() {
+
         int[] myArray = initArray(100);
-
-
 
         /**
          * The array must be sorted (as by the sort(int[]) method) prior to making this call.

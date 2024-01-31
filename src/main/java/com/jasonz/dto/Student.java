@@ -1,4 +1,4 @@
-package com.jasonz.dataStructures.objects;
+package com.jasonz.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

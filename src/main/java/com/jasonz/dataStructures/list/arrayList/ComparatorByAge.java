@@ -1,7 +1,7 @@
 package com.jasonz.dataStructures.list.arrayList;
 
 import com.jasonz.dataStructures.list.SortingType;
-import com.jasonz.dataStructures.objects.Student;
+import com.jasonz.dto.Student;
 
 import java.util.Comparator;
 

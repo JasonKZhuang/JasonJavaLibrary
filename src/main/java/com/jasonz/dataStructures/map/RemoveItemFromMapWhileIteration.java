@@ -24,9 +24,13 @@ public class RemoveItemFromMapWhileIteration {
         priceMap.put("Java SE 8 for Really Impatient", 31.99);
         priceMap.put("Head First Design Pattern", 39.05);
 
+        removeItemFromMapWhileIteration(priceMap);
+    }
+
+    public static void removeItemFromMapWhileIteration(Map<String, Double> argMap){
         // let's remove all books which are greater than 39.00 USD from map
         // get a set of entries
-        Set<Entry<String, Double>> setOfEntries = priceMap.entrySet();
+        Set<Entry<String, Double>> setOfEntries = argMap.entrySet();
 
         // get the iterator from entry set
         Iterator<Entry<String, Double>> iterator = setOfEntries.iterator();

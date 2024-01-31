@@ -11,12 +11,13 @@ import java.util.List;
  * @description :
  * Linked List is a linear data structure where the elements are not stored in contiguous locations,
  * and every element is a separate object with a data part and address part.
+ *
  * The elements are linked using pointers and addresses.
  * Each element is known as a node.
  * Due to the dynamite and ease of insertions and deletions, they are preferred over the arrays.
  * <p>
  * It also has a few disadvantages like the nodes cannot be accessed directly,
- * instead we need to start from the head and follow through the link to reach a node we wish to access.
+ * we need to start from the head and follow through the link to reach a node we wish to access.
  * <p>
  * LinkedList should be used where modifications to a collection are frequent like addition/deletion operations.
  * LinkedList is much faster as compare to ArrayList in such cases.
@@ -25,6 +26,7 @@ import java.util.List;
 public class MainTestLinkedList {
 
     public static void main(String[] args) {
+
         MainTestLinkedList myInstance = new MainTestLinkedList();
 
         // Creating object of the class linked list

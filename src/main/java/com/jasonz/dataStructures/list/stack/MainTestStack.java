@@ -24,7 +24,5 @@ public class MainTestStack {
         // compare stack to dqueue
         ArrayDequeExample.compareStackAndDequeue();
 
-
-
     }
 }

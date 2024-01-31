@@ -11,10 +11,8 @@ package com.jasonz.dataStructures.list.vector;
  *
  * Vectors are synchronised, ArrayLists are not. This means that if you plan on using concurrency (i.e. threads),
  * then Vectors would be more appropriate.
- * Vector class is synchronised,whereas ARRAYList class is not synchorized
  *
- * The Vector class is thread-safe. Meaning that it is synchronized,
- * so you won't get a ConcurrentModificationException if you have multiple threads.
+ * The Vector class is thread-safe. Meaning that it is synchronized, so you won't get a ConcurrentModificationException if you have multiple threads.
  * However, if you are working in a single-thread environment, use ArrayList to decrease overhead.
  *
  */

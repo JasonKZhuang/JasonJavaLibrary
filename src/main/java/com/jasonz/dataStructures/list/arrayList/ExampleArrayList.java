@@ -1,8 +1,8 @@
 package com.jasonz.dataStructures.list.arrayList;
 
 import com.jasonz.dataStructures.list.SortingType;
-import com.jasonz.dataStructures.objects.Student;
-import com.jasonz.dataStructures.objects.StudentManager;
+import com.jasonz.dto.Student;
+import com.jasonz.dto.StudentManager;
 
 import java.util.*;
 import java.util.stream.Collectors;

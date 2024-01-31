@@ -1,6 +1,7 @@
-package com.jasonz.dataStructures.objects;
+package com.jasonz.dto;
 
 import com.github.javafaker.Faker;
+import com.jasonz.dto.Student;
 
 import java.util.List;
 import java.util.Random;

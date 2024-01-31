@@ -1,7 +1,7 @@
 package com.jasonz.dataStructures.collection.compare;// A Java program to demonstrate use of Comparable
 
-import com.jasonz.dataStructures.objects.Movie;
-import com.jasonz.dataStructures.objects.MovieManager;
+import com.jasonz.dto.Movie;
+import com.jasonz.dto.MovieManager;
 
 import java.util.Collections;
 import java.util.List;

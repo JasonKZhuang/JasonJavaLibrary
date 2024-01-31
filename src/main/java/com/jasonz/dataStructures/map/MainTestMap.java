@@ -1,5 +1,7 @@
 package com.jasonz.dataStructures.map;
 
+import com.jasonz.utilities.GenerateExampleData;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -35,55 +37,53 @@ public class MainTestMap {
 
     public static void main(String[] args) {
         MainTestMap instance = new MainTestMap();
-        // instance.testingHashTable();
-        // instance.testingHashMap();
-//        instance.testingTreeMap();
+        instance.testingHashMap();
+        instance.testingConcurrentHashMap();
+        instance.testingLinkedHashMap();
+        instance.testingTreeMap();
         instance.testingTreeMapObjectKey();
-    }
-
-    // Hashtable is synchronized. It is thread-safe and can be shared with many threads.
-    private void testingHashTable() {
-        //----------hashtable -------------------------
-        Hashtable<Integer, String> ht = new Hashtable<Integer, String>();
-        ht.put(101, "Vijay");
-        ht.put(102, "Ravi");
-        ht.put(103, "Rahul");
-        ht.put(100, "Marc");
-        ht.put(101, "Jason");
-        System.out.println("-------------Hash table--------------");
-        for (Map.Entry m : ht.entrySet()) {
-            System.out.println(m.getKey() + " " + m.getValue());
-        }
-
-        // No need to mention the Generic type twice
-        Hashtable<Integer, String> ht1 = new Hashtable<>(5);
-        // Inserting the Elements using put() method
-        for (int i = 0; i < 15; i++) {
-            ht1.put(i, "value of index " + i);
-        }
-
-        ht1.remove(1);
-
-        System.out.println("-------------Hash table--------------");
-        for (Map.Entry m : ht1.entrySet()) {
-            System.out.println(m.getKey() + " " + m.getValue());
-        }
+        instance.testingHashTable();
+        instance.testingTreeMapNaturalOrdering();
+        instance.testingTreeMapComparator();
+        //RemoveItemFromMapWhileIteration.removeItemFromMapWhileIteration(argMap);
     }
 
     // HashMap is non-synchronized.
     // It is not thread-safe and can’t be shared between many threads without proper synchronization code,
     private void testingHashMap() {
         //----------------hashmap--------------------------------
-        HashMap<Integer, String> hm = new HashMap<Integer, String>();
-        hm.put(100, "Amit");
-        hm.put(104, "Amit");
-        hm.put(101, "Vijay");
-        hm.put(102, "Rahul");
-        hm.put(100, "Tom");
-        System.out.println("-----------Hash map-----------");
-        for (Map.Entry m : hm.entrySet()) {
+        HashMap<Integer, String> myMap = new HashMap<>();
+        GenerateExampleData.generateMap(myMap, true);
+
+        for (Map.Entry<Integer,String> m : myMap.entrySet()) {
             System.out.println(m.getKey() + " " + m.getValue());
         }
+
+        for (Integer key : myMap.keySet()) {
+            System.out.println(myMap.get(key));
+        }
+
+        for (String value : myMap.values()) {
+            System.out.println(value);
+        }
+
+        Iterator<Map.Entry<Integer,String>> it = myMap.entrySet().iterator();
+        while (it.hasNext()){
+            Map.Entry<Integer,String> e = it.next();
+            System.out.println(e.getKey() + "-" + e.getValue());
+        }
+
+        System.out.println("=================================================================");
+        System.out.println(myMap.containsKey("hello"));
+        System.out.println(myMap.containsValue("hello"));
+        System.out.println(myMap.get("Jason"));
+        System.out.println(myMap.isEmpty());
+        System.out.println(myMap.keySet());
+        System.out.println(myMap.values());
+        System.out.println(myMap.remove("hello"));
+        System.out.println(myMap.size());
+        System.out.println("=================================================================");
+
 
     }
 
@@ -107,7 +107,7 @@ public class MainTestMap {
         treeMap1.put(5, "val5");
         treeMap1.put(4, "val4");
         System.out.println("-----------Tree map 1 -----------");
-        for (Map.Entry v : treeMap1.entrySet()) {
+        for (Map.Entry<Integer, String> v : treeMap1.entrySet()) {
             System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
         }
 
@@ -118,10 +118,11 @@ public class MainTestMap {
         treeMap2.put("e", "val");
         treeMap2.put("d", "val");
         System.out.println("-----------Tree map 2 -----------");
-        for (Map.Entry v : treeMap2.entrySet()) {
+        for (Map.Entry<String, String> v : treeMap2.entrySet()) {
             System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
         }
 
+        //reverseOrder
         TreeMap<Integer, String> treeMap3 = new TreeMap<>(Comparator.reverseOrder());
         treeMap3.put(3, "val");
         treeMap3.put(2, "val");
@@ -129,7 +130,7 @@ public class MainTestMap {
         treeMap3.put(5, "val");
         treeMap3.put(4, "val");
         System.out.println("-----------Tree map 3 -----------");
-        for (Map.Entry v : treeMap3.entrySet()) {
+        for (Map.Entry<Integer, String> v : treeMap3.entrySet()) {
             System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
         }
 
@@ -165,6 +166,86 @@ public class MainTestMap {
             System.out.println("Key:" + v.getKey() + ", value:" + v.getValue());
         }
 
+    }
+    private void testingLinkedHashMap() {
+        // Creating an empty LinkedHashMap
+        Map<String, Integer> map = new LinkedHashMap<>();
+
+        // Inserting pair entries in above Map using put() method
+        map.put("Jason", 10);
+        map.put("Mike", 30);
+        map.put("Peter", 20);
+
+        // Iterating over Map
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            // Printing key-value pairs
+            System.out.println(e.getKey() + " " + e.getValue());
+        }
+        System.out.println("=================================================================");
+    }
+
+    private void testingTreeMapNaturalOrdering() {
+        // Creating an empty TreeMap
+        Map<String, Integer> map = new TreeMap<>();
+
+        // Inserting custom elements in the Map using put() method
+        map.put("Jason", 10);
+        map.put("Mike", 30);
+        map.put("Peter", 20);
+
+        // Iterating over Map using for each loop
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            // Printing key-value pairs
+            System.out.println(e.getKey() + " " + e.getValue());
+        }
+        System.out.println("=================================================================");
+    }
+
+    private void testingTreeMapComparator() {
+        // Creating an empty TreeMap
+        // Map<Integer, Integer> map = new TreeMap<>();
+        //
+        // // Inserting custom elements in the Map using put() method
+        // map.put(ProductComparable.builder().id(9).name("Car").build(), 10);
+        // map.put(ProductComparable.builder().id(8).name("Truck").build(), 30);
+        // map.put(ProductComparable.builder().id(7).name("Train").build(), 40);
+        //
+        // // Iterating over Map using for each loop
+        // for (Map.Entry<Product, Integer> e : map.entrySet()) {
+        //     // Printing key-value pairs
+        //     System.out.println(e.getKey().getName() + " " + e.getValue());
+        // }
+        System.out.println("=================================================================");
+    }
+
+    // Hashtable is synchronized. It is thread-safe and can be shared with many threads.
+    // but it is recommended to use CurrentHashMap instead of HashTable
+    private void testingHashTable() {
+        //----------hashtable -------------------------
+        Hashtable<Integer, String> ht = new Hashtable<Integer, String>();
+        ht.put(101, "Vijay");
+        ht.put(102, "Ravi");
+        ht.put(103, "Rahul");
+        ht.put(100, "Marc");
+        ht.put(101, "Jason");
+        System.out.println("-------------Hash table--------------");
+        for (Map.Entry m : ht.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+
+        // No need to mention the Generic type twice
+        Hashtable<Integer, String> ht1 = new Hashtable<>(5);
+        // Inserting the Elements using put() method
+        for (int i = 0; i < 15; i++) {
+            ht1.put(i, "value of index " + i);
+        }
+
+        ht1.remove(1);
+
+        System.out.println("-------------Hash table--------------");
+        for (Map.Entry m : ht1.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
     }
 
 }

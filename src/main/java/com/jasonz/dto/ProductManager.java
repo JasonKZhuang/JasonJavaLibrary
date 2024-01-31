@@ -1,4 +1,4 @@
-package com.jasonz.dataStructures.objects;
+package com.jasonz.dto;
 
 import java.util.Random;
 

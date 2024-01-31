@@ -8,9 +8,9 @@ import java.util.*;
  */
 public class MainTestSet {
     public static void main(String[] args) {
-        MainTestSet ss = new MainTestSet();
-        ss.testingHashSet();
-        ss.testingTreeSet();
+        MainTestSet test = new MainTestSet();
+        test.testingHashSet();
+        test.testingTreeSet();
     }
 
     /**

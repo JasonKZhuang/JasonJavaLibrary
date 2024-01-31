@@ -1,6 +1,6 @@
 package com.jasonz.dataStructures.collection;
 
-import com.jasonz.dataStructures.objects.Product;
+import com.jasonz.dto.Product;
 
 /**
  * @author : Jason Zhuang

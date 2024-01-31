@@ -1,6 +1,6 @@
 package com.jasonz.algorithms.search;
 
-import com.jasonz.dataStructures.objects.Student;
+import com.jasonz.dto.Student;
 
 import java.util.ArrayList;
 

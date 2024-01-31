@@ -1,6 +1,4 @@
-package com.jasonz.algorithms.cases;
-
-import com.jasonz.dataStructures.arrary.ExampleSimpleArray;
+package com.jasonz.algorithms.twoPointers;
 
 import java.util.Arrays;
 
@@ -8,10 +6,11 @@ import java.util.Arrays;
  * @author Jason Zhuang
  * @created 2024.01.25 13:45
  * @project JasonJavaLibrary
- * @description: Java Program Illustrating Naive Approach to
+ * @description:
+ * Java Program Illustrating Naive Approach to
  * Find if There is a Pair in A[0..N-1] with Given Sum
  */
-public class TwoPointersAlgorithm {
+public class PairsSumEqualTarget {
 
     public static void main(String[] args) {
         int sumTarget = 17;
@@ -26,6 +25,32 @@ public class TwoPointersAlgorithm {
         System.out.println(Arrays.toString(pair1));
         System.out.println(Arrays.toString(pair2));
 
+    }
+
+
+    //
+    //
+    //
+
+    /**
+     * You are given an integer array nums consisting of n elements, and an integer k.
+     * Find a contiguous subarray whose length is equal to k
+     * that has the maximum average value and return this value.
+     * Any answer with a calculation error less than 10-5 will be accepted.
+     * @param array
+     * @param k
+     * @return
+     */
+    private static double findMaxAverage(int[] array, int k){
+        int sum = 0;
+        for(int i = 0; i < k; i ++)
+            sum += array[i];
+        int maxSum = sum;
+        for(int i = k; i < array.length; i ++) {
+            sum += array[i] - array[i - k];
+            maxSum = Math.max(maxSum, sum);
+        }
+        return (double)maxSum / k;
     }
 
     /**

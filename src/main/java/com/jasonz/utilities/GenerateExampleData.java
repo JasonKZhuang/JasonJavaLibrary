@@ -1,5 +1,6 @@
 package com.jasonz.utilities;
 
+import com.github.javafaker.Faker;
 import com.jasonz.dataStructures.tree.BinarySearchTree;
 import com.jasonz.dataStructures.tree.TreeNode;
 import com.jasonz.dto.IntegerData;
@@ -59,8 +60,9 @@ public class GenerateExampleData {
         tempData[9] = new IntegerData(5, 50);
     }
 
-    public static void generateMap(Map<Integer,Integer> argMap, boolean randomFlag){
+    public static void generateMap(Map<Integer,String> argMap, boolean randomFlag){
         // initialize map and binary tree
+        Faker faker = new Faker();
         if (randomFlag) {
             Set<Integer> keys = new HashSet<>();
             Random random = new Random();
@@ -69,20 +71,19 @@ public class GenerateExampleData {
                 if (keys.contains(k)) {
                     continue;
                 }
-                int v = random.nextInt(100) + 50;
-                argMap.put(k, v);
+                argMap.put(k, faker.name().firstName());
                 keys.add(k);
             }
         }else {
-            argMap.put(8,80);
-            argMap.put(3,30);
-            argMap.put(10,100);
-            argMap.put(1,10);
-            argMap.put(6,60);
-            argMap.put(14,140);
-            argMap.put(4,40);
-            argMap.put(7,70);
-            argMap.put(13,130);
+            argMap.put(8,faker.name().firstName());
+            argMap.put(3,faker.name().firstName());
+            argMap.put(10,faker.name().firstName());
+            argMap.put(1,faker.name().firstName());
+            argMap.put(6,faker.name().firstName());
+            argMap.put(14,faker.name().firstName());
+            argMap.put(4,faker.name().firstName());
+            argMap.put(7,faker.name().firstName());
+            argMap.put(13,faker.name().firstName());
         }
     }
 

@@ -1,7 +1,10 @@
 package com.jasonz.dataStructures.set;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
+@Getter
 public class Student {
     String name;
     int age;
@@ -17,24 +20,12 @@ public class Student {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public float getMarks() {
-        return marks;
     }
 
     public void setMarks(float marks) {
@@ -57,18 +48,11 @@ public class Student {
 
         try {
             Student studentInternal = (Student) obj;
-            if (
-                    studentInternal.getName().equals(name)
-                 && studentInternal.getMarks() == marks
-                 && studentInternal.getAge() == age
-            ) {
-                return true;
-            } else {
-                return false;
-            }
+            return studentInternal.getName().equals(name)
+                    && studentInternal.getMarks() == marks
+                    && studentInternal.getAge() == age;
 
         } catch (Exception exp) {
-            exp.printStackTrace();
             return false;
         }
     }

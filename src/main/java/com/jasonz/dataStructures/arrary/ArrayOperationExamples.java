@@ -1,11 +1,12 @@
 package com.jasonz.dataStructures.arrary;
 
-import com.jasonz.dataStructures.objects.Student;
-import com.jasonz.dataStructures.objects.StudentManager;
+import com.jasonz.dto.Student;
+import com.jasonz.dto.StudentManager;
 import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 class ArrayOperationExamples {
 
@@ -57,6 +58,8 @@ class ArrayOperationExamples {
         System.out.println("Element at index 7: " + anArray[7]);
         System.out.println("Element at index 8: " + anArray[8]);
         System.out.println("Element at index 9: " + anArray[9]);
+
+       List<String> myStringList = Arrays.asList("a","b","c");
     }
 
     /**
@@ -155,6 +158,7 @@ class ArrayOperationExamples {
         // Example with an array of integers
         int[] numbers = ExampleSimpleArray.initArray(count);
         // sorting parts of an integer array
+        // The sorting algorithm is a Dual-Pivot Quicksort
         Arrays.parallelSort(numbers);
 
         stopWatch.stop();

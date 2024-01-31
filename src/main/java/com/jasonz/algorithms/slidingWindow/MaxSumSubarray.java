@@ -1,58 +1,18 @@
-package com.jasonz.algorithms.cases;
-
-import com.jasonz.dataStructures.arrary.ExampleSimpleArray;
+package com.jasonz.algorithms.slidingWindow;
 
 /**
  * @author Jason Zhuang
- * @created 2024.01.23 21:18
+ * @created 2024.01.28 23:41
  * @project JasonJavaLibrary
- * @description: find the largest substring without repeating characters
- * maximum sum of distinct subarrays with length k
- * find the longest substring with k unique characters in a given string
+ * @description:
  */
-public class SlidingWindow {
+public class MaxSumSubarray {
 
     public static void main(String[] args) {
         int[] arr = { 1, 4, 2, 10, 2, 3, 1, 0, 20 };
         int k = 4;
         System.out.println(maxSumNaive(arr, k));
         System.out.println(maxSumSlideWindow(arr, k));
-        System.out.println(minLengthSumDynamicSlideWindow(arr, 22));
-    }
-
-    /**
-     * return a minimum length of sub array where sum the sub array equals given value
-     *
-     * @param array { 1, 4, 2, 10, 2, 3, 1, 0, 20 }
-     * @param argSum
-     * @return minimum length
-     */
-    private static int minLengthSumDynamicSlideWindow(int[] array, int argSum) {
-        // tracking the minimum value
-        int min_length = array.length;
-
-        // the current range and sum of the sliding window
-        int s = 0;
-        int e = 0;
-        int current_sum = 0;
-
-        // extend the sliding window until our criteria is met
-        while (e < array.length) {
-            current_sum = current_sum + array[e];
-            e++;
-
-            // then contract the sliding window until it is no longer meet our condition
-            while (s < e && current_sum >= argSum) {
-                current_sum = current_sum - array[s];
-                s++;
-
-                // update the min_length if this is shorter than the current min
-                min_length = Integer.min(min_length, e - s + 1);
-            }
-        }
-
-        return min_length;
-
     }
 
 
@@ -80,13 +40,6 @@ public class SlidingWindow {
         return max_sum;
     }
 
-    private static int cal(int[] array, int s, int e) {
-        int sum = 0;
-        for (int i = s; i <= e; i++) {
-            sum += array[i];
-        }
-        return sum;
-    }
 
     /**
      * Given an array of integers of size ‘n’,
@@ -108,4 +61,14 @@ public class SlidingWindow {
         }
         return max_sum;
     }
+
+
+    private static int cal(int[] array, int s, int e) {
+        int sum = 0;
+        for (int i = s; i <= e; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+
 }

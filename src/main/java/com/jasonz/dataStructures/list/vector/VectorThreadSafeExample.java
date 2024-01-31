@@ -7,6 +7,7 @@ import java.util.Vector;
  * @created 2023.11.17 15:37
  * @project JasonJavaLibrary
  * @description:
+ *
  * In this example, two threads (Thread 1 and Thread 2) are simultaneously adding elements to a shared Vector.
  * The use of Vector ensures that the operations on the shared list are synchronized,
  * preventing potential issues that could arise from concurrent modifications by multiple threads.
@@ -15,6 +16,7 @@ import java.util.Vector;
  * If you are working in a single-threaded environment or
  * if you can ensure thread safety through other means (such as explicit synchronization),
  * you might consider using ArrayList or other non-synchronized collections for better performance.
+ *
  */
 public class VectorThreadSafeExample {
 
