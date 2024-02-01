@@ -1,5 +1,9 @@
 package com.jasonz.algorithms.search;
 
+import com.jasonz.algorithms.binarySearch.BinarySearchBuiltIn;
+import com.jasonz.algorithms.binarySearch.BinarySearchIterative;
+import com.jasonz.algorithms.binarySearch.BinarySearchRecursive;
+import com.jasonz.algorithms.binarySearch.IBinarySearch;
 import com.jasonz.algorithms.sort.InsertionSort;
 import com.jasonz.dataStructures.arrary.ExampleSimpleArray;
 import com.jasonz.dataStructures.list.SortingType;

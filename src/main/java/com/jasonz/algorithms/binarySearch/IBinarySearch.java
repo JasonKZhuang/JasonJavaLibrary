@@ -1,4 +1,4 @@
-package com.jasonz.algorithms.search;
+package com.jasonz.algorithms.binarySearch;
 
 import com.jasonz.dto.Student;
 

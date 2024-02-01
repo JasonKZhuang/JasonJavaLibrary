@@ -1,4 +1,4 @@
-package com.jasonz.algorithms.search;
+package com.jasonz.algorithms.depthFirstSearch;
 
 import com.jasonz.dataStructures.tree.BinaryTree;
 import com.jasonz.dataStructures.tree.TreeNode;
@@ -19,8 +19,10 @@ public class DepthFirstSearch {
         DepthFirstSearch DFS = new DepthFirstSearch();
         System.out.println("=== preOrderTraversal ===");
         DFS.preOrderTraversal(root);
+
         System.out.println("=== inorderTraversal ===");
         DFS.inorderTraversal(root);
+
         System.out.println("=== postOrderTraversal ===");
         DFS.postOrderTraversal(root);
 

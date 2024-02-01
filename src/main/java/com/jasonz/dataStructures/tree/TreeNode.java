@@ -35,6 +35,14 @@ public class TreeNode<Key extends Comparable<Key>, Value> {
         this.parent = null;
     }
 
+    public TreeNode(Key key, Value value,TreeNode<Key,Value> left, TreeNode<Key,Value> right ) {
+        this.key = key;
+        this.value = value;
+        this.left = left;
+        this.right = right;
+        this.parent = null;
+    }
+
     public TreeNode(Key key, Value value, TreeNode<Key, Value> parent) {
         this.key = key;
         this.value = value;
