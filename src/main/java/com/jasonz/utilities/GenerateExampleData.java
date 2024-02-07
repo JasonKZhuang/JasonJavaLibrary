@@ -1,6 +1,7 @@
 package com.jasonz.utilities;
 
 import com.github.javafaker.Faker;
+import com.jasonz.dataStructures.list.linkedList.ListNode;
 import com.jasonz.dataStructures.tree.BinarySearchTree;
 import com.jasonz.dataStructures.tree.TreeNode;
 import com.jasonz.dto.IntegerData;
@@ -15,6 +16,16 @@ import java.util.*;
  * @description:
  */
 public class GenerateExampleData {
+
+    public static ListNode generateNodeList(int[] array) {
+        ListNode root  = new ListNode(array[0]);
+        ListNode temp  = root;
+        for(int i=1;i<array.length;i++){
+            temp.setNext(new ListNode(array[i]));
+            temp= temp.getNext();
+        }
+        return root;
+    }
 
     public static TreeNode<Integer,Integer> generateBinarySearchTree() {
 

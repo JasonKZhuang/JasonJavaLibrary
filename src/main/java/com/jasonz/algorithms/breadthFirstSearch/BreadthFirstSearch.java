@@ -184,12 +184,15 @@ public class BreadthFirstSearch<T> {
     private void traverseBinarySearchTree() {
         // 我们使用LinkedList来作为我们的队列
         LinkedList<TreeNode<Integer, Integer>> myQueue = new LinkedList<>();
+
+        // add root node to queue
         myQueue.add(root);
-        System.out.println("=== traverseBinaryTree ===");
+
         while (!myQueue.isEmpty()) {
             // remove the head node
             TreeNode<Integer, Integer> node = myQueue.remove();
             System.out.println("[key=" + node.getKey() + ", value=" + node.getValue() + "]");
+
             // if there is left node, add the left to the queue
             if (node.getLeft() != null)
                 myQueue.add(node.getLeft());

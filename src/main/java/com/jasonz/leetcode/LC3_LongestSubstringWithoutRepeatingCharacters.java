@@ -5,7 +5,8 @@
  */
 package com.jasonz.leetcode;
 
-import java.util.Arrays;
+import com.jasonz.algorithms.slidingWindow.LongestSubstringWithoutRepeatingCharacters;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,13 +32,23 @@ import java.util.Set;
  * Explanation: The answer is "wke", with the length of 3.
  * Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
  */
-public class LongestSubstringWithoutRepeatingCharacters {
+public class LC3_LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
         String s = " ";
-        LongestSubstringWithoutRepeatingCharacters instance = new LongestSubstringWithoutRepeatingCharacters();
+        LC3_LongestSubstringWithoutRepeatingCharacters instance = new LC3_LongestSubstringWithoutRepeatingCharacters();
         System.out.println( instance.lengthOfLongestSubstring(s));
     }
+
+    public int solutionBySlidingWindow(String s) {
+        return LongestSubstringWithoutRepeatingCharacters.solutionSlidingWindow(s);
+    }
+
+    public int solutionByNaiveWay(String s) {
+        return LongestSubstringWithoutRepeatingCharacters.solutionNaiveQueue(s);
+    }
+
+
 
     // ====
     public int lengthOfLongestSubstring(String s) {

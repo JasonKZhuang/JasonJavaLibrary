@@ -31,12 +31,12 @@ import java.util.Queue;
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
         String s = "pwwkew";
-        System.out.println(solutionNaive(s));
+        System.out.println(solutionNaiveQueue(s));
         System.out.println(solutionSlidingWindow(s));
     }
 
 
-    private static int solutionSlidingWindow(String s) {
+    public static int solutionSlidingWindow(String s) {
         // this is return value of longest
         int maxLen = 0;
         // window left index
@@ -76,7 +76,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return maxLen;
     }
 
-    private static int solutionNaive(String s) {
+    public static int solutionNaiveQueue(String s) {
         int maxLen = 0;
         int right = 0;
         Queue<Character> queue = new ArrayDeque<>();

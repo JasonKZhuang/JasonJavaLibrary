@@ -4,11 +4,17 @@ import com.jasonz.dataStructures.tree.BinarySearchTree;
 import com.jasonz.dataStructures.tree.TreeNode;
 import com.jasonz.utilities.GenerateExampleData;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  * @author Jason Zhuang
  * @created 2024.01.18 18:06
  * @project JasonJavaLibrary
  * @description:
+ * https://leetcode.com/problems/inorder-successor-in-bst/description/
+ *
+ * https://www.youtube.com/watch?v=8eRA2KW3yus
  */
 public class FindInorderSuccessor {
 
@@ -29,6 +35,9 @@ public class FindInorderSuccessor {
         succ = fis.inorderSuccessorUseBstFeature(root, target);
         System.out.println("successor [" + succ.getKey() + ":" + succ.getValue() + "]");
 
+        succ = fis.inOrderSuccessorByTraversal(root, target);
+        System.out.println("successor [" + succ.getKey() + ":" + succ.getValue() + "]");
+
         // this one was not successful
         //TreeNode<Integer, Integer> succ2 = null;
         //fis.inorderSuccessorByTraversal(root, target, succ2);
@@ -39,6 +48,93 @@ public class FindInorderSuccessor {
         //succ = fis.successorNode;
         //System.out.println("successor [" + succ.getKey() + ":" + succ.getValue() + "]");
 
+    }
+
+    public TreeNode<Integer, Integer> inOrderSuccessorByTraversal(TreeNode<Integer, Integer> root, TreeNode<Integer, Integer> target)
+    {
+        Deque<TreeNode<Integer, Integer>> stack = new ArrayDeque<>();
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            }
+            root = stack.pop();
+            if (root.getKey() > target.getKey())
+                return root;
+            root = root.getRight();
+        }
+        return null;
+    }
+
+    private static void inOrderTraversal(TreeNode<Integer, Integer> root)
+    {
+        if (root == null) {
+            return;
+        }
+
+        inOrderTraversal(root.getLeft());
+        System.out.print(root.getKey());
+        inOrderTraversal(root.getRight());
+    }
+
+
+    /**
+     * In this method, we assume that every node has a parent pointer.
+     * The Algorithm is divided into two cases on the basis of the right subtree of the input node being empty or not.
+     *
+     * Input: node, root // node is the node whose Inorder successor is needed.
+     *
+     * Output: succ // succ is Inorder successor of node.
+     *
+     * If right subtree of node is not NULL, then succ lies in right subtree. Do the following.
+     * Go to right subtree and return the node with minimum key value in the right subtree.
+     * If right subtree of node is NULL, then succ is one of the ancestors. Do the following.
+     * Travel up using the parent pointer until you see a node which is left child of its parent. The parent of such a node is the succ.
+     * @param root
+     * @param target
+     * @return
+     */
+    private TreeNode<Integer, Integer> inorderSuccessorUseParentPointer(TreeNode<Integer, Integer> root, TreeNode<Integer, Integer> target) {
+        // step 1 of the above algorithm
+        if (target.getRight() != null) {
+            return minimum(target.getRight());
+        }
+
+        // step 2 of the above algorithm
+        TreeNode<Integer, Integer> p = target.getParent();
+        while (p != null && target.getKey() == p.getRight().getKey()) {
+            target = p;
+            p = p.getParent();
+        }
+        return p;
+
+    }
+
+
+    private TreeNode<Integer, Integer> inorderSuccessorSearchFromRoot(
+            TreeNode<Integer, Integer> root,
+            TreeNode<Integer, Integer> target) {
+
+        // step 1 of the above algorithm
+        if (target.getRight() != null)
+            return minimum(target.getRight());
+
+        TreeNode<Integer, Integer> succ = null;
+
+        // Start from root and search for
+        // successor down the tree
+        while (root != null)
+        {
+            if (target.getKey() < root.getKey())            {
+                succ = root;
+                root = root.getLeft();
+            } else if (target.getKey() > root.getKey())
+                root = root.getRight();
+            else
+                break;
+        }
+        return succ;
     }
 
     /**
@@ -170,6 +266,12 @@ public class FindInorderSuccessor {
 
         // Recurse on the right side
         inorderSuccessorByTraversal(argRoot.getRight(), givenNode);
+    }
+
+    private static TreeNode<Integer, Integer> minimum(TreeNode<Integer, Integer> node) {
+        if (node.getLeft() == null)
+            return node;
+        return minimum(node.getLeft());
     }
 
 

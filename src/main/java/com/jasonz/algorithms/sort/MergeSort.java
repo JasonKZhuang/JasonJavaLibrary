@@ -22,12 +22,16 @@ public class MergeSort {
             return Arrays.copyOfRange(array, 0, array.length);
         }
 
+        Arrays.sort(array);
+
         int mid = array.length / 2;
         int[] left = Arrays.copyOfRange(array, 0, mid);
         int[] right = Arrays.copyOfRange(array, mid, array.length);
 
         // return mergeUsingForLoop(sort(left), sort(right));
         return mergeUsingWhileLoop(sort(left), sort(right));
+
+
     }
 
     /**

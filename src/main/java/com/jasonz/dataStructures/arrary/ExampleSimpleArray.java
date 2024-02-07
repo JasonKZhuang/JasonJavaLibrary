@@ -78,6 +78,7 @@ public class ExampleSimpleArray {
                 return Integer.compare(o1.getId(), o2.getId());
             }
         });
+
         // sorting parts of objects array
         Arrays.sort(products, 5, 10, new Comparator<Product>() {
             @Override

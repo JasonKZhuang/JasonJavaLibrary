@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -28,9 +29,9 @@ public class UsingStreamAPI {
         UsingStreamAPI api = new UsingStreamAPI();
         api.usingStreamFilter();
         api.usingStreamMap();
-        //api.generateStream();
-        //api.forEachStream();
-        //api.collectOnePropertyListFromObjectList();
+        api.generateStream();
+        api.usingStreamForeach();
+        api.usingStreamCollect();;
     }
 
     private List<PersonObject> constructDummyData(){
@@ -159,13 +160,23 @@ public class UsingStreamAPI {
         list.parallelStream().forEach(System.out::print);
         System.out.println("\n=============================");
     }
+
     // 2. collect
     private void usingStreamCollect() {
         List<PersonObject> persons = constructDummyData();
     }
+
     // 3. reduce
     private void usingStreamReduce() {
         List<PersonObject> persons = constructDummyData();
+        int[] array = new int[]{1,3,4,6,7,9};
+
+        // using Stream Reduce to return product valuel of elements
+        int product = IntStream.of(array)
+                .reduce((i, j) -> i * j)
+                .orElse(1); // fallback value if stream is empty
+
+
     }
 
 
