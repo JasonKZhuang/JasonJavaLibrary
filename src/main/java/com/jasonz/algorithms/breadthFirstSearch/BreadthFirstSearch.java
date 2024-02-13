@@ -4,9 +4,10 @@ import com.jasonz.dataStructures.tree.BinarySearchTree;
 import com.jasonz.dataStructures.tree.TreeNode;
 import com.jasonz.dto.IntegerData;
 import com.jasonz.dto.Vertex;
+import com.jasonz.leetcode.LC102_BinaryTreeLevelOrderTraversal;
+import com.jasonz.leetcode.LC199_BinaryTreeRightSideView;
 import com.jasonz.utilities.GenerateExampleData;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -22,6 +23,16 @@ import java.util.Queue;
  * The time complexity of the breadth-first search (BFS) algorithm is O(V + E)
  * ,which means it is directly proportional to the size of the graph.
  * This makes BFS a very efficient algorithm for large-scale graph traversal problems.
+ *
+ * The main logic is to utilize queue mechanism, and key is the size queue when doing loop
+ * add node into queue
+ * get queue size
+ * loop element within the size range
+ * ... deal with some calculation
+ * ... add left child to queue
+ * ... add right child to queue
+ * end loop
+ * do other action when loop finished
  */
 public class BreadthFirstSearch<T> {
     private Vertex<T> startVertex;
@@ -54,125 +65,19 @@ public class BreadthFirstSearch<T> {
         bfsBinaryTree.traverseBinarySearchTree();
 
         // third LeetCode example for 102. Binary Tree Level Order Traversal
-        TreeNode<Integer, Integer> root = new TreeNode<>(3, 3,
-                new TreeNode<Integer, Integer>(9, 9),
-                new TreeNode<Integer, Integer>(20, 20,
-                        new TreeNode<Integer, Integer>(15, 15),
-                        new TreeNode<Integer, Integer>(7, 7)
-                )
-        );
-        List<List<Integer>> objects = binaryTreeLevelOrderTraversal(root);
-        for (List<Integer> o : objects) {
-            System.out.println(o.toString());
-        }
+        Integer[] array = new Integer[]{3, 9, 20, null, null, 15, 7};
+        TreeNode<Integer, Integer> root = GenerateExampleData.generateBinaryTree(array);
+        List<List<Integer>> objects = LC102_BinaryTreeLevelOrderTraversal.binaryTreeLevelOrderTraversal(root);
+        System.out.println(objects);
 
         // Fourth LeetCode example for:  199. Binary Tree Right Side View
-        TreeNode<Integer, Integer> root4 = new TreeNode<>(1, 1,
-                new TreeNode<Integer, Integer>(2, 2, null, new TreeNode<Integer, Integer>(5, 5)),
-                new TreeNode<Integer, Integer>(3, 3, null, new TreeNode<Integer, Integer>(4, 4))
-        );
-        List<Integer> objects4 = binaryTreeRightSideView(root4);
-        for (Integer o : objects4) {
-            System.out.println(o.toString());
-        }
-
+        Integer[] array4 = new Integer[]{3, 9, 20, null, null, 15, 7};
+        TreeNode<Integer, Integer> root4 = GenerateExampleData.generateBinaryTree(array4);
+        LC199_BinaryTreeRightSideView.binaryTreeRightSideView(root4);
 
     }
 
 
-    /**
-     * leetcode: 199. Binary Tree Right Side View
-     * https://leetcode.com/problems/binary-tree-right-side-view/
-     * <p>
-     * Given the root of a binary tree, imagine yourself standing on the right side of it,
-     * return the values of the nodes you can see ordered from top to bottom.
-     * <p>
-     * Example 1:
-     * Input: root = [1,2,3,null,5,null,4]
-     * Output: [1,3,4]
-     * <p>
-     * Example 2:
-     * Input: root = [1,null,3]
-     * Output: [1,3]
-     * <p>
-     * Example 3:
-     * Input: root = []
-     * Output: []
-     */
-    private static List<Integer> binaryTreeRightSideView(TreeNode<Integer, Integer> root) {
-        // the root is a binary tree
-        // we want to get all the nodes at right most in each level
-        // we can use BFS to get the last node from queue
-        // when using queue, we can use linkedlist in java
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        List<Integer> ret = new ArrayList<>();
-
-        LinkedList<TreeNode<Integer, Integer>> lkList = new LinkedList<>();
-        lkList.addFirst(root);
-        while (!lkList.isEmpty()) {
-            TreeNode<Integer, Integer> node = null;
-            int size = lkList.size();
-            for (int i = 0; i < size; i++) {
-                node = lkList.removeLast();
-                if (node.getLeft() != null) {
-                    lkList.addFirst(node.getLeft());
-                }
-
-                if (node.getRight() != null) {
-                    lkList.addFirst(node.getRight());
-                }
-            }
-            ret.add(node.getKey());
-        }
-        return ret;
-    }
-
-    /**
-     * 102. Binary Tree Level Order Traversal
-     * https://leetcode.com/problems/binary-tree-level-order-traversal/description/
-     * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
-     * Time complexity O(n)
-     * Space complexity O(n)
-     */
-    private static List<List<Integer>> binaryTreeLevelOrderTraversal(TreeNode<Integer, Integer> root) {
-
-        List<List<Integer>> lst = new ArrayList<>();
-        if (root == null) {
-            return new ArrayList<>();
-        }
-
-        LinkedList<TreeNode<Integer, Integer>> lkLst = new LinkedList<>();
-        lkLst.addFirst(root);
-        //[root]
-        while (!lkLst.isEmpty()) {
-            int size = lkLst.size();
-            List<Integer> tmpArray = new ArrayList<>();
-            TreeNode<Integer, Integer> tempNode = null;
-
-            for (int i = 0; i < size; i++) {
-
-                // first into head, first out from tail
-                tempNode = lkLst.removeLast();
-
-                tmpArray.add(tempNode.getKey());
-
-                if (tempNode.getLeft() != null) {
-                    lkLst.addFirst(tempNode.getLeft());
-                }
-
-                if (tempNode.getRight() != null) {
-                    lkLst.addFirst(tempNode.getRight());
-                }
-            }
-
-            lst.add(tmpArray);
-        }
-
-        return lst;
-
-    }
 
     /**
      * Reference: <a href="https://www.geeksforgeeks.org/level-order-tree-traversal/">BFS of Binary Tree</a>

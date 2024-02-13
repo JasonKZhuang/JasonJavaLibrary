@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
  * @author Jason Zhuang 23 Jun. 2021
  *
  */
-public class UsingLambdaExpression
+public class LambdaExpressionSamples
 {
 
 	public static void main(String[] args)
@@ -127,9 +127,9 @@ public class UsingLambdaExpression
 	public static int findSquareOfMaxOddStream(List<Integer> numbers)
 	{
 		return numbers.stream()
-				.filter(UsingLambdaExpression::isOdd) // Predicate is functional interface and
-				.filter(UsingLambdaExpression::isGreaterThan3) // we are using lambdas to initialize it
-				.filter(UsingLambdaExpression::isLessThan11) // rather than anonymous inner classes
+				.filter(LambdaExpressionSamples::isOdd) // Predicate is functional interface and
+				.filter(LambdaExpressionSamples::isGreaterThan3) // we are using lambdas to initialize it
+				.filter(LambdaExpressionSamples::isLessThan11) // rather than anonymous inner classes
 				.max(java.util.Comparator.naturalOrder())
 				.map(i -> i * i)
 				.get();

@@ -6,6 +6,7 @@ import java.util.Stack;
 import java.util.stream.IntStream;
 
 public class SumOfSubarrayRanges {
+
     public static void main(String[] args) {
         SumOfSubarrayRanges ins = new SumOfSubarrayRanges();
 

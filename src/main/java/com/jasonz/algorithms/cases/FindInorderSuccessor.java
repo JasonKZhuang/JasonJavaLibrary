@@ -23,7 +23,7 @@ public class FindInorderSuccessor {
 
     public static void main(String[] args) {
 
-        TreeNode<Integer, Integer> root = GenerateExampleData.generateBinarySearchTree();
+        TreeNode<Integer, Integer> root = GenerateExampleData.generateBinaryTree();
         TreeNode<Integer, Integer> target = new TreeNode<>(14, 140, new TreeNode<>(12, 120));
         TreeNode<Integer, Integer> succ = null;
 

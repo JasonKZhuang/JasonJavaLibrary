@@ -11,7 +11,7 @@ import java.util.List;
  * @description :
  * Linked List is a linear data structure where the elements are not stored in contiguous locations,
  * and every element is a separate object with a data part and address part.
- *
+ * <p>
  * The elements are linked using pointers and addresses.
  * Each element is known as a node.
  * Due to the dynamite and ease of insertions and deletions, they are preferred over the arrays.
@@ -35,14 +35,16 @@ public class MainTestLinkedList {
 
         //
         List<String> myList = myInstance.convertToArrayList(myLinkedList);
-        for (String a : myList){
-            System.out.println("==========="+a);
+        for (String a : myList) {
+            System.out.println("===========" + a);
         }
         //
         LinkedList<String> linkedList = myInstance.convertToLinkedList(myList);
         for (String s : linkedList) {
             System.out.println(s + " == ");
         }
+
+        myInstance.operations();
     }
 
     private void initLinkedList(LinkedList<String> argList) {
@@ -65,9 +67,52 @@ public class MainTestLinkedList {
         return new ArrayList<String>(argList);
     }
 
-    private LinkedList<String>  convertToLinkedList(List<String>  argList){
+    private LinkedList<String> convertToLinkedList(List<String> argList) {
         List<String> arrList = Arrays.asList("John", "Jacob", "Kevin", "Katie", "Nathan");
         return new LinkedList<>(arrList);
     }
 
+
+    private void operations() {
+
+        // No need to specify the size in advance, can grow dynamically.
+        LinkedList<String> dynamicList = new LinkedList<>();
+        String element = "";
+
+        // Efficient queue operations using addFirst addLast and removeFirst removeLast.
+        // Efficient stack operations using push, peek, pop, offer, element etc.,
+
+        // operation on the tail or the last, index=size-1
+        // adding
+        dynamicList.add("Java");
+        dynamicList.add("Python");
+        dynamicList.add("C++");
+        dynamicList.addLast("Ruby");
+        // Insert Ruby at index 1, shifting other elements.
+        dynamicList.add(1, "TypeScript");
+        // retrieving only
+        element = dynamicList.getLast();
+        element = dynamicList.peekLast();
+        // retrieving and removing
+        element = dynamicList.pollLast();
+        element = dynamicList.removeLast();
+
+        // operation on the head or the first index = 0
+        // adding
+        dynamicList.push("Jason");
+        dynamicList.addFirst("Peter");
+        // retrieving only
+        element = dynamicList.getFirst();
+        element = dynamicList.peekFirst();
+        // retrieving and removing
+        element = dynamicList.pollFirst();
+        element = dynamicList.removeFirst();
+        element = dynamicList.poll();
+        element = dynamicList.pop();
+
+
+        // Remove element at index 2.
+        element = dynamicList.remove(2);
+
+    }
 }

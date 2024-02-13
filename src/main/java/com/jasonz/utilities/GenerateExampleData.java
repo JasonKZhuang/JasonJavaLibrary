@@ -3,6 +3,7 @@ package com.jasonz.utilities;
 import com.github.javafaker.Faker;
 import com.jasonz.dataStructures.list.linkedList.ListNode;
 import com.jasonz.dataStructures.tree.BinarySearchTree;
+import com.jasonz.dataStructures.tree.BinaryTree;
 import com.jasonz.dataStructures.tree.TreeNode;
 import com.jasonz.dto.IntegerData;
 import com.jasonz.dto.Vertex;
@@ -18,27 +19,31 @@ import java.util.*;
 public class GenerateExampleData {
 
     public static ListNode generateNodeList(int[] array) {
-        ListNode root  = new ListNode(array[0]);
-        ListNode temp  = root;
-        for(int i=1;i<array.length;i++){
+        ListNode root = new ListNode(array[0]);
+        ListNode temp = root;
+        for (int i = 1; i < array.length; i++) {
             temp.setNext(new ListNode(array[i]));
-            temp= temp.getNext();
+            temp = temp.getNext();
         }
         return root;
     }
 
-    public static TreeNode<Integer,Integer> generateBinarySearchTree() {
+    public static TreeNode<Integer, Integer> generateBinaryTree(Integer[] array) {
+        return  BinaryTree.constructACompleteBinaryTree(array);
+    }
 
-        BinarySearchTree<Integer,Integer> binarySearchTree = new BinarySearchTree<>();
-        binarySearchTree.insert(20,200);
-        binarySearchTree.insert(9,90);
-        binarySearchTree.insert(5,50);
-        binarySearchTree.insert(12,120);
-        binarySearchTree.insert(11,110);
-        binarySearchTree.insert(14,140);
-        binarySearchTree.insert(25,250);
-        binarySearchTree.insert(30,300);
-        binarySearchTree.insert(28,280);
+    public static TreeNode<Integer, Integer> generateBinaryTree() {
+
+        BinarySearchTree<Integer, Integer> binarySearchTree = new BinarySearchTree<>();
+        binarySearchTree.insert(20, 200);
+        binarySearchTree.insert(9, 90);
+        binarySearchTree.insert(5, 50);
+        binarySearchTree.insert(12, 120);
+        binarySearchTree.insert(11, 110);
+        binarySearchTree.insert(14, 140);
+        binarySearchTree.insert(25, 250);
+        binarySearchTree.insert(30, 300);
+        binarySearchTree.insert(28, 280);
         return binarySearchTree.getRoot();
     }
 
@@ -71,7 +76,7 @@ public class GenerateExampleData {
         tempData[9] = new IntegerData(5, 50);
     }
 
-    public static void generateMap(Map<Integer,String> argMap, boolean randomFlag){
+    public static void generateMap(Map<Integer, String> argMap, boolean randomFlag) {
         // initialize map and binary tree
         Faker faker = new Faker();
         if (randomFlag) {
@@ -85,16 +90,16 @@ public class GenerateExampleData {
                 argMap.put(k, faker.name().firstName());
                 keys.add(k);
             }
-        }else {
-            argMap.put(8,faker.name().firstName());
-            argMap.put(3,faker.name().firstName());
-            argMap.put(10,faker.name().firstName());
-            argMap.put(1,faker.name().firstName());
-            argMap.put(6,faker.name().firstName());
-            argMap.put(14,faker.name().firstName());
-            argMap.put(4,faker.name().firstName());
-            argMap.put(7,faker.name().firstName());
-            argMap.put(13,faker.name().firstName());
+        } else {
+            argMap.put(8, faker.name().firstName());
+            argMap.put(3, faker.name().firstName());
+            argMap.put(10, faker.name().firstName());
+            argMap.put(1, faker.name().firstName());
+            argMap.put(6, faker.name().firstName());
+            argMap.put(14, faker.name().firstName());
+            argMap.put(4, faker.name().firstName());
+            argMap.put(7, faker.name().firstName());
+            argMap.put(13, faker.name().firstName());
         }
     }
 

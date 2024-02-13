@@ -13,8 +13,8 @@ public class DepthFirstSearch {
 
     public static void main(String[] args) {
 
-        BinaryTree tree = new BinaryTree();
-        TreeNode<Integer, Integer> root = tree.getRoot();
+        Integer[] array = new Integer[]{3,9,20,15,7};
+        TreeNode<Integer, Integer> root = BinaryTree.constructACompleteBinaryTree(array);
 
         DepthFirstSearch DFS = new DepthFirstSearch();
         System.out.println("=== preOrderTraversal ===");

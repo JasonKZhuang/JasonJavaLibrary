@@ -1,4 +1,4 @@
-package com.jasonz.leetcode.arrayAndString;
+package com.jasonz.leetcode;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,13 +27,42 @@ import java.util.Set;
  * Input: nums = [3,1,3,4,2]
  * Output: 3
  */
-public class FindDuplicateNumber {
+public class LC287_FindDuplicateNumber {
 
     public static void main(String[] args) {
         int[] array = new int[]{3, 1, 3, 4, 2};
         System.out.println(solutionSorting(array));
         System.out.println(solutionArray(array));
         System.out.println(solutionSet(array));
+    }
+
+    //[3,1,3,4,2]
+    private static int solutionBinarySearch(int[] nums) {
+        // 'low' and 'high' represent the range of values of the target
+        int low = 1;
+        int high = nums.length - 1;
+        int duplicate = -1;
+
+        while (low <= high) {
+            // 3= 1+5
+            int cur = (low + high) / 2;
+
+            // Count how many numbers in 'nums' are less than or equal to 'cur'
+            int count = 0;
+            for (int num : nums) {
+                if (num <= cur)
+                    count++;
+            }
+
+            if (count > cur) {
+                duplicate = cur;
+                high = cur - 1;
+            } else {
+                low = cur + 1;
+            }
+        }
+        return duplicate;
+
     }
 
     private static int solutionSorting(int[] array) {
@@ -62,12 +91,7 @@ public class FindDuplicateNumber {
         return -1;
     }
 
-    private static int solutionTwoPointer(int[] nums) {
-        int s = 0;
-        int e = nums.length - 1;
-        return 0;
 
-    }
 
     private static int solutionSet(int[] nums) {
         Set<Integer> seen = new HashSet<Integer>();
