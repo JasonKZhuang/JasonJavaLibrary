@@ -1,7 +1,7 @@
 /**
  * SingleResponsiblity
- * A class should only have a single responsibility
- * A class should have one and only one reason to change, 
+ * Lesson6Distinct class should only have a single responsibility
+ * Lesson6Distinct class should have one and only one reason to change,
  * meaning that a class should have only one job.
  * Reference: 
  * https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/

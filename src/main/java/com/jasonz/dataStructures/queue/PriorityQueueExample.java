@@ -12,6 +12,36 @@ import java.util.PriorityQueue;
  */
 public class PriorityQueueExample {
 
+    public static void main(String[] args) {
+        PriorityQueueExample p = new PriorityQueueExample();
+        p.testingPriorityQueueWithInteger();
+    }
+
+    public void testingPriorityQueueWithInteger() {
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+
+        // Inserts the specified element into this priority queue.
+        priorityQueue.add(8);
+        priorityQueue.offer(9);
+        priorityQueue.offer(10);
+        priorityQueue.add(7);
+        priorityQueue.offer(6);
+
+        // return the head, the queue[0], but not remove
+        Integer vPeek = priorityQueue.peek();
+
+        // Retrieves and removes the head of this queue, or returns null if this queue is empty.
+        Integer vPoll = priorityQueue.poll();
+
+        // Retrieves, but does not remove, the head of this queue
+        Integer vElement = priorityQueue.element();
+
+        // Retrieves and removes the head of this queue.
+        // This method differs from poll only in that it throws an exception if this queue is empty.
+        Integer vRemove = priorityQueue.remove();
+
+    }
+
     // priority Queue is an ASC default, but can be changed by the comparable interface
     public void testingPriorityQueue() {
 

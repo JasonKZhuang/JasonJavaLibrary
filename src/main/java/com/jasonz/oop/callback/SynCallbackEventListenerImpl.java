@@ -16,5 +16,5 @@ public class SynCallbackEventListenerImpl implements SynCallbackEventListener
 		}
     } 
 	
-    // some class A methods 
+    // some class Lesson6Distinct methods
 }

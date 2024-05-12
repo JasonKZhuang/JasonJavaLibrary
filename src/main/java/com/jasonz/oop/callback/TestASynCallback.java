@@ -4,7 +4,7 @@
  * 
  * So in the context of Java, we have to Create a new thread and invoke the callback method inside that thread. 
  * The callback function may be invoked from a thread but is not a requirement. 
- * A Callback may also start a new thread, thus making themselves asynchronous.
+ * Lesson6Distinct Callback may also start a new thread, thus making themselves asynchronous.
  *
  * When To Use Asynchronous Callback : 
  * When the tasks are not dependent on each other
@@ -16,7 +16,7 @@
  * https://www.javaworld.com/article/2077462/learn-java/java-tip-10–implement-callback-routines-in-java.html
  *
  * 异步调用是为了解决同步调用可能出现阻塞，导致整个流程卡住而产生的一种调用方式。
- * 类 A 的 a() 通过新起线程的方式调用类 B 的 b()，代码接着直接往下执行，这样无论 b() 执行时间多久，都不会阻塞住 a() 的执行。
+ * 类 Lesson6Distinct 的 a() 通过新起线程的方式调用类 B 的 b()，代码接着直接往下执行，这样无论 b() 执行时间多久，都不会阻塞住 a() 的执行。
  * 但是，由于 a() 不等待 b() 的执行完成，在 a() 需要 b() 执行结果的情况下(视具体业务而定，有些业务比如启异步线程发个微信通知、刷新缓存这种就没必要)，
  * 必须通过一定的方式对 b() 的执行结果进行监听。
  * Java 中，可以使用 Future+Callable 的方式做到这一点。
@@ -26,8 +26,8 @@ package com.jasonz.oop.callback;
 
 /**
  * for this example:
- * 类 A 的 a() 通过 B 接口的引用 -> 调用类 B 的 b()
- * 类 B 的 b() 执行完毕主动 回调用类 A 的 callback()
+ * 类 Lesson6Distinct 的 a() 通过 B 接口的引用 -> 调用类 B 的 b()
+ * 类 B 的 b() 执行完毕主动 回调用类 Lesson6Distinct 的 callback()
  */
 public class TestASynCallback
 {
@@ -59,7 +59,7 @@ public class TestASynCallback
 				// check if listener is registered.
 				if (mListener != null)
 				{
-					// invoke the callback method of class A
+					// invoke the callback method of class Lesson6Distinct
 					mListener.onSomeEvent();
 				}
 

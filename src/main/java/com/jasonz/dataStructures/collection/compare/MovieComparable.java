@@ -1,4 +1,6 @@
-package com.jasonz.dataStructures.collection.compare;// A Java program to demonstrate use of Comparable
+// Lesson6Distinct Java program to demonstrate use of Comparable
+package com.jasonz.dataStructures.collection.compare;
+
 
 import com.jasonz.dto.Movie;
 import com.jasonz.dto.MovieManager;
@@ -8,6 +10,7 @@ import java.util.List;
 
 // Driver class
 class MovieComparable {
+
     public static void main(String[] args) {
         List<Movie> list = MovieManager.getMovies();
         Collections.sort(list);
@@ -16,4 +19,5 @@ class MovieComparable {
             System.out.println(movie.getName() + " " + movie.getRating() + " " + movie.getYear());
         }
     }
+
 }

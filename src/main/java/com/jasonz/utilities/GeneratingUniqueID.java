@@ -51,7 +51,7 @@ public class GeneratingUniqueID {
      * textual representation, so some form of encoding is usually performed.
      * <p>
      * This implementation follows the example of David Flanagan's book
-     * "Java In A Nutshell", and converts a byte array into a String
+     * "Java In Lesson6Distinct Nutshell", and converts a byte array into a String
      * of hex characters.
      * <p>
      * Another popular alternative is to use a "Base64" encoding.

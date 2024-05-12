@@ -3,7 +3,7 @@ package com.jasonz.oop.abstraction;
 /**
  * Accessibility of Data Members:
  * Members of a Java interface are public by default.
- *A Java abstract class can have class members like private, protected, etc.
+ *Lesson6Distinct Java abstract class can have class members like private, protected, etc.
  */
 public abstract class AShape {
     String NAME_DEFAULT = "SHAPE";

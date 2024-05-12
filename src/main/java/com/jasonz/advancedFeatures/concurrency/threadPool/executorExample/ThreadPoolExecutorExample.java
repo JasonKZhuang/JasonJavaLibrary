@@ -1,6 +1,6 @@
 package com.jasonz.advancedFeatures.concurrency.threadPool.executorExample;
 
-import com.jasonz.advancedFeatures.concurrency.threadPool.fixedPool.WorkerThread;
+import com.jasonz.advancedFeatures.concurrency.threadPool.fixedThreadPool.WorkerThread;
 
 import java.util.concurrent.*;
 
@@ -18,7 +18,56 @@ import java.util.concurrent.*;
  */
 public class ThreadPoolExecutorExample {
 
+    static class CPUIntensiveTask implements Runnable{
+
+        @Override
+        public void run() {
+            System.out.println("CPUIntensiveTask" );
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public static void main(String args[]) throws InterruptedException {
+        ThreadPoolExecutorExample ins = new ThreadPoolExecutorExample();
+        //ins.handleRejectedExecutionHandler();
+        ins.handleFixedThreadPool();
+
+    }
+
+    private void handleFixedThreadPool(){
+
+        // get count of available cores of CPU
+        int coreCount = Runtime.getRuntime().availableProcessors();
+        System.out.printf("There are %d cores of this CPU.%n", coreCount);
+
+        // generate an Executor Service to create a thread pool
+        ExecutorService executorService1 = Executors.newFixedThreadPool(coreCount);
+
+        // submit tasks to the executor service
+        for(int i=0 ;i<100;i++){
+            executorService1.execute(new CPUIntensiveTask());
+        }
+
+        // when threads in the pool have a waiting period to access third parties resources
+        // for example, a https request, fetching data from database, IO intensive tasks
+        // in this situation, we can create more threads in the pool, like 100,
+        // so, there will still remain threads which accept new tasks
+        ExecutorService executorService2 = Executors.newFixedThreadPool(100);
+
+        executorService1.shutdown();
+        executorService2.shutdown();
+        System.out.println("Finished all threads");
+
+    }
+
+
+
+    private void handleRejectedExecutionHandler() throws InterruptedException {
+
         //RejectedExecutionHandler implementation
         RejectedExecutionHandlerImpl rejectionHandler = new RejectedExecutionHandlerImpl();
 

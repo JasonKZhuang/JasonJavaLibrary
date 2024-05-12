@@ -50,7 +50,7 @@ public class MainTestLinkedList {
     private void initLinkedList(LinkedList<String> argList) {
         // Adding elements to the linked list
         // add(Object): This method is used to add an element at the end of the LinkedList.
-        argList.add("A");
+        argList.add("Lesson6Distinct");
         argList.add("B");
 
         argList.addLast("C");

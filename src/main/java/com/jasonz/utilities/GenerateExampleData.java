@@ -18,6 +18,46 @@ import java.util.*;
  */
 public class GenerateExampleData {
 
+    public static String generateRandomDigitalString(int count) {
+        StringBuilder sb = new StringBuilder();
+        Faker faker = new Faker();
+        int min = 1;
+        int max = 9;
+        for (int i = 0; i < count; i++) {
+            sb.append( faker.random().nextInt(max - min + 1) + min);
+        }
+        return sb.toString();
+    }
+
+    public static int[] generateRandomIntArray(int count) {
+        Faker faker = new Faker();
+        Random random = new Random();
+        int min = 0;
+        int max = 10;//Integer.MAX_VALUE - 1;
+        int[] arr = new int[count];
+        for (int i = 0; i < count; i++) {
+            arr[i] = faker.random().nextInt(max - min + 1) + min;
+        }
+        return arr;
+    }
+
+    public static int[] generateRandomIntArrayEvenPaired(int count) {
+        if (count % 2 != 0) {
+            return new int[]{};
+        }
+        Faker faker = new Faker();
+        int min = 1;
+        int max = 100;
+        int[] arr = new int[count];
+        for (int i = 0; i < count - 1; i = i + 2) {
+            int v = faker.random().nextInt(max - min + 1) + min;
+            arr[i] = v;
+            arr[i + 1] = v;
+        }
+        return arr;
+    }
+
+
     public static ListNode generateNodeList(int[] array) {
         ListNode root = new ListNode(array[0]);
         ListNode temp = root;
@@ -29,7 +69,7 @@ public class GenerateExampleData {
     }
 
     public static TreeNode<Integer, Integer> generateBinaryTree(Integer[] array) {
-        return  BinaryTree.constructACompleteBinaryTree(array);
+        return BinaryTree.constructACompleteBinaryTree(array);
     }
 
     public static TreeNode<Integer, Integer> generateBinaryTree() {

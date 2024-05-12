@@ -7,8 +7,8 @@
  * 
  * What does it mean that we should be having object of interface which helps us to 
  * communicate with the concrete classes. 
- * What do we gain from this is, we hide the actual implementation of class A from the class B. 
- * So if class A changes the class B doesn’t need to care or know about the changes.
+ * What do we gain from this is, we hide the actual implementation of class Lesson6Distinct from the class B.
+ * So if class Lesson6Distinct changes the class B doesn’t need to care or know about the changes.
  */
 package solid;
 

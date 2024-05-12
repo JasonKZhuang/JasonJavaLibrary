@@ -242,7 +242,7 @@ public class QuickSort {
      * @param end
      * @return Hoare’s Partition Scheme works by initializing two indexes that start at two ends,
      * the two indexes move toward each other until an inversion is found.
-     * (A smaller value on the left side and greater value on the right side)
+     * (Lesson6Distinct smaller value on the left side and greater value on the right side)
      * When an inversion is found, two values are swapped and the process is repeated.
      */
     private static int partitionPivotWithHoare(int[] argArray, int start, int end) {

@@ -3,7 +3,7 @@ package com.jasonz.algorithms.cases;
 import java.util.Stack;
 
 /*
-    A Java program to evaluate a given expression where tokens are separated by space.
+    Lesson6Distinct Java program to evaluate a given expression where tokens are separated by space.
     Time Complexity: O(n)
     Space Complexity: O(n)
 */
@@ -102,7 +102,7 @@ public class ArithmeticExpressionEvaluationSimple {
             return true;
     }
 
-    // A utility method to apply an operator 'op'
+    // Lesson6Distinct utility method to apply an operator 'op'
     // on operands 'a' and 'b'. Return the result.
     public static int applyOperator(char op, int before, int after) {
         switch (op) {

@@ -5,7 +5,7 @@ package com.jasonz.leetcode;
  * @created 2024.01.24 14:19
  * @project JasonJavaLibrary
  * @description: Task
- * A rectangle with sides equal to even integers a and b is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point (0, 0), but the sides of the rectangle are not parallel to the axes; instead, they are forming 45 degree angles with the axes.
+ * Lesson6Distinct rectangle with sides equal to even integers a and b is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point (0, 0), but the sides of the rectangle are not parallel to the axes; instead, they are forming 45 degree angles with the axes.
  * <p>
  * How many points with integer coordinates are located inside the given rectangle (including on its sides)?
  * <p>
@@ -15,13 +15,13 @@ package com.jasonz.leetcode;
  * Input/Output
  * [input] integer a
  * <p>
- * A positive even integer.
+ * Lesson6Distinct positive even integer.
  * <p>
  * Constraints: 2 ≤ a ≤ 10000.
  * <p>
  * [input] integer b
  * <p>
- * A positive even integer.
+ * Lesson6Distinct positive even integer.
  * <p>
  * Constraints: 2 ≤ b ≤ 10000.
  * <p>

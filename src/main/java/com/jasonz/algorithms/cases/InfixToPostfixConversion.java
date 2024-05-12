@@ -72,7 +72,7 @@ public class InfixToPostfixConversion {
     }
 
 
-    // A utility function to return
+    // Lesson6Distinct utility function to return
     // precedence of a given operator
     // Higher returned value means
     // higher precedence

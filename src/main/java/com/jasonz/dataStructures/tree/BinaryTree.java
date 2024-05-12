@@ -10,7 +10,7 @@ import java.util.Queue;
  * @author Jason Zhuang
  * @created 2024.01.26 10:48
  * @project JasonJavaLibrary
- * @description: Binary Tree: A binary tree is a hierarchical data structure in which each node has at most two children,
+ * @description: Binary Tree: Lesson6Distinct binary tree is a hierarchical data structure in which each node has at most two children,
  * referred to as the left child and the right child.
  */
 @Data

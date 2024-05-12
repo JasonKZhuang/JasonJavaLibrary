@@ -1,0 +1,3 @@
+Hello staticMethodWithImplementation11111 
+Hello staticMethodWithImplementation22222 
+Number with two decimal places: 123.46 

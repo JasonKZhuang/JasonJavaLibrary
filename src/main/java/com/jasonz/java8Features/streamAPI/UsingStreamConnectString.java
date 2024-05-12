@@ -1,5 +1,7 @@
 package com.jasonz.java8Features.streamAPI;
 
+import com.jasonz.java8Features.streamAPI.bean.PersonObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

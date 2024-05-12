@@ -4,6 +4,7 @@ import com.jasonz.utilities.GenerateExampleData;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BinaryOperator;
 
 /**
  * @creator Jason Zhuang
@@ -37,15 +38,30 @@ public class MainTestMap {
 
     public static void main(String[] args) {
         MainTestMap instance = new MainTestMap();
-        instance.testingHashMap();
-        instance.testingConcurrentHashMap();
-        instance.testingLinkedHashMap();
-        instance.testingTreeMap();
-        instance.testingTreeMapObjectKey();
-        instance.testingHashTable();
-        instance.testingTreeMapNaturalOrdering();
-        instance.testingTreeMapComparator();
+//        instance.testingHashMap();
+//        instance.testingConcurrentHashMap();
+//        instance.testingLinkedHashMap();
+//        instance.testingTreeMap();
+//        instance.testingTreeMapObjectKey();
+//        instance.testingHashTable();
+//        instance.testingTreeMapNaturalOrdering();
+//        instance.testingTreeMapComparator();
         //RemoveItemFromMapWhileIteration.removeItemFromMapWhileIteration(argMap);
+        instance.testingMergeMethod();
+    }
+
+
+    /**
+     *
+     */
+    private void testingMergeMethod(){
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("John", "Teacher");
+
+        BinaryOperator<String> operator = (s1, s2) -> null;
+        map.merge("John", "Doctor", operator);
+        map.merge("Jane", "Doctor", operator);
+        System.out.println(map);
     }
 
     // HashMap is non-synchronized.

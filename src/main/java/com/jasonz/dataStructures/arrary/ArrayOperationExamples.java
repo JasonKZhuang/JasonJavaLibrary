@@ -7,21 +7,23 @@ import org.apache.commons.lang3.time.StopWatch;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 class ArrayOperationExamples {
 
     public static void main(String[] args) {
-        declaresArray();
-        copyArray();
-        basicOperation();
-        sortingIntegerArray();
-        sortingIntegerArrayParallel();
-        sortingStringArray();
-        sortingStudentArray();
-        searchingIntegerArray();
-        passingArrayAsParameter();
-        testCloneOneDimensionArray(ExampleSimpleArray.initArray(10));
-        usingArrayStream();
+//        declaresArray();
+//        initializeArray();
+//        copyArray();
+//        basicOperation();
+//        sortingIntegerArray();
+//        sortingIntegerArrayParallel();
+//        sortingStringArray();
+//        sortingStudentArray();
+//        searchingIntegerArray();
+//        passingArrayAsParameter();
+//        testCloneOneDimensionArray(ExampleSimpleArray.initArray(10));
+//        usingArrayStream();
     }
 
     /**
@@ -58,31 +60,87 @@ class ArrayOperationExamples {
         System.out.println("Element at index 7: " + anArray[7]);
         System.out.println("Element at index 8: " + anArray[8]);
         System.out.println("Element at index 9: " + anArray[9]);
-
-       List<String> myStringList = Arrays.asList("a","b","c");
     }
+
+    // Sure, here are several ways to initialize an array in Java:
+    private static void initializeArray(){
+        // 1. **Initializing with specified values:**
+        int[] numbers1 = {1, 2, 3, 4, 5};
+
+        // 2. **Initializing with a specified size:**
+        int[] numbers2 = new int[5];
+
+        // 3. **Initializing with a specified size and filling with a default value:**
+        int size3 = 5;
+        int defaultValue = 0;
+        int[] numbers3 = new int[size3];
+        Arrays.fill(numbers3, defaultValue);// fill all values with default value
+        Arrays.stream(numbers3).forEach((i) -> System.out.print(i + "\t"));
+
+        // 4. **Initializing with a range of values using a loop:**
+        int size4 = 5;
+        int[] numbers4 = new int[size4];
+        for (int i = 0; i < size4; i++) {
+            numbers4[i] = i + 1; // Fill the array with values from 1 to size
+        }
+        Arrays.stream(numbers4).forEach((i) -> System.out.print(i + "\t"));
+
+        //5. **Initializing a multi-dimensional array:**
+        int rows = 3;
+        int cols = 3;
+        int[][] matrix5 = new int[rows][cols]; // Initialize a 3x3 matrix with all elements initialized to 0
+
+        // 6. **Initializing an array with an anonymous array:**
+        int[] numbers6 = new int[]{1, 2, 3, 4, 5}; // Initialize with specified values using an anonymous array
+
+        //7. **Initializing an array with values from another array:**
+        int[] sourceArray = {1, 2, 3, 4, 5};
+        
+    }
+
 
     /**
      * Copying Arrays and Array Manipulations
      */
     private static void copyArray(){
+        
+        int[] sourceArray = {1, 2, 3, 4, 5};
+        // copy an original array with a length
+        int[] newArray7 = Arrays.copyOf(sourceArray, sourceArray.length);
+        // the tail without value from original array will be filled with 0
+        int[] newArray71 = Arrays.copyOf(sourceArray, sourceArray.length + 1);
+        // copy an original array from start index to end index
+        int[] newArray8 = Arrays.copyOfRange(sourceArray,1,sourceArray.length);
+        // the tail without value from original array will be filled with 0
+        int[] newArray81 = Arrays.copyOfRange(sourceArray,1,sourceArray.length+ 1);
+        //
+        int[] newArray9 = new int[sourceArray.length];
+        System.arraycopy(sourceArray, 0, newArray9, 0, sourceArray.length);
+        System.arraycopy(sourceArray, 1, newArray9, 2, sourceArray.length -2);
+        System.out.println("\n === newArray9 === ");
+        Arrays.stream(newArray9).forEach((i) -> System.out.print(i + "\t"));
+        
         // Copy array
-        String[] copyFrom = {
-                "Affogato", "Americano", "Cappuccino", "Corretto", "Cortado",
-                "Doppio", "Espresso", "Frappucino", "Freddo", "Lungo", "Macchiato",
-                "Marocchino", "Ristretto"
+        String[] originalArray = {
+                "Cappuccino", "Espresso", "Lite","LongBlack", "White",
+                "Cappuccino", "Espresso", "Lite","LongBlack", "White",
         };
 
         String[] copyToByArrayCopy = new String[7];
-        System.arraycopy(copyFrom, 2, copyToByArrayCopy, 0, 7);
-        for (String coffee : copyToByArrayCopy) {
-            System.out.print(coffee + " ");
-        }
+        System.arraycopy(originalArray, 2, copyToByArrayCopy, 0, 7);
+        originalArray[0]= "ZZZZZ";
+        System.out.println("\n === old from array === ");
+        Arrays.stream(originalArray).forEach((i) -> System.out.print(i + "\t"));
+        System.out.println("\n === first new array === ");
+        Arrays.stream(copyToByArrayCopy).forEach((i) -> System.out.print(i + "\t"));
 
-        String[] copyToByOfRange = Arrays.copyOfRange(copyFrom, 2, 9);
-        for (String coffee : copyToByOfRange) {
-            System.out.print(coffee + " ");
-        }
+        String[] copyToByOfRange = Arrays.copyOfRange(originalArray, 2, 9);
+        originalArray[0]= "AAAAAAAAA";
+        System.out.println("\n === old from array === ");
+        Arrays.stream(originalArray).forEach((i) -> System.out.print(i + "\t"));
+        System.out.println("\n === second new array === ");
+        Arrays.stream(copyToByOfRange).forEach((i) -> System.out.print(i + "\t"));
+        System.out.println();
     }
 
     private static void basicOperation() {
@@ -157,6 +215,7 @@ class ArrayOperationExamples {
 
         // Example with an array of integers
         int[] numbers = ExampleSimpleArray.initArray(count);
+
         // sorting parts of an integer array
         // The sorting algorithm is a Dual-Pivot Quicksort
         Arrays.parallelSort(numbers);
@@ -188,6 +247,8 @@ class ArrayOperationExamples {
         StudentManager.initStudentArray(students,students.length);
         StudentManager.printStudent(students);
 
+        // sort student object by marks
+        // implement Comparator interface and override the compare method
         Arrays.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -240,18 +301,19 @@ class ArrayOperationExamples {
     }
 
     private static int[] updateArrayPassingReference(int[] argArray) {
-        int[] newArray = argArray;
         for (int i = 0; i < argArray.length; i++) {
-            newArray[i] = argArray[i] * 2;
+            argArray[i] = argArray[i] * 2;
         }
-        return newArray;
+        // return the same pointer reference
+        return argArray;
     }
 
     private static int[] testCloneOneDimensionArray(int[] arg) {
-        int clonedArray[] = arg.clone();
+        int[] clonedArray = arg.clone();
         for (int i = 0; i < clonedArray.length; i++) {
             clonedArray[i] = clonedArray[i] * 10;
         }
+        // return a different new array
         return clonedArray;
     }
 
@@ -286,7 +348,54 @@ class ArrayOperationExamples {
     }
 
     private static void usingArrayStream(){
-        int[] numbers = ExampleSimpleArray.initArray(10);
-        Arrays.stream(numbers).map(i->i+5).forEach(System.out::println);
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        int sum = Arrays.stream(numbers).sum();
+        System.out.println("Sum: " + sum);  // Output: Sum: 15
+
+        double average = Arrays.stream(numbers).average().orElse(0.0);
+        System.out.println("Average: " + average);  // Output: Average: 3.0
+
+        int max = Arrays.stream(numbers).max().getAsInt();
+        System.out.println("Max: " + max);  // Output: Max: 5
+
+        int min = Arrays.stream(numbers).min().getAsInt();
+        System.out.println("Min: " + min);  // Output: Min: 1
+
+        int[] evenNumbers = Arrays.stream(numbers).filter(n -> n % 2 == 0).toArray();
+        System.out.println("Even numbers: " + Arrays.toString(evenNumbers));  // Output: Even numbers: [2, 4]
+
+        int[] squaredNumbers = Arrays.stream(numbers).map(n -> n * n).toArray();
+        System.out.println("Squared numbers: " + Arrays.toString(squaredNumbers));  // Output: Squared numbers: [1, 4, 9, 16, 25]
+
+        // 1 * 1 * 2 * 3 * 4 * 5 = 120
+        int product = Arrays.stream(numbers).reduce(1, (a, b) -> a * b);
+        System.out.println("Product: " + product);  // Output: Product: 120
+
+        long count = Arrays.stream(numbers).count();
+        System.out.println("Count: " + count);  // Output: Count: 5
+
+        boolean anyMatch = Arrays.stream(numbers).anyMatch(n -> n > 4);
+        System.out.println("Any match: " + anyMatch);  // Output: Any match: true
+
+        boolean allMatch = Arrays.stream(numbers).allMatch(n -> n > 0);
+        System.out.println("All match: " + allMatch);  // Output: All match: true
+
+        boolean noneMatch = Arrays.stream(numbers).noneMatch(n -> n < 0);
+        System.out.println("None match: " + noneMatch);  // Output: None match: true
+
+        int first = Arrays.stream(numbers).findFirst().getAsInt();
+        System.out.println("First: " + first);  // Output: First: 1
+
+        int[] sortedNumbers = Arrays.stream(numbers).sorted().toArray();
+        System.out.println("Sorted numbers: " + Arrays.toString(sortedNumbers));  // Output: Sorted numbers: [1, 2, 3, 4, 5]
+
+        int[] numbers2 = {6, 7, 8, 9, 10};
+        int[] concatenated = IntStream.concat(Arrays.stream(numbers), Arrays.stream(numbers2)).toArray();
+        System.out.println("Concatenated: " + Arrays.toString(concatenated));  // Output: Concatenated: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        int[] part = Arrays.stream(numbers, 1, 4).toArray();
+        System.out.println("Part: " + Arrays.toString(part));  // Output: Part: [2, 3, 4]
+
     }
 }

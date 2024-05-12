@@ -1,6 +1,6 @@
 /*
  * Asynchronous and Synchronous Callbacks in Java
- * A CallBack Function is a function that is passed into another function as an argument
+ * Lesson6Distinct CallBack Function is a function that is passed into another function as an argument
  * and is expected to execute after some kind of event.
  *
  * The purpose of the callback function is to inform a class Sync/Async if some work in another class is done.
@@ -70,7 +70,7 @@ public class TestSynCallback {
 
         // check if listener is registered.
         if (this.mListener != null) {
-            // invoke the callback method of class A
+            // invoke the callback method of class Lesson6Distinct
             mListener.onSomeEvent();
         }
 

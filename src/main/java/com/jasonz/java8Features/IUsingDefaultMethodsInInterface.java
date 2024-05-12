@@ -24,7 +24,7 @@ public interface IUsingDefaultMethodsInInterface
 	}
 
 	// trying to override Object method gives compile-time error as
-	// "A default method cannot override a method from java.lang.Object"
+	// "Lesson6Distinct default method cannot override a method from java.lang.Object"
 
 	// default String toString(){
 	// return "i1";

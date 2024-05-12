@@ -37,6 +37,7 @@ public class ThreadCongestionExample {
      */
     private void testMultiQueuesMultiConsumers() {
         int numOfConsumers = 3;
+
         // create three array blocking queues
         BlockingQueue<String>[] blockingQueues = new BlockingQueue[numOfConsumers];
         for (int i = 0; i < blockingQueues.length; i++) {

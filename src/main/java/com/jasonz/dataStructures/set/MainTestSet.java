@@ -14,7 +14,7 @@ public class MainTestSet {
     }
 
     /**
-     * A HashSet is a collection of items where every item is unique,
+     * Lesson6Distinct HashSet is a collection of items where every item is unique,
      * but without sequence
      */
     private void testingHashSet() {
@@ -40,7 +40,7 @@ public class MainTestSet {
         }
 
         Set<Student> students = new HashSet<Student> ();
-        Student student1 = new Student("A",18,123.9f);
+        Student student1 = new Student("Lesson6Distinct",18,123.9f);
         Student student2 = new Student("B",20,456.9f);
         Student student3 = new Student("B",20,456.9f);
         System.out.println(student1.hashCode());
@@ -87,7 +87,7 @@ public class MainTestSet {
         // TreeSet implements SortedSet interface
         TreeSet tsStudents = new TreeSet(new ComparatorByMarks());
         Student student;
-        student = new Student("A",0,99.9f);
+        student = new Student("Lesson6Distinct",0,99.9f);
         tsStudents.add(student);
 
         student = new Student("B",0,89.9f);
@@ -108,5 +108,15 @@ public class MainTestSet {
         System.out.println("=================================================================");
     }
 
-
+    /**
+     * Retains only the elements in this set that are contained in the specified collection (optional operation).
+     * In other words, removes from this set all of its elements that are not contained in the specified collection
+     */
+    private void testRetainAllMethod(){
+        Set<Integer> set = new LinkedHashSet<>();
+        set.addAll(Set.of(1, 2));
+        // remove elements  in set that are not presented in given parameter set
+        set.retainAll(Set.of(2, 3, 4));
+        System.out.println(set);
+    }
 }

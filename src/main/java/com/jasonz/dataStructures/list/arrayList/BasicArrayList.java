@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Jason Zhuang
@@ -13,6 +15,9 @@ import java.util.ArrayList;
  */
 public class BasicArrayList {
     public static void main(String[] args) {
+
+        List<String> myStringList = Arrays.asList("a","b","c");
+
         // Create an ArrayList of Student objects
         ArrayList<Student> students = new ArrayList<>();
 

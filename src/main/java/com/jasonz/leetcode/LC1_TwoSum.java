@@ -77,7 +77,7 @@ public class LC1_TwoSum {
         return new int[]{};
     }
 
-    private static int[] solution1(int[] nums, int target) {
+    private static int[] solutionNaive(int[] nums, int target) {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 int v = nums[i] + nums[j];

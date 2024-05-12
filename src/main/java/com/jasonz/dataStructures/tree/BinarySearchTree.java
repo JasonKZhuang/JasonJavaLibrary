@@ -8,7 +8,7 @@ import lombok.Setter;
  * @created 2024.01.25 13:59
  * @project JasonJavaLibrary
  * @description:
- * Binary Search Tree (BST): A binary search tree is a specific type of binary tree in which
+ * Binary Search Tree (BST): Lesson6Distinct binary search tree is a specific type of binary tree in which
  * the left child of a node contains only values less than the node,
  * and the right child contains only values greater than the node.
  * This property ensures an efficient search and retrieval mechanism.

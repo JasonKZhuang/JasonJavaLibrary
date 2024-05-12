@@ -5,8 +5,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**
@@ -31,15 +33,21 @@ public class FileResourcesUtils {
 
         System.out.println("\ngetResource : " + fileName);
         File file = app.getFileFromResource(fileName);
-        printFile(file);
+        readFileByFileReader(file);
+        readFileByScanner(file);
+        readFileByReadAllLines(file);
+        readOneLineFromFileByReadAllLines(file);
+        readFileByBufferReader(app.getFileFromResource(fileName).getPath());
 
-        System.out.println("\nget All Files From Resources folder");
-        // files from src/main/resources/json
-        List<File> files = app.getAllFilesFromResource("json");
-        for (File f : files) {
-            System.out.println("file : " + f);
-            printFile(f);
-        }
+
+
+//        System.out.println("\nget All Files From Resources folder");
+//        // files from src/main/resources/json
+//        List<File> files = app.getAllFilesFromResource("json");
+//        for (File f : files) {
+//            System.out.println("file : " + f);
+//            printFile(f);
+//        }
 
     }
 
@@ -52,20 +60,59 @@ public class FileResourcesUtils {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
-    // print a file
-    public static void printFile(File file) {
+    // read file
+    public static void readFileByFileReader(File file) {
+        try (FileReader fileReader = new FileReader(file)) {
+            // Reads a single character.
+            System.out.println(fileReader.read());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void readFileByScanner(File file) {
+        try (Scanner scanner = new Scanner(file)) {
+            System.out.println(scanner.nextLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void readFileByReadAllLines(File file) {
         List<String> lines;
         try {
             lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
             lines.forEach(System.out::println);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
+
+    public static String readOneLineFromFileByReadAllLines(File file) {
+        String oneLine;
+        try {
+            oneLine = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8).get(0);
+            System.out.println(oneLine);
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+        return oneLine;
+    }
+
+    public static void readFileByBufferReader(String fileWithPath) {
+        try {
+            Path path = Paths.get(fileWithPath);
+            BufferedReader bufferedReader = Files.newBufferedReader(path);
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     /*
         get a file from the resources folder

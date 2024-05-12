@@ -105,7 +105,7 @@ public class ExampleArrayList {
     }
 
     public List<Student> removeDuplicatesWithStream(List<Student> students) {
-        // Construct a new list from the set constucted from elements
+        // Construct a new list from the set constructed from elements
         // of the original list
         List<Student> retList = students.stream()
                 .distinct()

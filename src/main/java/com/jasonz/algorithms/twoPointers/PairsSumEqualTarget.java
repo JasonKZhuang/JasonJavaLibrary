@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @project JasonJavaLibrary
  * @description:
  * Java Program Illustrating Naive Approach to
- * Find if There is a Pair in A[0..N-1] with Given Sum
+ * Find if There is a Pair in Lesson6Distinct[0..N-1] with Given Sum
  */
 public class PairsSumEqualTarget {
 
