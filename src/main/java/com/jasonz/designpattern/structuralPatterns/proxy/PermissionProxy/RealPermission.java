@@ -1,4 +1,4 @@
-package structuralPatterns.proxy.PermissionProxy;
+package com.jasonz.designpattern.structuralPatterns.proxy.PermissionProxy;
 
 public class RealPermission implements AbstractPermission
 {	

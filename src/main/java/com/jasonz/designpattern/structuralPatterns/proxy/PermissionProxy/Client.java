@@ -1,8 +1,8 @@
-package structuralPatterns.proxy.PermissionProxy;
+package com.jasonz.designpattern.structuralPatterns.proxy.PermissionProxy;
 
 public class Client
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		AbstractPermission permission = new PermissionProxy();
 		permission.modifyUserInfo();
@@ -10,8 +10,6 @@ public class Client
 		permission.publishNote();
 		permission.modifyNote();
 		System.out.println("----------------------------");
-		
-		
 		
 		permission.setLevel(1);
 		permission.modifyUserInfo();

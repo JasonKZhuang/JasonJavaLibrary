@@ -16,8 +16,9 @@ import java.util.Queue;
  * @author Jason Zhuang
  * @created 2024.01.23 21:32
  * @project JasonJavaLibrary
- * @description: References:
- * https://www.youtube.com/watch?v=9Oev6UgLhiI
+ * @description:
+ * References:
+ *  - https://www.youtube.com/watch?v=9Oev6UgLhiI
  * <p>
  * <p>
  * The time complexity of the breadth-first search (BFS) algorithm is O(V + E)

@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Safelock {
+// https://docs.oracle.com/javase/tutorial/essential/concurrency/newlocks.html
+public class SafeLock {
 
     public static void main(String[] args) {
         final Friend alphonse = new Friend("Alphonse");
@@ -16,6 +17,7 @@ public class Safelock {
     }
 
     static class Friend {
+
         @Getter
         private final String name;
         private final Lock lock = new ReentrantLock();
@@ -88,4 +90,5 @@ public class Safelock {
             }
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package structuralPatterns.facade.example;
+package com.jasonz.designpattern.structuralPatterns.facade.example;
 
 public class Fan
 {

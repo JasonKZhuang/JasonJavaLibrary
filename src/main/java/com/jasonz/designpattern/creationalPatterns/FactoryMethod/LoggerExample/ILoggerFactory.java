@@ -3,7 +3,7 @@ package com.jasonz.designpattern.creationalPatterns.FactoryMethod.LoggerExample;
 public interface ILoggerFactory
 {
 	/**
-	 * Create a logger Object
+	 * Create a dealwithLegacyCode Object
 	 * @return
 	 */
 	public ILoggerProduct createLogger();

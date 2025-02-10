@@ -34,7 +34,8 @@ public class UsingStreamAPI {
         //
         //        api.usingStreamFilter();
         //        api.usingStreamSorted();
-        //        api.usingStreamMap();
+//                api.usingStreamMap();
+                api.usingStreamToMap();
         //        api.usingStreamFlatMap();
         //        api.usingStreamForeach();
         //        api.usingStreamCollect();
@@ -43,7 +44,7 @@ public class UsingStreamAPI {
         //        api.generateStream();
         //        api.practice();
         //        api.usingStreamPeak();
-        api.usingStreamAllMatch();
+//        api.usingStreamAllMatch();
 
     }
 
@@ -138,6 +139,26 @@ public class UsingStreamAPI {
                 .toList();
         result.forEach(e -> System.out.println(e.toString()));
     }
+
+    private void usingStreamToMap(){
+        List<String> countries = Arrays.asList("USA", "Canada", "India", "UK", "Australia", "USA");
+
+        // Convert list of countries into a map with country lengths as keys and country names as values
+        // In case of duplicate keys (countries with the same length), concatenate their names with a comma
+        Map<Integer, String> countryLengthMap = countries.stream()
+                .collect(Collectors.toMap(
+                        country -> country.length(), // key mapper
+                        country -> country,          // value mapper
+                        (existing, replacement) ->{
+                            System.out.println("Duplicate key found: " + existing + ", " + replacement);
+                            return existing + ", " + replacement ;
+                        }// merge function
+                ));
+
+        // Print the resulting map
+        System.out.println(countryLengthMap);
+    }
+
 
     /**
      * using Intermediate Operations: flatMap

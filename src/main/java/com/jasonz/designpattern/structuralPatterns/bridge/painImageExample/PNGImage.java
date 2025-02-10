@@ -1,4 +1,4 @@
-package structuralPatterns.bridge.painImageExample;
+package com.jasonz.designpattern.structuralPatterns.bridge.painImageExample;
 
 public class PNGImage extends AbstractImage
 {

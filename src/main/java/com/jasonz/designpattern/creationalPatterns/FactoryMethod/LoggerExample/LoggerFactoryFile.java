@@ -14,7 +14,7 @@ public class LoggerFactoryFile implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductFile();
-		//Here you can initialize logger by invoke the initilized method in File Logger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in File Logger
 		//
 		//
 		System.out.println("You create a FileLogger Instance by default");
@@ -27,7 +27,7 @@ public class LoggerFactoryFile implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductFile();
-		//Here you can initialize logger by invoke the initilized method in File Logger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in File Logger
 		//
 		//
 		System.out.println("You create a FileLogger Instance by String");
@@ -40,7 +40,7 @@ public class LoggerFactoryFile implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductFile();
-		//Here you can initialize logger by invoke the initilized method in File Logger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in File Logger
 		//
 		//
 		System.out.println("You create a FileLogger Instance by Object");

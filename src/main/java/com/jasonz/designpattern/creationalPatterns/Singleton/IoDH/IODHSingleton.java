@@ -7,7 +7,8 @@ package com.jasonz.designpattern.creationalPatterns.Singleton.IoDH;
  * Singleton.java
  * Describe: Using "Initialization Demand Holder" technique to create singleton
  * It will use an inner class
- * The lazy loading and thread secure can be secured and it will not reduce the efficiency
+ * The lazy loading and thread secure can be secured
+ * , and it will not reduce the efficiency
  */
 public class IODHSingleton {
     private IODHSingleton() {

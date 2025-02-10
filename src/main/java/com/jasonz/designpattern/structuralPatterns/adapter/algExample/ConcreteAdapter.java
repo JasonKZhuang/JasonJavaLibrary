@@ -1,11 +1,11 @@
 package com.jasonz.designpattern.structuralPatterns.adapter.algExample;
 
-public class ConcerateAdapter extends AbstractAdapter
+public class ConcreteAdapter extends AbstractAdapter
 {
 
 	QuickSortLib quickSort = null;
 	
-	public ConcerateAdapter()
+	public ConcreteAdapter()
 	{
 		this.quickSort = new QuickSortLib();
 	}

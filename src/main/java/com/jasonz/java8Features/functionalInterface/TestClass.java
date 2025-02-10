@@ -68,6 +68,9 @@ public class TestClass {
         }
     }
 
+    /**
+     * when we consider an abstract action, but we not sure the implementation of the action.
+     */
     private void testLambdaExpressionInFunctionalInterface() {
         // this is an implementation (lambda expression) of single abstract method in MyFunctionalInterface
         MyFunctionalInterface lambda = () -> {
@@ -75,15 +78,28 @@ public class TestClass {
         };
         // this is call the single abstract method
         lambda.singleAbstractMethod();
+
+        MyFunctionalInterfaceSingleMethod myAnyLambdaFunction = (arg) -> {
+            String temp = arg + " is the argument";
+            System.out.println(temp);
+            return temp;
+        };
+
+        String result = myAnyLambdaFunction.anyMethod("Hello World");
+
+        System.out.println(result);
+
+
     }
 
     // ==================================================== //
     private long calculate(int factor, Function<Integer, Long> func) {
         return func.apply(factor);
     }
-    private void testCalculate(){
+
+    private void testCalculate() {
         int factor = 2;
-        long v = 0 ;
+        long v = 0;
         // this error because the function take Integer parameter and must return Long
         // long v = calculate(3, x -> factor * x);
         System.out.println(v);

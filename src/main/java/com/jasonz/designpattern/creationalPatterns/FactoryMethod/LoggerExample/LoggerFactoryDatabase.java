@@ -14,7 +14,7 @@ public class LoggerFactoryDatabase implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductDatabase();
-		//Here you can initialize logger by invoke the initilized method in DatabaseLogger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in DatabaseLogger
 		//
 		//
 		System.out.println("You create a DatabaseLogger Instance by default");
@@ -27,7 +27,7 @@ public class LoggerFactoryDatabase implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductDatabase();
-		//Here you can initialize logger by invoke the initilized method in DatabaseLogger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in DatabaseLogger
 		//
 		//
 		System.out.println("You create a DatabaseLogger Instance by String");
@@ -40,7 +40,7 @@ public class LoggerFactoryDatabase implements ILoggerFactory
 		//
 		//
 		ILoggerProduct logger = new LoggerProductDatabase();
-		//Here you can initialize logger by invoke the initilized method in DatabaseLogger
+		//Here you can initialize dealwithLegacyCode by invoke the initilized method in DatabaseLogger
 		//
 		//
 		System.out.println("You create a DatabaseLogger Instance by object");
