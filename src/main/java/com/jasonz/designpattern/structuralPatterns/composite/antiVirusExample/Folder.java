@@ -1,4 +1,4 @@
-package structuralPatterns.composite.antiVirusExample;
+package com.jasonz.designpattern.structuralPatterns.composite.antiVirusExample;
 
 import java.util.ArrayList;
 

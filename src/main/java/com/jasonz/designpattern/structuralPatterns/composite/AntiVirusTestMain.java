@@ -1,10 +1,7 @@
-package structuralPatterns.composite;
+package com.jasonz.designpattern.structuralPatterns.composite;
 
-import structuralPatterns.composite.antiVirusExample.AbstractFileComponent;
-import structuralPatterns.composite.antiVirusExample.Folder;
-import structuralPatterns.composite.antiVirusExample.ImageFile;
-import structuralPatterns.composite.antiVirusExample.TextFile;
-import structuralPatterns.composite.antiVirusExample.VideoFile;
+import com.jasonz.designpattern.structuralPatterns.composite.antiVirusExample.*;
+
 
 /**
  * @author Jason.Zhuang

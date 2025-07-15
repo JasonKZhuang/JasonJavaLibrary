@@ -1,5 +1,5 @@
 
-package structuralPatterns.composite.antiVirusExample;
+package com.jasonz.designpattern.structuralPatterns.composite.antiVirusExample;
 
 public class TextFile extends AbstractFileComponent
 {
@@ -13,25 +13,25 @@ public class TextFile extends AbstractFileComponent
 	
 	public void add(AbstractFileComponent file)
 	{
-		System.out.println("¶Ô²»Æð£¬²»Ö§³Ö¸Ã·½·¨£¡");
+		System.out.println("ï¿½Ô²ï¿½ï¿½ð£¬²ï¿½Ö§ï¿½Ö¸Ã·ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	}
 
 	public void remove(AbstractFileComponent file)
 	{
-		System.out.println("¶Ô²»Æð£¬²»Ö§³Ö¸Ã·½·¨£¡");
+		System.out.println("ï¿½Ô²ï¿½ï¿½ð£¬²ï¿½Ö§ï¿½Ö¸Ã·ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	}
 
 	public AbstractFileComponent getChild(int i)
 	{
-		System.out.println("¶Ô²»Æð£¬²»Ö§³Ö¸Ã·½·¨£¡");
+		System.out.println("ï¿½Ô²ï¿½ï¿½ð£¬²ï¿½Ö§ï¿½Ö¸Ã·ï¿½ï¿½ï¿½ï¿½ï¿½");
 		return null;
 	}
 
 	public void killVirus()
 	{
-		System.out.println("----¶ÔÍ¼ÏñÎÄ¼þ'" + name + "'½øÐÐÉ±¶¾");
+		System.out.println("----ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ä¼ï¿½'" + name + "'ï¿½ï¿½ï¿½ï¿½É±ï¿½ï¿½");
 	}
 
 }

@@ -1,8 +1,5 @@
 package com.jasonz.dto;
 
-import com.github.javafaker.Faker;
-import com.jasonz.dto.Student;
-
 import java.util.List;
 import java.util.Random;
 
@@ -15,31 +12,31 @@ import java.util.Random;
 public class StudentManager {
 
     public static void initStudentArray(Student[] argStudent, int count) {
-        Faker faker = new Faker();
-        Random random1 = new Random();
-        Random random2 = new Random();
-        for (int i = 0; i < count; i++) {
-            Student student = new Student(
-                    faker.name().firstName() + " " + faker.name().lastName(),
-                    random1.nextInt(100),
-                    random2.nextFloat() * 100
-            );
-            argStudent[i] = student;
-        }
+//        Faker faker = new Faker();
+//        Random random1 = new Random();
+//        Random random2 = new Random();
+//        for (int i = 0; i < count; i++) {
+//            Student student = new Student(
+//                    faker.name().firstName() + " " + faker.name().lastName(),
+//                    random1.nextInt(100),
+//                    random2.nextFloat() * 100
+//            );
+//            argStudent[i] = student;
+//        }
     }
 
     public static void initStudentList(List<Student> argStudent, int count) {
-        Faker faker = new Faker();
-        Random random1 = new Random();
-        Random random2 = new Random();
-        for (int i = 0; i < count; i++) {
-            Student student = new Student(
-                    faker.name().firstName() + " " + faker.name().lastName(),
-                    random1.nextInt(100),
-                    random2.nextFloat() * 100
-            );
-            argStudent.add(student);
-        }
+//        Faker faker = new Faker();
+//        Random random1 = new Random();
+//        Random random2 = new Random();
+//        for (int i = 0; i < count; i++) {
+//            Student student = new Student(
+//                    faker.name().firstName() + " " + faker.name().lastName(),
+//                    random1.nextInt(100),
+//                    random2.nextFloat() * 100
+//            );
+//            argStudent.add(student);
+//        }
     }
 
     public static void printStudent(List<Student> argStudents) {
